@@ -55,8 +55,14 @@ html, body {
     $nav-subitem-bg;
 }
 
+.logo-wrapper {
+  padding: 25px 23px;
+  background: #734893;
+}
+
 .tocify-wrapper {
   transition: left 0.3s ease-in-out;
+  border-right: 1px solid #E5E5E5;
 
   overflow-y: auto;
   overflow-x: hidden;
@@ -152,6 +158,8 @@ html, body {
     overflow-x: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-size: 20px;
+    font-weight: 300;
   }
 
   // The Table of Contents is composed of multiple nested
@@ -169,11 +177,11 @@ html, body {
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 230ms;
+    padding: 15px 0;
   }
 
   // This is the currently selected ToC entry
   .tocify-focus {
-    box-shadow: 0px 1px 0px $nav-active-shadow;
     background-color: $nav-active-bg;
     color: $nav-active-text;
   }
@@ -183,14 +191,11 @@ html, body {
   .tocify-subheader {
     display: none; // tocify will override this when needed
     background-color: $nav-subitem-bg;
-    font-weight: 500;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
-      font-size: 12px;
+      font-size: 16px;
     }
 
-    // for embossed look:
-    @include embossed-bg;
     &>li:last-child {
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
@@ -327,6 +332,7 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
+  padding-top: 10px;
 
   &:after {
     content: '';
@@ -357,12 +363,8 @@ html, body {
     @extend %header-font;
     font-size: 30px;
     padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid #ccc;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ddd;
-    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
   }
 
   h1:first-child, div:first-child + h1 {
@@ -403,6 +405,10 @@ html, body {
     margin: 2em 0;
     border-top: 2px solid $examples-bg;
     border-bottom: 2px solid $main-bg;
+  }
+
+  a {
+    color: #2E3A5C;
   }
 
   table {
@@ -475,6 +481,7 @@ html, body {
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    color: #fff;
 
     &.warning {
       background-color: $aside-warning-bg;
