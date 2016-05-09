@@ -332,6 +332,7 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
+  padding-top: 10px;
 
   &:after {
     content: '';
@@ -406,6 +407,10 @@ html, body {
     border-bottom: 2px solid $main-bg;
   }
 
+  a {
+    color: #2E3A5C;
+  }
+
   table {
     margin-bottom: 1em;
     overflow: auto;
@@ -476,6 +481,7 @@ html, body {
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    color: #fff;
 
     &.warning {
       background-color: $aside-warning-bg;
