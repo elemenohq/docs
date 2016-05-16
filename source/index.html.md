@@ -11,7 +11,7 @@ search: false
 
 # Introduction
 
-Fill this in later
+NEED SOME STUFF HERE
 
 # Single Items
 
@@ -110,7 +110,7 @@ Matches Pattern | The text pattern the content must match
 ```json
 {
 	"description": {
-		"text":"The Adventures of Tom Sawyer",
+		"markdown":"The Adventures of Tom Sawyer",
 		"html":""
 	}
 }
@@ -132,7 +132,7 @@ Max Length | The maximum number of characters the field will accept
 ```json
 {
 	"price": {
-		"text":"25.50",
+		"string":"25.50",
 		"number":25.5
 	}
 }
@@ -185,11 +185,13 @@ value | This hidden value associated with the selected option
 	"features": [
 		{
 			"label":"Hard Cover",
-			"value":"feature-hard-cover"
+			"value":"feature-hard-cover",
+			"checked":true
 		},
 		{
 			"label":"Gilded Pages",
-			"value":"feature-gilded"
+			"value":"feature-gilded",
+			"checked":false
 		}
 	]
 }
@@ -221,8 +223,51 @@ The Switch field is a simple on/off switch that is represents a boolean value. T
 ```json
 {
 	"coverImage": {
-		"stuff":"here"
-	}
+		"dateCreated": "2016-03-09T19:26:09.539Z",
+		"dateUpdated": "2016-03-09T19:26:09.539Z",
+		"label": "Daves Desk",
+		"fileSize": "887126",
+		"mimeType": "image/jpeg",
+		"metaData": {
+			"width": 4000,
+			"height": 2248,
+			"colors": {
+				"dominant": {
+					"rgb": {
+						"r": 53,
+						"g": 45,
+						"b": 39
+					},
+					"hex": "352D27",
+					"isLight": false
+				},
+				"palette": null
+			},
+			"alternativeText": null,
+			"copyrightInformation": null,
+			"exifData": {
+				"CreateDate": "2016:03:04 18:19:40",
+				"Make": "Panasonic",
+				"Model": "DMC-GF1",
+				"FNumber": 1.7,
+				"FocalLength": 20,
+				"ExposureTime": 0.02,
+				"ISO": 400,
+				"GPSLatitudeRef": null,
+				"GPSLatitude": null,
+				"GPSLongitudeRef": null,
+				"GPSLongitude": null,
+				"GPSAltitudeRef": null,
+				"GPSAltitude": null
+        	}
+        },
+		"tags": [],
+		"imageUrl": "http://image.elemeno.dev/full/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
+		"thumbnails": {
+			"small": "http://image.elemeno.dev/cover/100/100/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
+			"large": "http://image.elemeno.dev/contain/1000/1000/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"
+		}
+    }
 }
 ```
 
@@ -245,7 +290,14 @@ Crop Type: Cover | The image will be resized so the entire area defined by the d
 ```json
 {
 	"digitalDownload": {
-		"stuff":"here"
+    	"dateCreated": "2016-05-11T14:05:50.917Z",
+		"dateUpdated": "2016-05-11T14:05:50.917Z",
+		"label": "Tom-Sawyer.pdf",
+		"fileSize": "6553600",
+		"mimeType": "text/pdf",
+		"metaData": null,
+		"tags": [],
+		"fileUrl": "http://file.elemeno.dev/35f3f5b0-e183-435b-9e6e-42c10a8098e0.pdf"
 	}
 }
 ```
@@ -260,7 +312,7 @@ The File Picker field allows you to select a file from your existing files, or u
 {
   "dateOnly":"2016-05-12",
   "timeOnly":"12:10",
-  "dateAndTime":"2016-05-12 16:10:00Z"
+  "dateAndTime":"2016-05-12T16:10:00+00:00"
 }
 ```
 
@@ -307,7 +359,32 @@ Authorization: YOUR-API-KEY-HERE
 
 ```json
 {
-	"data":"COOL STUFF HERE"
+	"status": "success",
+	"data": [
+		{
+			"id": "6e30f490-0bb1-11e6-900b-7f6d43d3f6e0",
+			"slug": "about-us",
+			"label": "About Us",
+			"projectId": "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
+			"dateCreated": "2016-04-26T13:18:56.704Z",
+			"dateUpdated": "2016-04-29T15:59:26.276Z",
+			"links": {
+				"self": "http://api.elemeno.dev/v1/singles/about-us"
+			}
+		},
+		...
+	],
+	"links": {
+		"self": "http://api.elemeno.dev/v1/singles?page=1&size=50",
+		"first": "http://api.elemeno.dev/v1/singles?page=1&size=50",
+		"last": "http://api.elemeno.dev/v1/singles?page=1&size=50",
+		"next": null,
+		"prev": null
+	},
+	"meta": {
+		"totalRecords": 2,
+		"pageSize": 50
+	}
 }
 ```
 
@@ -324,7 +401,23 @@ Authorization: YOUR-API-KEY-HERE
 
 ```json
 {
-	"data":"COOL STUFF HERE"
+    "status": "success",
+    "data": {
+        "id": "6e30f490-0bb1-11e6-900b-7f6d43d3f6e0",
+        "slug": "about-us",
+        "title": "About Us",
+        "dateCreated": "2016-05-10T12:59:48.699Z",
+        "content": {
+            "headline": "All The Best Books!",
+            ...
+        }
+    },
+    "links": {
+        "self": "http://api.elemeno.dev/v1/singles/about-us"
+    },
+    "meta": {
+        "totalRecords": 1
+    }
 }
 ```
 
@@ -342,7 +435,33 @@ Authorization: YOUR-API-KEY-HERE
 
 ```json
 {
-	"data":"COOL STUFF HERE"
+	"status": "success",
+	"data": [
+		{
+			"id": "fe4f04c2-1b6a-11e6-9883-ab6703adb701",
+			"slug": "books",
+			"label": "Books",
+			"projectId": "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
+			"dateCreated": "2016-05-12T14:10:00.162Z",
+			"dateUpdated": "2016-05-12T14:10:00.162Z",
+			"links": {
+				"self": "http://api.elemeno.dev/private/v1/data/collections/books",
+				"items": "http://api.elemeno.dev/private/v1/data/collections/books/items"
+			}
+		},
+		...
+	],
+	"links": {
+		"self": "http://api.elemeno.dev/private/v1/data/collections?page=1&size=50",
+		"first": "http://api.elemeno.dev/private/v1/data/collections?page=1&size=50",
+		"last": "http://api.elemeno.dev/private/v1/data/collections?page=1&size=50",
+		"next": null,
+		"prev": null
+	},
+	"meta": {
+		"totalRecords": 4,
+		"pageSize": 50
+	}
 }
 ```
 
@@ -359,7 +478,22 @@ Authorization: YOUR-API-KEY-HERE
 
 ```json
 {
-	"data":"COOL STUFF HERE"
+	"status": "success",
+	"data": {
+		"id": "fe4f04c2-1b6a-11e6-9883-ab6703adb701",
+		"slug": "books",
+		"label": "Books",
+		"projectId": "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
+		"dateCreated": "2016-05-12T14:10:00.162Z",
+		"dateUpdated": "2016-05-12T14:10:00.162Z",
+		"links": {
+			"self": "http://api.elemeno.dev/private/v1/data/collections/books",
+			"items": "http://api.elemeno.dev/private/v1/data/collections/books/items"
+		}
+	},
+	"meta": {
+		"totalRecords": 1
+	}
 }
 ```
 
@@ -376,7 +510,38 @@ Authorization: YOUR-API-KEY-HERE
 
 ```json
 {
-	"data":"COOL STUFF HERE"
+	"status": "success",
+	"data": [
+		{
+			"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+			"slug": "the-adventures-of-tom-sawyer",
+			"title": "The Adventures of Tom Sawyer",
+			"dateCreated": "2016-05-12T14:10:00.102Z",
+			"content": {
+				"description": {
+					"markdown": "The Adventures of Tom Sawyer by *Mark Twain* is an 1876 novel about a young boy growing up along the Mississippi River...",
+					"html": "The Adventures of Tom Sawyer by <b>Mark Twain</b> is an 1876 novel about a young boy growing up along the Mississippi River."
+				},
+				...
+			},
+			"links": {
+				"self": "http://api.elemeno.dev/private/v1/collections/books/items/the-adventures-of-tom-sawyer",
+				"collection": "http://api.elemeno.dev/private/v1/collections/books"
+			}
+		},
+		...
+	],
+	"links": {
+		"self": "http://api.elemeno.dev/private/v1/collections/books/items?page=1&size=50",
+		"first": "http://api.elemeno.dev/private/v1/collections/books/items?page=1&size=50",
+		"last": "http://api.elemeno.dev/private/v1/collections/books/items?page=1&size=50",
+		"next": null,
+		"prev": null
+	},
+	"meta": {
+		"totalRecords": 5,
+		"pageSize": 50
+	}
 }
 ```
 
@@ -411,7 +576,27 @@ Authorization: YOUR-API-KEY-HERE
 
 ```json
 {
-	"data":"COOL STUFF HERE"
+	"status": "success",
+	"data": {
+		"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+		"slug": "the-adventures-of-tom-sawyer",
+		"title": "The Adventures of Tom Sawyer",
+		"dateCreated": "2016-05-16T13:53:39.102Z",
+		"content": {
+			"description": {
+				"markdown": "The Adventures of Tom Sawyer by *Mark Twain* is an 1876 novel about a young boy growing up along the Mississippi River...",
+				"html": "The Adventures of Tom Sawyer by <b>Mark Twain</b> is an 1876 novel about a young boy growing up along the Mississippi River."
+			},
+			...
+		},
+		"links": {
+			"self": "http://api.elemeno.dev/private/v1/books/items/the-adventures-of-tom-sawyer",
+			"collection": "http://api.elemeno.dev/private/v1/books"
+		}
+	},
+	"meta": {
+		"totalRecords": 1
+	}
 }
 ```
 
@@ -421,7 +606,31 @@ You can also access an item by it's ID by sending using the `byID` query paramet
 
 ## Searching and Filtering
 
+NEED SOME DETAILS HERE
+
 ## Errors
 
-# Issues and Support
+> Example Error Response
+
+```json
+{
+  "status": "error",
+  "error": {
+    "message": "Single Item or API key issue",
+    "description": "Single Item with the slug about-uss could not be found or API key does not have the appropriate permissions"
+  }
+}
+```
+
+While interacting with Elemeno API you may encounter errors, below is a list of the most common error status codes and their meanings
+
+Error Code | Meaning
+---------- | -------
+400 | Bad Request -- Something was wrong with your request. The error message will provide more details
+401 | Unauthorized -- The API Key provided does not have access to the resource requested
+404 | Not Found -- The resource requested could not be found. This could mean the item doesn't exist, or that it's simply not published.
+429 | Too Many Requests -- You have exceeded the request limit for your project's current plan
+500 | Internal Server Error -- We had a problem with our server. Try again later.
+
+If you experience any unexpected errors please content [support]("mailto:support@elemeno.io") with details about your API request and the response you are receiving. We will work with you to resolve the issue as soon as possible.
 
