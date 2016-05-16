@@ -1,8 +1,8 @@
 ---
-title: API Reference
+title: Elemeno Documentation
 
 language_tabs:
-  - rest
+  - http
 
 includes:
 
@@ -449,16 +449,16 @@ Authorization: YOUR-API-KEY-HERE
 			"dateCreated": "2016-05-12T14:10:00.162Z",
 			"dateUpdated": "2016-05-12T14:10:00.162Z",
 			"links": {
-				"self": "http://api.elemeno.dev/private/v1/data/collections/books",
-				"items": "http://api.elemeno.dev/private/v1/data/collections/books/items"
+				"self": "http://api.elemeno.dev/v1/collections/books",
+				"items": "http://api.elemeno.dev/v1/collections/books/items"
 			}
 		},
 		...
 	],
 	"links": {
-		"self": "http://api.elemeno.dev/private/v1/data/collections?page=1&size=50",
-		"first": "http://api.elemeno.dev/private/v1/data/collections?page=1&size=50",
-		"last": "http://api.elemeno.dev/private/v1/data/collections?page=1&size=50",
+		"self": "http://api.elemeno.dev/v1/collections?page=1&size=50",
+		"first": "http://api.elemeno.dev/v1/collections?page=1&size=50",
+		"last": "http://api.elemeno.dev/v1/collections?page=1&size=50",
 		"next": null,
 		"prev": null
 	},
@@ -493,8 +493,8 @@ Authorization: YOUR-API-KEY-HERE
 		"dateCreated": "2016-05-12T14:10:00.162Z",
 		"dateUpdated": "2016-05-12T14:10:00.162Z",
 		"links": {
-			"self": "http://api.elemeno.dev/private/v1/data/collections/books",
-			"items": "http://api.elemeno.dev/private/v1/data/collections/books/items"
+			"self": "http://api.elemeno.dev/v1/collections/books",
+			"items": "http://api.elemeno.dev/v1/collections/books/items"
 		}
 	},
 	"meta": {
@@ -533,16 +533,16 @@ Authorization: YOUR-API-KEY-HERE
 				...
 			},
 			"links": {
-				"self": "http://api.elemeno.dev/private/v1/collections/books/items/the-adventures-of-tom-sawyer",
-				"collection": "http://api.elemeno.dev/private/v1/collections/books"
+				"self": "http://api.elemeno.dev/v1/collections/books/items/the-adventures-of-tom-sawyer",
+				"collection": "http://api.elemeno.dev/v1/collections/books"
 			}
 		},
 		...
 	],
 	"links": {
-		"self": "http://api.elemeno.dev/private/v1/collections/books/items?page=1&size=50",
-		"first": "http://api.elemeno.dev/private/v1/collections/books/items?page=1&size=50",
-		"last": "http://api.elemeno.dev/private/v1/collections/books/items?page=1&size=50",
+		"self": "http://api.elemeno.dev/v1/collections/books/items?page=1&size=50",
+		"first": "http://api.elemeno.dev/v1/collections/books/items?page=1&size=50",
+		"last": "http://api.elemeno.dev/v1/collections/books/items?page=1&size=50",
 		"next": null,
 		"prev": null
 	},
@@ -594,14 +594,14 @@ Authorization: YOUR-API-KEY-HERE
 		"dateCreated": "2016-05-16T13:53:39.102Z",
 		"content": {
 			"description": {
-				"markdown": "The Adventures of Tom Sawyer by *Mark Twain* is an 1876 novel about a young boy growing up along the Mississippi River...",
-				"html": "The Adventures of Tom Sawyer by <b>Mark Twain</b> is an 1876 novel about a young boy growing up along the Mississippi River."
+				"markdown": "The Adventures of Tom Sawyer by *Mark Twain* is an 1876 novel...",
+				"html": "The Adventures of Tom Sawyer by <b>Mark Twain</b> is an 1876 novel..."
 			},
 			...
 		},
 		"links": {
-			"self": "http://api.elemeno.dev/private/v1/books/items/the-adventures-of-tom-sawyer",
-			"collection": "http://api.elemeno.dev/private/v1/books"
+			"self": "http://api.elemeno.dev/v1/books/items/the-adventures-of-tom-sawyer",
+			"collection": "http://api.elemeno.dev/v1/books"
 		}
 	},
 	"meta": {

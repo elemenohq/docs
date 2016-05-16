@@ -375,6 +375,7 @@ html, body {
   h2 {
     @extend %header-font;
     font-size: 20px;
+    font-weight: 400;
     margin-top: 2em;
     margin-bottom: 0;
     border-top: 1px solid #f1f1f1;
