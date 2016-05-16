@@ -110,8 +110,8 @@ Matches Pattern | The text pattern the content must match
 ```json
 {
 	"description": {
-		"markdown":"The Adventures of Tom Sawyer",
-		"html":""
+		"markdown": "The Adventures of Tom Sawyer",
+		"html": "<p>The Adventures of Tom Sawyer</p>"
 	}
 }
 ```
@@ -132,8 +132,8 @@ Max Length | The maximum number of characters the field will accept
 ```json
 {
 	"price": {
-		"string":"25.50",
-		"number":25.5
+		"string": "25.50",
+		"number": 25.5
 	}
 }
 ```
@@ -161,8 +161,8 @@ Max Value | The maximum value the field will accept
 ```json
 {
 	"category": {
-		"label":"Fiction",
-		"value":"cat15"
+		"label": "Fiction",
+		"value": "cat15"
 	}
 }
 ```
@@ -184,14 +184,14 @@ value | This hidden value associated with the selected option
 {
 	"features": [
 		{
-			"label":"Hard Cover",
-			"value":"feature-hard-cover",
-			"checked":true
+			"label": "Hard Cover",
+			"value": "feature-hard-cover",
+			"checked": true
 		},
 		{
-			"label":"Gilded Pages",
-			"value":"feature-gilded",
-			"checked":false
+			"label": "Gilded Pages",
+			"value": "feature-gilded",
+			"checked": false
 		}
 	]
 }
@@ -223,9 +223,9 @@ The Switch field is a simple on/off switch that is represents a boolean value. T
 ```json
 {
 	"coverImage": {
-		"dateCreated": "2016-03-09T19:26:09.539Z",
-		"dateUpdated": "2016-03-09T19:26:09.539Z",
-		"label": "Daves Desk",
+		"dateCreated": "2016-05-12T14:10:09.539Z",
+		"dateUpdated": "2016-05-12T14:10:09.539Z",
+		"label": "Tom Sawyer Cover Image",
 		"fileSize": "887126",
 		"mimeType": "image/jpeg",
 		"metaData": {
@@ -262,10 +262,10 @@ The Switch field is a simple on/off switch that is represents a boolean value. T
         	}
         },
 		"tags": [],
-		"imageUrl": "http://image.elemeno.dev/full/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
+		"imageUrl": "http://image.elemeno.io/full/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
 		"thumbnails": {
-			"small": "http://image.elemeno.dev/cover/100/100/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
-			"large": "http://image.elemeno.dev/contain/1000/1000/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"
+			"small": "http://image.elemeno.io/cover/100/100/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
+			"large": "http://image.elemeno.io/contain/1000/1000/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"
 		}
     }
 }
@@ -292,12 +292,12 @@ Crop Type: Cover | The image will be resized so the entire area defined by the d
 	"digitalDownload": {
     	"dateCreated": "2016-05-11T14:05:50.917Z",
 		"dateUpdated": "2016-05-11T14:05:50.917Z",
-		"label": "Tom-Sawyer.pdf",
+		"label": "Tom Sawyer PDF",
 		"fileSize": "6553600",
 		"mimeType": "text/pdf",
 		"metaData": null,
 		"tags": [],
-		"fileUrl": "http://file.elemeno.dev/35f3f5b0-e183-435b-9e6e-42c10a8098e0.pdf"
+		"fileUrl": "http://file.elemeno.io/35f3f5b0-e183-435b-9e6e-42c10a8098e0.pdf"
 	}
 }
 ```
@@ -346,9 +346,8 @@ Authorization: YOUR-API-KEY-HERE
 
 All requests to the API must include an API Key in an `Authorization` header. You can generate API Keys within the settings section of the Elemeno web app. We recommend generating a separate API Key for each of your websites and applications. For example you might have an API Key for your website, iOS application, Android application, and an Arduino prototype. This separation provides more security, finer grain control, and more visibility into which applications are making the most requests to the API.
 
-## Single Items
 
-### All Single Items
+## All Single Items
 
 ```http
 GET /v1/singles HTTP/1.1
@@ -356,6 +355,8 @@ Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
+
+> An example response, truncated for simplicity
 
 ```json
 {
@@ -390,7 +391,7 @@ Authorization: YOUR-API-KEY-HERE
 
 To access a list of all published Single Items send a `GET` request to `/v1/singles`. This will return an array of Single Item objects.
 
-### Single Item
+## Specific Single Item
 
 ```http
 GET /v1/singles/YOUR-ITEM-SLUG-HERE HTTP/1.1
@@ -398,6 +399,8 @@ Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
+
+> An example response, truncated for simplicity
 
 ```json
 {
@@ -423,15 +426,16 @@ Authorization: YOUR-API-KEY-HERE
 
 To access a specific Single Item send a `GET` request to `/v1/singles/YOUR-ITEM-SLUG-HERE`. This will return a Single Item object along with it's content.
 
-## Collections
 
-### All Collections
+## All Collections
 ```http
 GET /v1/collections HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
+
+> An example response, truncated for simplicity
 
 ```json
 {
@@ -467,7 +471,7 @@ Authorization: YOUR-API-KEY-HERE
 
 To access a list of all published Collections send a `GET` request to `/v1/collections/`. This will return an array of Collection objects.
 
-### Specific Collection
+## Specific Collection
 
 ```http
 GET /v1/collections/YOUR-COLLECTION-SLUG-HERE HTTP/1.1
@@ -475,6 +479,8 @@ Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
+
+> An example response, truncated for simplicity
 
 ```json
 {
@@ -499,7 +505,7 @@ Authorization: YOUR-API-KEY-HERE
 
 To access a specific collection send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE`. This will return a collection object.
 
-### Specific Collection Items
+## Collection Items
 
 ```http
 GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items HTTP/1.1
@@ -507,6 +513,8 @@ Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
+
+> An example response, truncated for simplicity
 
 ```json
 {
@@ -519,8 +527,8 @@ Authorization: YOUR-API-KEY-HERE
 			"dateCreated": "2016-05-12T14:10:00.102Z",
 			"content": {
 				"description": {
-					"markdown": "The Adventures of Tom Sawyer by *Mark Twain* is an 1876 novel about a young boy growing up along the Mississippi River...",
-					"html": "The Adventures of Tom Sawyer by <b>Mark Twain</b> is an 1876 novel about a young boy growing up along the Mississippi River."
+					"markdown": "The Adventures of Tom Sawyer by *Mark Twain* is an 1876 novel...",
+					"html": "The Adventures of Tom Sawyer by <b>Mark Twain</b> is an 1876 novel..."
 				},
 				...
 			},
@@ -545,7 +553,7 @@ Authorization: YOUR-API-KEY-HERE
 }
 ```
 
-To access the items within a specific collection send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items`. This will return an array of published items with the specified collection. If there are many items in a Collection, the results will split into multiple pages. You can request a specific page, and a specific number of items per page using query parameters.
+To access the items within a specific collection send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items`. This will return an array of published items within the specified collection. If there are many items in a Collection, the results will split into multiple pages. You can request a specific page, and a specific number of items per page using query parameters.
 
 > Requesting a specific page of results with a custom limit
 
@@ -565,7 +573,7 @@ limit | the number of items to be returned per page (Min: 1, Max: 100, Default: 
 
 For example if your collection had 210 published items and you requested a `limit` of 20 items per page, there would be 11 pages of results and the last page would only have 10 items.
 
-### Specific Collection Item
+## Collection Item
 
 ```http
 GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE HTTP/1.1
@@ -573,6 +581,8 @@ Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
+
+> An example response, truncated for simplicity
 
 ```json
 {
@@ -631,6 +641,4 @@ Error Code | Meaning
 404 | Not Found -- The resource requested could not be found. This could mean the item doesn't exist, or that it's simply not published.
 429 | Too Many Requests -- You have exceeded the request limit for your project's current plan
 500 | Internal Server Error -- We had a problem with our server. Try again later.
-
-If you experience any unexpected errors please content [support]("mailto:support@elemeno.io") with details about your API request and the response you are receiving. We will work with you to resolve the issue as soon as possible.
 
