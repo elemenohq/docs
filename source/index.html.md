@@ -279,10 +279,148 @@ When using the Date and Time variation of the input, you are selecting a specifi
 
 
 # API
+
+The Elemeno API is a RESTful API accessed via HTTP. This means that you can access your content via simple straight forward HTTP requests from any platform or device that can communicate via HTTP. We are working on building libraries for a variety of popular programming languages and frameworks which will make working with the API even easier.
+
+
 ## Authentication
+
+```http
+GET /v1/collections HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+All requests to the API must include an API Key in an `Authorization` header. You can generate API Keys within the settings section of the Elemeno web app. We recommend generating a separate API Key for each of your websites and applications. For example you might have an API Key for your website, iOS application, Android application, and an Arduino prototype. This separation provides more security, finer grain control, and more visibility into which applications are making the most requests to the API.
+
 ## Single Items
+
+### All Single Items
+
+```http
+GET /v1/singles HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+```json
+{
+	"data":"COOL STUFF HERE"
+}
+```
+
+To access a list of all published Single Items send a `GET` request to `/v1/singles`. This will return an array of Single Item objects.
+
+### Single Item
+
+```http
+GET /v1/singles/YOUR-ITEM-SLUG-HERE HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+```json
+{
+	"data":"COOL STUFF HERE"
+}
+```
+
+To access a specific Single Item send a `GET` request to `/v1/singles/YOUR-ITEM-SLUG-HERE`. This will return a Single Item object along with it's content.
+
 ## Collections
+
+### All Collections
+```http
+GET /v1/collections HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+```json
+{
+	"data":"COOL STUFF HERE"
+}
+```
+
+To access a list of all published Collections send a `GET` request to `/v1/collections/`. This will return an array of Collection objects.
+
+### Specific Collection
+
+```http
+GET /v1/collections/YOUR-COLLECTION-SLUG-HERE HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+```json
+{
+	"data":"COOL STUFF HERE"
+}
+```
+
+To access a specific collection send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE`. This will return a collection object.
+
+### Specific Collection Items
+
+```http
+GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+```json
+{
+	"data":"COOL STUFF HERE"
+}
+```
+
+To access the items within a specific collection send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items`. This will return an array of published items with the specified collection. If there are many items in a Collection, the results will split into multiple pages. You can request a specific page, and a specific number of items per page using query parameters.
+
+> Requesting a specific page of results with a custom limit
+
+```http
+GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items?page=2;limit=20 HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+Supported Query Parameter
+
+Parameter | Description
+--------- | -----------
+page | the page number you are requesting
+limit | the number of items to be returned per page (Min: 1, Max: 100, Default: 50)
+
+For example if your collection had 210 published items and you requested a `limit` of 20 items per page, there would be 11 pages of results and the last page would only have 10 items.
+
+### Specific Collection Item
+
+```http
+GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+```json
+{
+	"data":"COOL STUFF HERE"
+}
+```
+
+To access a specific item from your collection send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE`.
+
+You can also access an item by it's ID by sending using the `byID` query parameter. This would look something like `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-ID-HERE?byID=true`
+
 ## Searching and Filtering
+
 ## Errors
 
 # Issues and Support
