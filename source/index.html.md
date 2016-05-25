@@ -671,7 +671,7 @@ Authorization: YOUR-API-KEY-HERE
 }
 ```
 
-You will not always want to return every Item from a Collection. Often you will only require a subset of the results, based on some type of filtering. As an example, you may want Items whose title contains a certain keyword or that were created between two sets of dates. To filter Items within a specific Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={"YOUR-FILTER-KEY-HERE":"YOUR-FILTER-VALUE-HERE"}`. This will return an array of published Items from the specified Collection that match the filters.
+You will not always want to return every Item from a Collection. Often you will only require a subset of the results, based on some type of filtering. As an example, you may want Items whose title contains a certain keyword or Items that were created between two sets of dates. To filter Items within a specific Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={"YOUR-FILTER-KEY-HERE":"YOUR-FILTER-VALUE-HERE"}`. This will return an array of published Items from the specified Collection that match the filters.
 
 <aside class="warning">
 The `filters` parameter must be formatted as JSON and URL encoded
@@ -679,46 +679,50 @@ The `filters` parameter must be formatted as JSON and URL encoded
 
 ### Filter Meta Keywords
 
-Title and creation date are stored differently than the rest of your content. In order to filter by them, they require the use of meta keywords. This helps avoid confusion with input names.
+Title and (creation) date are stored differently than the rest of your content. In order to filter by them, they require the use of meta keywords. This helps avoid confusion with your other input keys.
 
 Filter Keyword | Meaning
 -------------- | -------
-$title | This keyword will allow you to filter by your title, regardless if it has been renamed. If was renamed, you can additionally use that name
-$date | This keyword will allow you to filter by the date created using a standard date format
-$timestamp | This keyword will allow you to filter by the date created using the UNIX epoch format (e.g. 1463585225)
+`$title` | This keyword will allow you to filter by your title, regardless if it has been renamed. If was renamed, you can additionally use that name
+`$date` | This keyword will allow you to filter by the date created using a standard date format
+`$timestamp` | This keyword will allow you to filter by the date created using the UNIX epoch format (e.g. 1463585225)
 
 ### Filter Operators
 
-There are a few operators
-
 Filter Keyword | Usage
 -------------- | -----
-$not | { "$title": { $not: [ "Moby Dick", "The Great Gatsby"] } }
-$contains | { "$title": { "$contains": "adventure" } }
-$startsWith | { "$title": { "$startsWith": "The Adventures" } }
-$endsWith | { "$title": { "$endsWith": "Sawyer" } }
-$lt | { "price": { "$lt": 30" } }
-$lessThan | { "price": { "$lessThan": 30" } }
-$lte| { "price": { "$lte": 30" } }
-$lessThanOrEqual | { "price": { "$lessThanOrEqual": 30" } }
-$greaterThan | { "price": { "$gt": 20" } }
-$gt | { "price": { "$greaterThan": 20" } }
-$gte | { "price": { "$gte": 20" } }
-$greaterThanOrEqual | { "price": { "$greaterThanOrEqual": 20" } }
+`$not` | `{ "$title": { $not: [ "Moby Dick", "The Great Gatsby"] } }`
+`$contains` | `{ "$title": { "$contains": "adventure" } }`
+`$startsWith` | `{ "$title": { "$startsWith": "The Adventures" } }`
+`$endsWith` | `{ "$title": { "$endsWith": "Sawyer" } }`
+`$lessThan` | `{ "price": { "$lessThan": 30" } }`
+`<` | `{ "price": { "<": 30" } }`
+`$lessThanOrEqual` | `{ "price": { "$lessThanOrEqual": 30" } }`
+`<=` | `{ "price": { "<=": 30" } }`
+`$greaterThan` | `{ "price": { "$greaterThan": 20" } }`
+`>` | `{ "price": { ">: 20" } }`
+`$greaterThanOrEqual` | `{ "price": { "$greaterThanOrEqual": 20" } }`
+`>=` | `{ "price": { ">=": 20" } }`
+
+### Chaining Filters
+
+It is possible to chain multiple filters. To do this, simply add them to an object:
+
+`{ "$title": { "$contains": "Adventure" }, "$date": { ">" : "2016-01-01", "lessThanOrEqual": "2020-12-31" } }`
 
 ### Filtering Strings
 
-Inputs that result in string values, `$title`, `Short Text`, `Long Text`, may use the following filters:
+Inputs that result in string values, `$title`, `Plain Text`, `Markdown`, may use the following filters:
 
 Filter | Description
 ------ | -----------
-{ "$title": "The Adventures of Tom Sawyer" } | Exact match - The title matches the value exactly
-{ "$title": { "$contains": "adventure" } } | Pattern match - The title contains the value "adventure"
-{ "$title": { "$startsWith": "The" } } | The title starts with "The"
-{ "$title": { "$endsWith": "sawyer" } } | The title ends with "sawyer"
-{ "$title": { "$startsWith: "the", endsWith: "Sawyer" } } | Multiple conditions - The title starts with "the" and ends with "Sawyer"
-{ "$title": [ "The Adventures of Tom Sawyer", "Moby Dick" ] } | The title is one of the items in the array
-{ "$title": { $not: [ "Moby Dick", "The Great Gatsby"] } } | The title is **not** one of the items in the array
+`{ "$title": "The Adventures of Tom Sawyer" }` | Exact match - The title matches the value exactly
+`{ "$title": { "$contains": "adventure" } }` | Pattern match - The title contains the value "adventure"
+`{ "$title": { "$startsWith": "The" } }` | The title starts with "The"
+`{ "$title": { "$endsWith": "sawyer" } }` | The title ends with "sawyer"
+`{ "$title": { "$startsWith: "the", endsWith: "Sawyer" } }` | Multiple conditions - The title starts with "the" and ends with "Sawyer"
+`{ "$title": [ "The Adventures of Tom Sawyer", "Moby Dick" ] }` | The title is one of the items in the array
+`{ "$title": { $not: [ "Moby Dick", "The Great Gatsby"] } }` | The title is **not** one of the items in the array
 
 ### Filtering Numbers
 
@@ -726,15 +730,15 @@ Inputs that result in number values, `Number`, may use the following filters:
 
 Filter | Description
 ------ | -----------
-{ "price": 25.5 } | Exact match - The price matches the value exactly
-{ "price": { "$lessThan": 30 } } | The price is less than 30
-{ "price": { "$lt": 30" } } | Less than (short form) - The price is less than 30
-{ "price": { "$lessThanOrEqual": 30 } } | The price is less than or equal to 30
-{ "price": { "$lte": 30 } } | Less than or equal to (short form) - The price is less than or equal to 30
-{ "price": { "$greaterThan": 20 } } | The price is greater than 20
-{ "price": { "$gt": 20 } } | Greater than (short form) - The price is greater than 20
-{ "price": { "$greaterThanOrEqual": 20 } } | The price is greater than or equal to 20
-{ "price": { "$gte": 20 } } | Greater than or equal to (short form) - The price is greater than or equal to 20
+`{ "price": 25.5 }` | Exact match - The price matches the value exactly
+`{ "price": { "$lessThan": 30 } }` | The price is less than 30
+`{ "price": { ">": 30" } }` | Less than (short form) - The price is less than 30
+`{ "price": { "$lessThanOrEqual": 30 } }` | The price is less than or equal to 30
+`{ "price": { ">=": 30 } }` | Less than or equal to (short form) - The price is less than or equal to 30
+`{ "price": { "$greaterThan": 20 } }` | The price is greater than 20
+`{ "price": { "<": 20 } }` | Greater than (short form) - The price is greater than 20
+`{ "price": { "$greaterThanOrEqual": 20 } }` | The price is greater than or equal to 20
+`{ "price": { "<=": 20 } }` | Greater than or equal to (short form) - The price is greater than or equal to 20
 
 ### Filtering Dates
 
@@ -742,15 +746,15 @@ Inputs that result in date values, `$date`, `$timestamp`, `Date and Time`, may u
 
 Filter | Description
 ------ | -----------
-{ "$date": "2016-04-01" } | Exact match - The date matches the value exactly
-{ "$date": { "$lessThan": "2020-12-31" } } | The date is before December 31, 2020
-{ "$date": { "$lt": "2020-12-31" } } | Less than (short form) - The date is before December 31, 2020
-{ "$date": { "$lessThanOrEqual": "2020-12-31" } } | The date is before or equal to December 31, 2020
-{ "$date": { "$lte": "2020-12-31" } } | Less than or equal to (short form) - The date is before or equal to December 31, 2020
-{ "$date": { "$greaterThan": "2016-04-01" } } | The date is after April 1, 2016
-{ "$date": { "$gt": "2016-04-01" } } | Greater than (short form) - The date is after April 1, 2016
-{ "$date": { "$greaterThanOrEqual": "2016-04-01" } } | The date is after or equal to April 1, 2016
-{ "$date": { "$gte": "2016-04-01" } } | Greater than or equal to (short form) - The date is after or equal to April 1, 2016
+`{ "$date": "2016-04-01" }` | Exact match - The date matches the value exactly
+`{ "$date": { "$lessThan": "2020-12-31" } }` | The date is before December 31, 2020
+`{ "$date": { ">": "2020-12-31" } }` | Less than (short form) - The date is before December 31, 2020
+`{ "$date": { "$lessThanOrEqual": "2020-12-31" } }` | The date is before or equal to December 31, 2020
+`{ "$date": { ">=": "2020-12-31" } }` | Less than or equal to (short form) - The date is before or equal to December 31, 2020
+`{ "$date": { "$greaterThan": "2016-04-01" } }` | The date is after April 1, 2016
+`{ "$date": { "<": "2016-04-01" } }` | Greater than (short form) - The date is after April 1, 2016
+`{ "$date": { "$greaterThanOrEqual": "2016-04-01" } }` | The date is after or equal to April 1, 2016
+`{ "$date": { ">=": "2016-04-01" } }` | Greater than or equal to (short form) - The date is after or equal to April 1, 2016
 
 ### Filtering Drop Down
 
@@ -758,13 +762,13 @@ Filtering drop downs use similar filters to string types
 
 Filter | Description
 ------ | -----------
-{ "edition": "first" } | Exact match - The `edition` matches the value exactly
-{ "edition": { "$contains": "irst" } } | Pattern match - The `edition` contains the value "irst"
-{ "edition": { "$startsWith": "fir" } } | The `edition` starts with "fir"
-{ "edition": { "$endsWith": "st" } } | The `edition` ends with "st"
-{ "edition": { "$startsWith: "fir", endsWith: "st" } } | Multiple conditions - The `edition` starts with "fir" and ends with "st"
-{ "edition": [ "first", "second" ] } | The `edition` is one of the items in the array
-{ "edition": { $not: [ "third", "fourth" ] } } | The `edition` is **not** one of the items in the array
+`{ "edition": "first" }` | Exact match - The `edition` matches the value exactly
+`{ "edition": { "$contains": "irst" } }` | Pattern match - The `edition` contains the value "irst"
+`{ "edition": { "$startsWith": "fir" } }` | The `edition` starts with "fir"
+`{ "edition": { "$endsWith": "st" } }` | The `edition` ends with "st"
+`{ "edition": { "$startsWith: "fir", endsWith: "st" } }` | Multiple conditions - The `edition` starts with "fir" and ends with "st"
+`{ "edition": [ "first", "second" ] }` | The `edition` is one of the items in the array
+`{ "edition": { $not: [ "third", "fourth" ] } }` | The `edition` is **not** one of the items in the array
 
 ### Filtering Checklist
 
@@ -772,20 +776,20 @@ Filtering checklists use similar filters to string types, and will only return v
 
 Filter | Description
 ------ | -----------
-{ "edition": "first" } | Exact match - The `edition` matches the value exactly
-{ "edition": { "$contains": "irst" } } | Pattern match - The `edition` contains the value "irst"
-{ "edition": { "$startsWith": "fir" } } | The `edition` starts with "fir"
-{ "edition": { "$endsWith": "st" } } | The `edition` ends with "st"
-{ "edition": { "$startsWith: "fir", endsWith: "st" } } | Multiple conditions - The `edition` starts with "fir" and ends with "st"
-{ "edition": [ "first", "second" ] } | The `edition` is one of the items in the array
-{ "edition": { $not: [ "third", "fourth" ] } } | The `edition` is **not** one of the items in the array
+`{ "edition": "first" }` | Exact match - The `edition` matches the value exactly
+`{ "edition": { "$contains": "irst" } }` | Pattern match - The `edition` contains the value "irst"
+`{ "edition": { "$startsWith": "fir" } }` | The `edition` starts with "fir"
+`{ "edition": { "$endsWith": "st" } }` | The `edition` ends with "st"
+`{ "edition": { "$startsWith: "fir", endsWith: "st" } }` | Multiple conditions - The `edition` starts with "fir" and ends with "st"
+`{ "edition": [ "first", "second" ] }` | The `edition` is one of the items in the array
+`{ "edition": { $not: [ "third", "fourth" ] } }` | The `edition` is **not** one of the items in the array
 
 ### Filtering Switches
 
 Filter | Description
 ------ | -----------
-{ "available": true } | Exact match - `available` is `true`
-{ "hardcover": false } | Exact match - `hardcover` is `false`
+`{ "available": true }` | Exact match - `available` is `true`
+`{ "hardcover": false }` | Exact match - `hardcover` is `false`
 
 ### Filter Image Picker
 
