@@ -802,7 +802,7 @@ Filtering for files has not been implemented. Filtering, based on whether or not
 
 ### Filtering Groups
 
-Filtering within a group, either non-repeatable or repeatable, is not implemented. Currently, there are no plans to implement this feature. Please contact us if you feel you have a use-case where this is essential.
+Filtering within a group, either non-repeatable or repeatable, is not implemented.
 
 ## Errors
 
