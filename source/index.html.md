@@ -11,7 +11,7 @@ search: false
 
 # Introduction
 
-Elemeno is a content manangement platform that lets you to create and manage your content and deliver it to any device using a RESTful API.
+Elemeno is a content manangement platform that lets you create and manage content and deliver it to any device using a RESTful API.
 
 # Single Items
 
@@ -23,11 +23,11 @@ Collections are collections of multiple items with the same content model. Items
 
 # Content Models
 
-Every item, whether it's a Single Item or part of a Collection, is based on a Content Model which defines the item's content structure and the type of inputs used to create an item. You can think of Content Models as the template for creating items.
+Every item, whether it is a Single Item or part of a Collection, is based on a Content Model. This Content Model defines the item's content structure and the type of inputs used to create an item. You can think of Content Models as the template for creating items.
 
 ## Creating
 
-When you create a new Single Item or Collection, you are presented with an interface for creating a content model. This is essentially a blank slate with a list of all the input types on the right side of the screen. Simply drag an input type onto the screen to add an input to your content model. Click on any of your inputs to edit that input's settings. You can also drag your inputs up and down by their handle to reorganize your content model. If you need to remove an input, simply click the red x button on an input.
+When you create a new Single Item or Collection, you are presented with an interface for creating a content model. This is essentially a blank slate with a list of all the input types on the right side of the screen. Simply drag an input type onto the screen to add an input to your content model. Click on any of your inputs to edit that input's settings. You can also drag your inputs up and down by their handle to reorganize your content model. If you need to remove an input, simply click the red "x" button on an input.
 
 ### Collections
 
@@ -83,9 +83,9 @@ The Input Group allows you to group multiple inputs under a single heading. You 
 
 If you were creating a collection of books you might use a group to group all of the inputs related to the author. Things like the author's name, bio, and picture could all be grouped together. If some books in your collection have multiple authors you may want to make your authors group repeatable so that when you're creating items for your collection you will have the option to add multiple authors.
 
-## Short Text
+## Plain Text
 
-> API results for Short Text fields will look something like:
+> API results for Plain Text fields will look something like:
 
 ```json
 {
@@ -93,7 +93,7 @@ If you were creating a collection of books you might use a group to group all of
 }
 ```
 
-The Short Text field is a single line text field used to capture shorter text strings.
+The Plain Text field supports plain text strings. The Plain Text field has an optional setting to allow for multi-line input.
 
 ### Validations
 
@@ -103,9 +103,9 @@ Min Length | The minimum number of characters the field will accept
 Max Length | The maximum number of characters the field will accept
 Matches Pattern | The text pattern the content must match
 
-## Long Text
+## Markdown
 
-> API results for Long Text fields will look something like:
+> API results for Markdown fields will look something like:
 
 ```json
 {
@@ -116,7 +116,7 @@ Matches Pattern | The text pattern the content must match
 }
 ```
 
-The Long Text field is a multi-line text field that supports Markdown formatting.
+The Markdown field is a multi-line text area that supports Markdown formatting.
 
 ### Validations
 
@@ -684,8 +684,8 @@ Title and (creation) date are stored differently than the rest of your content. 
 Filter Keyword | Meaning
 -------------- | -------
 `$title` | This keyword will allow you to filter by your title, regardless if it has been renamed. If was renamed, you can additionally use that name
-`$date` | This keyword will allow you to filter by the date created using a standard date format
-`$timestamp` | This keyword will allow you to filter by the date created using the UNIX epoch format (e.g. 1463585225)
+`$date` | This keyword will allow you to filter by the date created using a standard date format - This should be a string value
+`$timestamp` | This keyword will allow you to filter by the date created using the UNIX epoch format (e.g. 1463585225) - This should be a numeric value
 
 ### Filter Operators
 
@@ -755,6 +755,7 @@ Filter | Description
 `{ "$date": { "<": "2016-04-01" } }` | Greater than (short form) - The date is after April 1, 2016
 `{ "$date": { "$greaterThanOrEqual": "2016-04-01" } }` | The date is after or equal to April 1, 2016
 `{ "$date": { ">=": "2016-04-01" } }` | Greater than or equal to (short form) - The date is after or equal to April 1, 2016
+`{ "$timestamp": { "$greaterThan": 1463585225 } }` | The date is before December 31, 2020
 
 ### Filtering Drop Down
 
