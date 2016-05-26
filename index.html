@@ -4,94 +4,227 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
-
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+    <title>Elemeno Documentation</title>
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' type='text/css'>
+    <link rel="shortcut icon" href="/images/favicon.ico">
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
+.highlight .c, .highlight .cd {
+  color: #75715e;
+  font-style: italic;
 }
-.highlight .err {
-  color: #151515;
-  background-color: #ac4142;
+.highlight .cm {
+  color: #75715e;
+  font-style: italic;
 }
-.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
+.highlight .c1 {
+  color: #75715e;
+  font-style: italic;
 }
 .highlight .cp {
-  color: #f4bf75;
-}
-.highlight .nt {
-  color: #f4bf75;
-}
-.highlight .o, .highlight .ow {
-  color: #d0d0d0;
-}
-.highlight .p, .highlight .pi {
-  color: #d0d0d0;
-}
-.highlight .gi {
-  color: #90a959;
-}
-.highlight .gd {
-  color: #ac4142;
-}
-.highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
+  color: #75715e;
   font-weight: bold;
 }
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
+.highlight .cs {
+  color: #75715e;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #960050;
+  background-color: #1e0010;
+}
+.highlight .gi {
+  color: #ffffff;
+  background-color: #324932;
+}
+.highlight .gd {
+  color: #ffffff;
+  background-color: #493131;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .k, .highlight .kv {
+  color: #66d9ef;
+  font-weight: bold;
 }
 .highlight .kc {
-  color: #d28445;
-}
-.highlight .kt {
-  color: #d28445;
+  color: #66d9ef;
+  font-weight: bold;
 }
 .highlight .kd {
-  color: #d28445;
+  color: #66d9ef;
+  font-weight: bold;
 }
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
+.highlight .kp {
+  color: #66d9ef;
+  font-weight: bold;
 }
-.highlight .sr {
-  color: #75b5aa;
+.highlight .kr {
+  color: #66d9ef;
+  font-weight: bold;
 }
-.highlight .si {
-  color: #8f5536;
+.highlight .kt {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .ow {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
 }
 .highlight .se {
-  color: #8f5536;
+  color: #ae81ff;
 }
-.highlight .nn {
-  color: #f4bf75;
+.highlight .sb {
+  color: #e6db74;
 }
-.highlight .nc {
-  color: #f4bf75;
+.highlight .sc {
+  color: #e6db74;
 }
-.highlight .no {
-  color: #f4bf75;
+.highlight .sd {
+  color: #e6db74;
 }
-.highlight .na {
-  color: #6a9fb5;
+.highlight .s2 {
+  color: #e6db74;
 }
-.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .sr {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
 }
 .highlight .ss {
-  color: #90a959;
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .bp {
+  color: #f8f8f2;
+}
+.highlight .nb {
+  color: #f8f8f2;
+}
+.highlight .ni {
+  color: #f8f8f2;
+}
+.highlight .nn {
+  color: #f8f8f2;
+}
+.highlight .vc {
+  color: #f8f8f2;
+}
+.highlight .vg {
+  color: #f8f8f2;
+}
+.highlight .vi {
+  color: #f8f8f2;
+}
+.highlight .nv {
+  color: #f8f8f2;
+}
+.highlight .w {
+  color: #f8f8f2;
+}
+.highlight .nl {
+  color: #f8f8f2;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight {
+  color: #f8f8f2;
+  background-color: #49483e;
 }
     </style>
-      <script src="javascripts/all.js"></script>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -99,171 +232,665 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <div class="logo-wrapper">
+        <img height="38" width="227" src="images/logo.png" />
+      </div>
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="http">http</a>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
       <div id="toc">
       </div>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Elemeno is a content manangement platform that lets you create and manage content and deliver it to any device using a RESTful API.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id="single-items">Single Items</h1>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>Single Items are items that stand alone and do not belong to a collection. They have their own unique content model, and the item is returned via the API as a single resource. Single items are perfect for things like &ldquo;About Us&rdquo; or &ldquo;Contact&rdquo; pages on a website, or the landing screen of an application. Any content that will exist on its own can be thought of as a Single Item.</p>
 
-<h1 id="authentication">Authentication</h1>
+<h1 id="collections">Collections</h1>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>Collections are collections of multiple items with the same content model. Items are returned from the API as an array and each item can be accessed individually via its ID or &ldquo;slug&rdquo;. Collections also support filtering so you can find a specific subset of items from a collection based on your query parameters.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<h1 id="content-models">Content Models</h1>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p>Every item, whether it is a Single Item or part of a Collection, is based on a Content Model. This Content Model defines the item&rsquo;s content structure and the type of inputs used to create an item. You can think of Content Models as the template for creating items.</p>
 
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<h2 id="creating">Creating</h2>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>When you create a new Single Item or Collection, you are presented with an interface for creating a content model. This is essentially a blank slate with a list of all the input types on the right side of the screen. Simply drag an input type onto the screen to add an input to your content model. Click on any of your inputs to edit that input&rsquo;s settings. You can also drag your inputs up and down by their handle to reorganize your content model. If you need to remove an input, simply click the red &ldquo;x&rdquo; button on an input.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<h3 id="collections">Collections</h3>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<p>Collections will start with a &ldquo;Title&rdquo; input which will be linked to the item&rsquo;s title attribute when creating an item. However, you can rename this field, or hide it altogether if you would prefer to leave your items in this collection untitled. For example, if you had a collection of Authors you may want to rename the title field to &ldquo;Name&rdquo; so that it makes more sense for that collection.</p>
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+<h2 id="editing">Editing</h2>
 
-<h1 id="kittens">Kittens</h1>
+<p>You can edit a content model at any point. However, the changes that you make may impact the structure of the items returned by the API, or the content for existing items may become inaccessible.</p>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h3 id="examples">Examples</h3>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<ul>
+<li>When you rename an input, any content for that input in existing items will be inaccessible and the content returned from the API for the renamed input will be blank.</li>
+<li>Changing the validation rules for an input will only affect new items, or items that are edited in the future.</li>
+<li>Adding, removing, or renaming an input will affect the structure of the items returned via the API. This may mean you will need to make changes to the front-end applications that make use of content from the API.</li>
+</ul>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<h1 id="input-types">Input Types</h1>
+
+<p>There are a variety of input types to choose from when defining your content models. Each input has its own settings, validations, and API output. Below is a list of input types currently available, however more inputs will be added in the future to help capture a wider variety of data.</p>
+
+<h2 id="group">Group</h2>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves all kittens.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>API results for groups will look something like:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mark Twain"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An American author and humorist ..."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
+<blockquote>
+<p>API results for repeating groups will return an array of items:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"authors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mark Twain"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"bio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An American author and humorist ..."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Austen"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"bio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An English novelist ..."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>The Input Group allows you to group multiple inputs under a single heading. You can also enable the &ldquo;repeatable&rdquo; option to create a repeating group of inputs.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="example">Example:</h3>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>If you were creating a collection of books you might use a group to group all of the inputs related to the author. Things like the author&rsquo;s name, bio, and picture could all be grouped together. If some books in your collection have multiple authors you may want to make your authors group repeatable so that when you&rsquo;re creating items for your collection you will have the option to add multiple authors.</p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h2 id="plain-text">Plain Text</h2>
+
+<blockquote>
+<p>API results for Plain Text fields will look something like:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Adventures of Tom Sawyer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Plain Text field supports plain text strings. The Plain Text field has an optional setting to allow for multi-line input.</p>
+
+<h3 id="validations">Validations</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Min Length</td>
+<td>The minimum number of characters the field will accept</td>
+</tr>
+<tr>
+<td>Max Length</td>
+<td>The maximum number of characters the field will accept</td>
+</tr>
+<tr>
+<td>Matches Pattern</td>
+<td>The text pattern the content must match</td>
+</tr>
+</tbody></table>
+
+<h2 id="markdown">Markdown</h2>
+
+<blockquote>
+<p>API results for Markdown fields will look something like:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"markdown"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Adventures of Tom Sawyer"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;The Adventures of Tom Sawyer&lt;/p&gt;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Markdown field is a multi-line text area that supports Markdown formatting.</p>
+
+<h3 id="validations">Validations</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Min Length</td>
+<td>The minimum number of characters the field will accept</td>
+</tr>
+<tr>
+<td>Max Length</td>
+<td>The maximum number of characters the field will accept</td>
+</tr>
+</tbody></table>
+
+<h2 id="number">Number</h2>
+
+<blockquote>
+<p>API results for Number fields will look something like:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25.50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Number field is single line field that only accepts numbers. The &ldquo;Number of Decimal Places&rdquo; setting will dictate the number of decimal places for the number. The API will return two values for the number field.</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>string</td>
+<td>The number with specified number of decimal places</td>
+</tr>
+<tr>
+<td>number</td>
+<td>The number will only significant numbers to the right of the decimal point</td>
+</tr>
+</tbody></table>
+
+<h3 id="validations">Validations</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Min Value</td>
+<td>The minimum value the field will accept</td>
+</tr>
+<tr>
+<td>Max Value</td>
+<td>The maximum value the field will accept</td>
+</tr>
+</tbody></table>
+
+<h2 id="drop-down">Drop Down</h2>
+
+<blockquote>
+<p>API results for Drop Down fields will look something like:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fiction"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cat15"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Drop Down field is a select list field which allows users to select a single option from list of options. The API will return an object with two values:</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>label</td>
+<td>This is the text displayed to the user for the selected option</td>
+</tr>
+<tr>
+<td>value</td>
+<td>This hidden value associated with the selected option</td>
+</tr>
+</tbody></table>
+
+<h2 id="check-list">Check List</h2>
+
+<blockquote>
+<p>API results for Check List fields will look something like:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hard Cover"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"feature-hard-cover"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"checked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gilded Pages"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"feature-gilded"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"checked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Check List field is list of checkboxes that allows the user to select multiple values. The value returned by the API will be an array of objects with three values:</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>label</td>
+<td>This is the text displayed to the user for the selected option</td>
+</tr>
+<tr>
+<td>value</td>
+<td>This hidden value associated with the selected option</td>
+</tr>
+<tr>
+<td>checked</td>
+<td>If the item is checked or not</td>
+</tr>
+</tbody></table>
+
+<h2 id="switch">Switch</h2>
+
+<blockquote>
+<p>API results for Switch fields will look something like:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Switch field is a simple on/off switch that represents a boolean value. The API will return a boolean value of <code class="prettyprint">true</code> if the switch is on (green), or <code class="prettyprint">false</code> if the switch is off (red).</p>
+
+<h2 id="image-picker">Image Picker</h2>
+
+<blockquote>
+<p>API results for Image Picker fields will look something like:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"coverImage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12T14:10:09.539Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"dateUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12T14:10:09.539Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom Sawyer Cover Image"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"fileSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"887126"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">2248</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"colors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"dominant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"r"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"g"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"352D27"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"isLight"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"palette"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"alternativeText"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"copyrightInformation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"exifData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"CreateDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016:03:04 18:19:40"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Make"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Panasonic"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DMC-GF1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"FNumber"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.7</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"FocalLength"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ExposureTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ISO"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"GPSLatitudeRef"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"GPSLatitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"GPSLongitudeRef"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"GPSLongitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"GPSAltitudeRef"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"GPSAltitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.elemeno.io/full/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"thumbnails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.elemeno.io/cover/100/100/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.elemeno.io/contain/1000/1000/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Image Picker field allows you to select an image from your existing image files, or upload a new image file. The Image Picker settings allow you to define thumbnails which will be auto-generated and a full URL will be returned in the API results for each thumbnail defined.</p>
+
+<h3 id="thumbnail-settings">Thumbnail Settings</h3>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>width</td>
+<td>The width of the generated thumbnail in pixels</td>
+</tr>
+<tr>
+<td>height</td>
+<td>The height of the generated thumbnail in pixels</td>
+</tr>
+<tr>
+<td>Crop Type: contain</td>
+<td>The image will be resized to fit within the dimensions specified. No cropping will occur.</td>
+</tr>
+<tr>
+<td>Crop Type: cover</td>
+<td>The image will be resized so the entire area defined by the dimensions is covered by the image. Cropping will likely occur.</td>
+</tr>
+</tbody></table>
+
+<h2 id="file-picker">File Picker</h2>
+
+<blockquote>
+<p>API results for File Picker fields will looks something like:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"digitalDownload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-11T14:05:50.917Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"dateUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-11T14:05:50.917Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom Sawyer PDF"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"fileSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6553600"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/pdf"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metaData"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"fileUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://file.elemeno.io/35f3f5b0-e183-435b-9e6e-42c10a8098e0.pdf"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The File Picker field allows you to upload a new file or select a one from your existing files. The File Picker settings allow you to specify the type of file that can be selected with the input. The API will return a URL for the file hosted on our CDN (content delivery network).</p>
+
+<h2 id="date-and-time">Date and Time</h2>
+
+<blockquote>
+<p>API results for Date and Time fields will looks something like:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"dateOnly"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"timeOnly"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:10"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"dateAndTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12T16:10:00+00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Date and Time field allows you to easily select date and time values. The settings allow you to choose from three different variations of the Date and Time input.</p>
+
+<h3 id="variations">Variations</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Date Only</td>
+<td>Select a calendar date</td>
+<td>May 12, 2016</td>
+</tr>
+<tr>
+<td>Time Only</td>
+<td>Select a time</td>
+<td>12:10 PM</td>
+</tr>
+<tr>
+<td>Date and Time</td>
+<td>Select a specific moment in time</td>
+<td>May 12, 2016 12:10PM EDT</td>
+</tr>
+</tbody></table>
+
+<h3 id="date-and-time-variation">Date and Time Variation</h3>
+
+<p>When using the Date and Time variation of the input, you are selecting a specific moment in time. From the interface you will select a point in time based on your current time zone. From the API, Date and Time values will be returned in UTC (Coordinated Universal Time). If two different users in different time zone look at an item with a Date and Time field, they will see the moment in time converted to their local time zone. I.e., the value displayed will be different for each user, but the value will represent the same moment in time for each user.</p>
+
+<h1 id="api">API</h1>
+
+<p>The Elemeno API is a RESTful API accessed via HTTP. This means that you can access your content via simple, straightforward HTTP requests from any platform or device that can communicate via HTTP. We are building libraries for a variety of popular programming languages and frameworks which will make working with the API even easier.</p>
+
+<h2 id="authentication">Authentication</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+
+<p>All requests to the API must include an API Key in an <code class="prettyprint">Authorization</code> header. You can generate API Keys within the settings section of the Elemeno web app. We recommend generating a separate API Key for each of your websites and applications. For example, you might have a different API Key for your website, iOS application, Android application, and an Arduino prototype. This separation provides more security, finer grain control, and more visibility into which applications are making the most requests to the API.</p>
+
+<h2 id="all-single-items">All Single Items</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/singles</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+
+<blockquote>
+<p>An example response (truncated for simplicity):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6e30f490-0bb1-11e6-900b-7f6d43d3f6e0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"about-us"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"About Us"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"projectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98ce44d2-2985-11e5-8329-93cb1bd92cc3"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-26T13:18:56.704Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-29T15:59:26.276Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/singles/about-us"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/singles?page=1&amp;size=50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/singles?page=1&amp;size=50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/singles?page=1&amp;size=50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"totalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>To access a list of all published Single Items, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/singles</code>. This will return an array of Single Item objects.</p>
+
+<h2 id="specific-single-item">Specific Single Item</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/singles/YOUR-ITEM-SLUG-HERE</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+
+<blockquote>
+<p>An example response (truncated for simplicity):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6e30f490-0bb1-11e6-900b-7f6d43d3f6e0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"about-us"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"About Us"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:59:48.699Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"headline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Best Books!"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="err">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/singles/about-us"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"totalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>To access a specific Single Item, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/singles/YOUR-ITEM-SLUG-HERE</code>. This will return a Single Item object along with its content.</p>
+
+<h2 id="all-collections">All Collections</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+
+<blockquote>
+<p>An example response (truncated for simplicity):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fe4f04c2-1b6a-11e6-9883-ab6703adb701"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"books"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Books"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"projectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98ce44d2-2985-11e5-8329-93cb1bd92cc3"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12T14:10:00.162Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12T14:10:00.162Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books/items"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections?page=1&amp;size=50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections?page=1&amp;size=50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections?page=1&amp;size=50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"totalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>To access a list of all published Collections, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/</code>. This will return an array of Collection objects.</p>
+
+<h2 id="specific-collection">Specific Collection</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+
+<blockquote>
+<p>An example response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fe4f04c2-1b6a-11e6-9883-ab6703adb701"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"books"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Books"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"projectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98ce44d2-2985-11e5-8329-93cb1bd92cc3"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12T14:10:00.162Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"dateUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12T14:10:00.162Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books/items"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"totalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>To access a specific Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE</code>. This will return a Collection object.</p>
+
+<h2 id="collection-items">Collection Items</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+
+<blockquote>
+<p>An example response (truncated for simplicity):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22e0c474-1b6b-11e6-aec3-d72ab41dc475"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the-adventures-of-tom-sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Adventures of Tom Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12T14:10:00.102Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"markdown"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Adventures of Tom Sawyer by **Mark Twain** is an 1876 novel..."</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Adventures of Tom Sawyer by &lt;strong&gt;Mark Twain&lt;/strong&gt; is an 1876 novel..."</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">...</span><span class="w">
+            </span><span class="err">}</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books/items/the-adventures-of-tom-sawyer"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books/items?page=1&amp;size=50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books/items?page=1&amp;size=50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books/items?page=1&amp;size=50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"totalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>To access the items within a specific Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items</code>. This will return an array of published Items from the specified Collection. If there are many Items in a Collection, the results will split into multiple pages. You can request a specific page, and a specific number of items per page using query parameters.</p>
+
+<blockquote>
+<p>Requesting a specific page of results with a custom limit:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?page=2;limit=20</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+
+<p>Supported Query Parameter</p>
 
 <table><thead>
 <tr>
@@ -272,16 +899,469 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>page</td>
+<td>the page number you are requesting</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>the number of items to be returned per page (Min: 1, Max: 100, Default: 50)</td>
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+<p>For example, if your collection had 210 published items and you requested a <code class="prettyprint">limit</code> of 20 items per page, there would be 11 pages of results but the last page would only contain 10 items.</p>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+<h2 id="collection-item">Collection Item</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
 
-<p>The Kittn API uses the following error codes:</p>
+<blockquote>
+<p>An example response (truncated for simplicity):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22e0c474-1b6b-11e6-aec3-d72ab41dc475"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the-adventures-of-tom-sawyer"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Adventures of Tom Sawyer"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-16T13:53:39.102Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"markdown"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Adventures of Tom Sawyer by **Mark Twain** is an 1876 novel..."</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;The Adventures of Tom Sawyer by &lt;strong&gt;Mark Twain&lt;/strong&gt; is an 1876 novel...&lt;/p&gt;"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="err">}</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/books/items/the-adventures-of-tom-sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/books"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"totalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>To access a specific item from your Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE</code>.</p>
+
+<p>You can also access an Item via its ID by using the <code class="prettyprint">byID</code> query parameter. This would look something like: <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-ID-HERE?byID=true</code></p>
+
+<h2 id="filtering">Filtering</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={"$title":{"contains":"adventure"}}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+
+<blockquote>
+<p>An example response (truncated for simplicity):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22e0c474-1b6b-11e6-aec3-d72ab41dc475"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the-adventures-of-tom-sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Adventures of Tom Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12T14:10:00.102Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"markdown"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Adventures of Tom Sawyer by **Mark Twain** is a novel written in 1876..."</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;The Adventures of Tom Sawyer by &lt;strong&gt;Mark Twain&lt;/strong&gt; is a novel written in 1876...&lt;/p&gt;"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">...</span><span class="w">
+            </span><span class="err">}</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books/items/the-adventures-of-tom-sawyer"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2033cc9c-0572-11e6-b578-379c039aa13b"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alices-adventures-in-wonderland"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice's Adventures in Wonderland"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-12T14:25:03.002Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"markdown"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice's Adventures in Wonderland (commonly shortened to _Alice in Wonderland_)"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Alice's Adventures in Wonderland (commonly shortened to &lt;em&gt;Alice in Wonderland&lt;/em&gt;)&lt;/p&gt;"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">...</span><span class="w">
+            </span><span class="err">}</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books/items/alices-adventures-in-wonderland"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.elemeno.dev/v1/collections/books"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"totalRecords"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>You will not always want to return every Item from a Collection. Often you will only require a subset of the results, based on some type of filtering. As an example, you may want Items whose title contains a certain keyword or Items that were created between two sets of dates. To filter Items within a specific Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={&quot;YOUR-FILTER-KEY-HERE&quot;:&quot;YOUR-FILTER-VALUE-HERE&quot;}</code>. This will return an array of published Items from the specified Collection that match the filters.</p>
+
+<aside class="warning">
+The `filters` parameter must be formatted as JSON and URL encoded
+</aside>
+
+<h3 id="filter-meta-keywords">Filter Meta Keywords</h3>
+
+<p>Title and (creation) date are stored differently than the rest of your content. In order to filter by them, they require the use of meta keywords. This helps avoid confusion with your other input keys.</p>
+
+<table><thead>
+<tr>
+<th>Filter Keyword</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">$title</code></td>
+<td>This keyword will allow you to filter by your title, regardless if it has been renamed. If was renamed, you can additionally use that name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">$date</code></td>
+<td>This keyword will allow you to filter by the date created using a standard date format - This should be a string value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">$timestamp</code></td>
+<td>This keyword will allow you to filter by the date created using the UNIX epoch format (e.g. 1463585225) - This should be a numeric value</td>
+</tr>
+</tbody></table>
+
+<h3 id="filter-operators">Filter Operators</h3>
+
+<table><thead>
+<tr>
+<th>Filter Keyword</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">$not</code></td>
+<td><code class="prettyprint">{ &quot;$title&quot;: { $not: [ &quot;Moby Dick&quot;, &quot;The Great Gatsby&quot;] } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">$contains</code></td>
+<td><code class="prettyprint">{ &quot;$title&quot;: { &quot;$contains&quot;: &quot;adventure&quot; } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">$startsWith</code></td>
+<td><code class="prettyprint">{ &quot;$title&quot;: { &quot;$startsWith&quot;: &quot;The Adventures&quot; } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">$endsWith</code></td>
+<td><code class="prettyprint">{ &quot;$title&quot;: { &quot;$endsWith&quot;: &quot;Sawyer&quot; } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">$lessThan</code></td>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;$lessThan&quot;: 30&quot; } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">&lt;</code></td>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;&lt;&quot;: 30&quot; } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">$lessThanOrEqual</code></td>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;$lessThanOrEqual&quot;: 30&quot; } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">&lt;=</code></td>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;&lt;=&quot;: 30&quot; } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">$greaterThan</code></td>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;$greaterThan&quot;: 20&quot; } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">&gt;</code></td>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;&gt;: 20&quot; } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">$greaterThanOrEqual</code></td>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;$greaterThanOrEqual&quot;: 20&quot; } }</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">&gt;=</code></td>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;&gt;=&quot;: 20&quot; } }</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="chaining-filters">Chaining Filters</h3>
+
+<p>It is possible to chain multiple filters. To do this, simply add them to an object:</p>
+
+<p><code class="prettyprint">{ &quot;$title&quot;: { &quot;$contains&quot;: &quot;Adventure&quot; }, &quot;$date&quot;: { &quot;&gt;&quot; : &quot;2016-01-01&quot;, &quot;lessThanOrEqual&quot;: &quot;2020-12-31&quot; } }</code></p>
+
+<h3 id="filtering-strings">Filtering Strings</h3>
+
+<p>Inputs that result in string values, <code class="prettyprint">$title</code>, <code class="prettyprint">Plain Text</code>, <code class="prettyprint">Markdown</code>, may use the following filters:</p>
+
+<table><thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">{ &quot;$title&quot;: &quot;The Adventures of Tom Sawyer&quot; }</code></td>
+<td>Exact match - The title matches the value exactly</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$title&quot;: { &quot;$contains&quot;: &quot;adventure&quot; } }</code></td>
+<td>Pattern match - The title contains the value &ldquo;adventure&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$title&quot;: { &quot;$startsWith&quot;: &quot;The&quot; } }</code></td>
+<td>The title starts with &ldquo;The&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$title&quot;: { &quot;$endsWith&quot;: &quot;sawyer&quot; } }</code></td>
+<td>The title ends with &ldquo;sawyer&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$title&quot;: { &quot;$startsWith: &quot;the&quot;, endsWith: &quot;Sawyer&quot; } }</code></td>
+<td>Multiple conditions - The title starts with &ldquo;the&rdquo; and ends with &ldquo;Sawyer&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$title&quot;: [ &quot;The Adventures of Tom Sawyer&quot;, &quot;Moby Dick&quot; ] }</code></td>
+<td>The title is one of the items in the array</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$title&quot;: { $not: [ &quot;Moby Dick&quot;, &quot;The Great Gatsby&quot;] } }</code></td>
+<td>The title is <strong>not</strong> one of the items in the array</td>
+</tr>
+</tbody></table>
+
+<h3 id="filtering-numbers">Filtering Numbers</h3>
+
+<p>Inputs that result in number values, <code class="prettyprint">Number</code>, may use the following filters:</p>
+
+<table><thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">{ &quot;price&quot;: 25.5 }</code></td>
+<td>Exact match - The price matches the value exactly</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;$lessThan&quot;: 30 } }</code></td>
+<td>The price is less than 30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;&gt;&quot;: 30&quot; } }</code></td>
+<td>Less than (short form) - The price is less than 30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;$lessThanOrEqual&quot;: 30 } }</code></td>
+<td>The price is less than or equal to 30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;&gt;=&quot;: 30 } }</code></td>
+<td>Less than or equal to (short form) - The price is less than or equal to 30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;$greaterThan&quot;: 20 } }</code></td>
+<td>The price is greater than 20</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;&lt;&quot;: 20 } }</code></td>
+<td>Greater than (short form) - The price is greater than 20</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;$greaterThanOrEqual&quot;: 20 } }</code></td>
+<td>The price is greater than or equal to 20</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;price&quot;: { &quot;&lt;=&quot;: 20 } }</code></td>
+<td>Greater than or equal to (short form) - The price is greater than or equal to 20</td>
+</tr>
+</tbody></table>
+
+<h3 id="filtering-dates">Filtering Dates</h3>
+
+<p>Inputs that result in date values, <code class="prettyprint">$date</code>, <code class="prettyprint">$timestamp</code>, <code class="prettyprint">Date and Time</code>, may use the following filters:</p>
+
+<table><thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">{ &quot;$date&quot;: &quot;2016-04-01&quot; }</code></td>
+<td>Exact match - The date matches the value exactly</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$date&quot;: { &quot;$lessThan&quot;: &quot;2020-12-31&quot; } }</code></td>
+<td>The date is before December 31, 2020</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$date&quot;: { &quot;&gt;&quot;: &quot;2020-12-31&quot; } }</code></td>
+<td>Less than (short form) - The date is before December 31, 2020</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$date&quot;: { &quot;$lessThanOrEqual&quot;: &quot;2020-12-31&quot; } }</code></td>
+<td>The date is before or equal to December 31, 2020</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$date&quot;: { &quot;&gt;=&quot;: &quot;2020-12-31&quot; } }</code></td>
+<td>Less than or equal to (short form) - The date is before or equal to December 31, 2020</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$date&quot;: { &quot;$greaterThan&quot;: &quot;2016-04-01&quot; } }</code></td>
+<td>The date is after April 1, 2016</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$date&quot;: { &quot;&lt;&quot;: &quot;2016-04-01&quot; } }</code></td>
+<td>Greater than (short form) - The date is after April 1, 2016</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$date&quot;: { &quot;$greaterThanOrEqual&quot;: &quot;2016-04-01&quot; } }</code></td>
+<td>The date is after or equal to April 1, 2016</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$date&quot;: { &quot;&gt;=&quot;: &quot;2016-04-01&quot; } }</code></td>
+<td>Greater than or equal to (short form) - The date is after or equal to April 1, 2016</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;$timestamp&quot;: { &quot;$greaterThan&quot;: 1463585225 } }</code></td>
+<td>The date is before December 31, 2020</td>
+</tr>
+</tbody></table>
+
+<h3 id="filtering-drop-down">Filtering Drop Down</h3>
+
+<p>Filtering drop downs use similar filters to string types</p>
+
+<table><thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: &quot;first&quot; }</code></td>
+<td>Exact match - The <code class="prettyprint">edition</code> matches the value exactly</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: { &quot;$contains&quot;: &quot;irst&quot; } }</code></td>
+<td>Pattern match - The <code class="prettyprint">edition</code> contains the value &ldquo;irst&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: { &quot;$startsWith&quot;: &quot;fir&quot; } }</code></td>
+<td>The <code class="prettyprint">edition</code> starts with &ldquo;fir&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: { &quot;$endsWith&quot;: &quot;st&quot; } }</code></td>
+<td>The <code class="prettyprint">edition</code> ends with &ldquo;st&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: { &quot;$startsWith: &quot;fir&quot;, endsWith: &quot;st&quot; } }</code></td>
+<td>Multiple conditions - The <code class="prettyprint">edition</code> starts with &ldquo;fir&rdquo; and ends with &ldquo;st&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: [ &quot;first&quot;, &quot;second&quot; ] }</code></td>
+<td>The <code class="prettyprint">edition</code> is one of the items in the array</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: { $not: [ &quot;third&quot;, &quot;fourth&quot; ] } }</code></td>
+<td>The <code class="prettyprint">edition</code> is <strong>not</strong> one of the items in the array</td>
+</tr>
+</tbody></table>
+
+<h3 id="filtering-checklist">Filtering Checklist</h3>
+
+<p>Filtering checklists use similar filters to string types, and will only return values if they are checked</p>
+
+<table><thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: &quot;first&quot; }</code></td>
+<td>Exact match - The <code class="prettyprint">edition</code> matches the value exactly</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: { &quot;$contains&quot;: &quot;irst&quot; } }</code></td>
+<td>Pattern match - The <code class="prettyprint">edition</code> contains the value &ldquo;irst&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: { &quot;$startsWith&quot;: &quot;fir&quot; } }</code></td>
+<td>The <code class="prettyprint">edition</code> starts with &ldquo;fir&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: { &quot;$endsWith&quot;: &quot;st&quot; } }</code></td>
+<td>The <code class="prettyprint">edition</code> ends with &ldquo;st&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: { &quot;$startsWith: &quot;fir&quot;, endsWith: &quot;st&quot; } }</code></td>
+<td>Multiple conditions - The <code class="prettyprint">edition</code> starts with &ldquo;fir&rdquo; and ends with &ldquo;st&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: [ &quot;first&quot;, &quot;second&quot; ] }</code></td>
+<td>The <code class="prettyprint">edition</code> is one of the items in the array</td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;edition&quot;: { $not: [ &quot;third&quot;, &quot;fourth&quot; ] } }</code></td>
+<td>The <code class="prettyprint">edition</code> is <strong>not</strong> one of the items in the array</td>
+</tr>
+</tbody></table>
+
+<h3 id="filtering-switches">Filtering Switches</h3>
+
+<table><thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">{ &quot;available&quot;: true }</code></td>
+<td>Exact match - <code class="prettyprint">available</code> is <code class="prettyprint">true</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">{ &quot;hardcover&quot;: false }</code></td>
+<td>Exact match - <code class="prettyprint">hardcover</code> is <code class="prettyprint">false</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="filter-image-picker">Filter Image Picker</h3>
+
+<p>Filtering for images has not been implemented. Filtering, based on whether or not an image has been set, will be implemented soon.</p>
+
+<h3 id="filtering-files">Filtering Files</h3>
+
+<p>Filtering for files has not been implemented. Filtering, based on whether or not a file has been set, will be implemented soon.</p>
+
+<h3 id="filtering-groups">Filtering Groups</h3>
+
+<p>Filtering within a group, either non-repeatable or repeatable, is not implemented.</p>
+
+<h2 id="errors">Errors</h2>
+
+<blockquote>
+<p>Example Error Response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single Item or API key issue"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single Item with the slug about-uss could not be found or API key does not have the appropriate permissions"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>While interacting with Elemeno API you may encounter errors. Below is a list of the most common error status codes and their meanings:</p>
 
 <table><thead>
 <tr>
@@ -291,58 +1371,42 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td>Bad Request &ndash; Something was wrong with your request. The error message will provide more details.</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Unauthorized &ndash; The API Key provided does not have access to the resource requested.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
+<td>Not Found &ndash; The resource requested could not be found. This could mean the item doesn&rsquo;t exist, or that it&rsquo;s simply not published.</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests &ndash; You have exceeded the request limit for your project&rsquo;s current plan.</td>
 </tr>
 <tr>
 <td>500</td>
 <td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="http">http</a>
           </div>
       </div>
     </div>
   </body>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74611340-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </html>
