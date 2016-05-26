@@ -1,5 +1,5 @@
 
-The Elemeno Docs are built with [Slate](https://tripit.github.io/slate/)
+The Elemeno Docs site is built with [Slate](https://tripit.github.io/slate/)
 
 Getting Started with Elemeno Docs
 ------------------------------
