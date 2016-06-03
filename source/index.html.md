@@ -371,15 +371,15 @@ Authorization: YOUR-API-KEY-HERE
 			"dateCreated": "2016-04-26T13:18:56.704Z",
 			"dateUpdated": "2016-04-29T15:59:26.276Z",
 			"links": {
-				"self": "http://api.elemeno.dev/v1/singles/about-us"
+				"self": "https://api.elemeno.io/v1/singles/about-us"
 			}
 		},
 		...
 	],
 	"links": {
-		"self": "http://api.elemeno.dev/v1/singles?page=1&size=50",
-		"first": "http://api.elemeno.dev/v1/singles?page=1&size=50",
-		"last": "http://api.elemeno.dev/v1/singles?page=1&size=50",
+		"self": "https://api.elemeno.io/v1/singles?page=1&size=50",
+		"first": "https://api.elemeno.io/v1/singles?page=1&size=50",
+		"last": "https://api.elemeno.io/v1/singles?page=1&size=50",
 		"next": null,
 		"prev": null
 	},
@@ -417,7 +417,7 @@ Authorization: YOUR-API-KEY-HERE
         }
     },
     "links": {
-        "self": "http://api.elemeno.dev/v1/singles/about-us"
+        "self": "https://api.elemeno.io/v1/singles/about-us"
     },
     "meta": {
         "totalRecords": 1
@@ -450,16 +450,16 @@ Authorization: YOUR-API-KEY-HERE
 			"dateCreated": "2016-05-12T14:10:00.162Z",
 			"dateUpdated": "2016-05-12T14:10:00.162Z",
 			"links": {
-				"self": "http://api.elemeno.dev/v1/collections/books",
-				"items": "http://api.elemeno.dev/v1/collections/books/items"
+				"self": "https://api.elemeno.io/v1/collections/books",
+				"items": "https://api.elemeno.io/v1/collections/books/items"
 			}
 		},
 		...
 	],
 	"links": {
-		"self": "http://api.elemeno.dev/v1/collections?page=1&size=50",
-		"first": "http://api.elemeno.dev/v1/collections?page=1&size=50",
-		"last": "http://api.elemeno.dev/v1/collections?page=1&size=50",
+		"self": "https://api.elemeno.io/v1/collections?page=1&size=50",
+		"first": "https://api.elemeno.io/v1/collections?page=1&size=50",
+		"last": "https://api.elemeno.io/v1/collections?page=1&size=50",
 		"next": null,
 		"prev": null
 	},
@@ -494,8 +494,8 @@ Authorization: YOUR-API-KEY-HERE
 		"dateCreated": "2016-05-12T14:10:00.162Z",
 		"dateUpdated": "2016-05-12T14:10:00.162Z",
 		"links": {
-			"self": "http://api.elemeno.dev/v1/collections/books",
-			"items": "http://api.elemeno.dev/v1/collections/books/items"
+			"self": "https://api.elemeno.io/v1/collections/books",
+			"items": "https://api.elemeno.io/v1/collections/books/items"
 		}
 	},
 	"meta": {
@@ -534,16 +534,16 @@ Authorization: YOUR-API-KEY-HERE
 				...
 			},
 			"links": {
-				"self": "http://api.elemeno.dev/v1/collections/books/items/the-adventures-of-tom-sawyer",
-				"collection": "http://api.elemeno.dev/v1/collections/books"
+				"self": "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer",
+				"collection": "https://api.elemeno.io/v1/collections/books"
 			}
 		},
 		...
 	],
 	"links": {
-		"self": "http://api.elemeno.dev/v1/collections/books/items?page=1&size=50",
-		"first": "http://api.elemeno.dev/v1/collections/books/items?page=1&size=50",
-		"last": "http://api.elemeno.dev/v1/collections/books/items?page=1&size=50",
+		"self": "https://api.elemeno.io/v1/collections/books/items?page=1&size=50",
+		"first": "https://api.elemeno.io/v1/collections/books/items?page=1&size=50",
+		"last": "https://api.elemeno.io/v1/collections/books/items?page=1&size=50",
 		"next": null,
 		"prev": null
 	},
@@ -601,8 +601,8 @@ Authorization: YOUR-API-KEY-HERE
 			...
 		},
 		"links": {
-			"self": "http://api.elemeno.dev/v1/books/items/the-adventures-of-tom-sawyer",
-			"collection": "http://api.elemeno.dev/v1/books"
+			"self": "https://api.elemeno.io/v1/books/items/the-adventures-of-tom-sawyer",
+			"collection": "https://api.elemeno.io/v1/books"
 		}
 	},
 	"meta": {
@@ -643,8 +643,8 @@ Authorization: YOUR-API-KEY-HERE
 				...
 			},
 			"links": {
-				"self": "http://api.elemeno.dev/v1/collections/books/items/the-adventures-of-tom-sawyer",
-				"collection": "http://api.elemeno.dev/v1/collections/books"
+				"self": "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer",
+				"collection": "https://api.elemeno.io/v1/collections/books"
 			}
 		},
 		{
@@ -660,8 +660,8 @@ Authorization: YOUR-API-KEY-HERE
 				...
 			},
 			"links": {
-				"self": "http://api.elemeno.dev/v1/collections/books/items/alices-adventures-in-wonderland",
-				"collection": "http://api.elemeno.dev/v1/collections/books"
+				"self": "https://api.elemeno.io/v1/collections/books/items/alices-adventures-in-wonderland",
+				"collection": "https://api.elemeno.io/v1/collections/books"
 			}
 		}
 	],
