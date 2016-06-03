@@ -556,10 +556,10 @@ Authorization: YOUR-API-KEY-HERE
 
 To access the items within a specific Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items`. This will return an array of published Items from the specified Collection. If there are many Items in a Collection, the results will split into multiple pages. You can request a specific page, and a specific number of items per page using query parameters.
 
-> Requesting a specific page of results with a custom limit:
+> Requesting a specific page of results with a custom size:
 
 ```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items?page=2;limit=20 HTTP/1.1
+GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items?page=2;size=20 HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
@@ -570,9 +570,9 @@ Supported Query Parameter
 Parameter | Description
 --------- | -----------
 page | the page number you are requesting
-limit | the number of items to be returned per page (Min: 1, Max: 100, Default: 50)
+size | the number of items to be returned per page (Min: 1, Max: 100, Default: 50)
 
-For example, if your collection had 210 published items and you requested a `limit` of 20 items per page, there would be 11 pages of results but the last page would only contain 10 items.
+For example, if your collection had 210 published items and you requested a `size` of 20 items per page, there would be 11 pages of results but the last page would only contain 10 items.
 
 ## Collection Item
 
