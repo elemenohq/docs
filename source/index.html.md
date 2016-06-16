@@ -226,7 +226,7 @@ The Switch field is a simple on/off switch that represents a boolean value. The 
 	"coverImage": {
 		"dateCreated": "2016-05-12T14:10:09.539Z",
 		"dateUpdated": "2016-05-12T14:10:09.539Z",
-		"label": "Tom Sawyer Cover Image",
+		"title": "Tom Sawyer Cover Image",
 		"fileSize": "887126",
 		"mimeType": "image/jpeg",
 		"metaData": {
@@ -293,7 +293,7 @@ Crop Type: cover | The image will be resized so the entire area defined by the d
 	"digitalDownload": {
     	"dateCreated": "2016-05-11T14:05:50.917Z",
 		"dateUpdated": "2016-05-11T14:05:50.917Z",
-		"label": "Tom Sawyer PDF",
+		"title": "Tom Sawyer PDF",
 		"fileSize": "6553600",
 		"mimeType": "text/pdf",
 		"metaData": null,
@@ -366,7 +366,7 @@ Authorization: YOUR-API-KEY-HERE
 		{
 			"id": "6e30f490-0bb1-11e6-900b-7f6d43d3f6e0",
 			"slug": "about-us",
-			"label": "About Us",
+			"title": "About Us",
 			"projectId": "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
 			"dateCreated": "2016-04-26T13:18:56.704Z",
 			"dateUpdated": "2016-04-29T15:59:26.276Z",
@@ -445,7 +445,7 @@ Authorization: YOUR-API-KEY-HERE
 		{
 			"id": "fe4f04c2-1b6a-11e6-9883-ab6703adb701",
 			"slug": "books",
-			"label": "Books",
+			"title": "Books",
 			"projectId": "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
 			"dateCreated": "2016-05-12T14:10:00.162Z",
 			"dateUpdated": "2016-05-12T14:10:00.162Z",
@@ -489,7 +489,7 @@ Authorization: YOUR-API-KEY-HERE
 	"data": {
 		"id": "fe4f04c2-1b6a-11e6-9883-ab6703adb701",
 		"slug": "books",
-		"label": "Books",
+		"title": "Books",
 		"projectId": "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
 		"dateCreated": "2016-05-12T14:10:00.162Z",
 		"dateUpdated": "2016-05-12T14:10:00.162Z",
