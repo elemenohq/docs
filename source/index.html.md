@@ -410,7 +410,8 @@ Authorization: YOUR-API-KEY-HERE
         "id": "6e30f490-0bb1-11e6-900b-7f6d43d3f6e0",
         "slug": "about-us",
         "title": "About Us",
-        "dateCreated": "2016-05-10T12:59:48.699Z",
+        "dateUpdated": "2016-05-10T12:59:48.699Z",
+        "datePublished": "2016-05-11T14:23:13.452Z",
         "content": {
             "headline": "The Best Books!",
             ...
@@ -525,7 +526,8 @@ Authorization: YOUR-API-KEY-HERE
 			"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
 			"slug": "the-adventures-of-tom-sawyer",
 			"title": "The Adventures of Tom Sawyer",
-			"dateCreated": "2016-05-12T14:10:00.102Z",
+			"dateUpdated": "2016-05-12T14:10:00.102Z",
+			"datePublished": "2016-05-14T13:14:45.254Z",
 			"content": {
 				"description": {
 					"markdown": "The Adventures of Tom Sawyer by **Mark Twain** is an 1876 novel...",
@@ -592,7 +594,8 @@ Authorization: YOUR-API-KEY-HERE
 		"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
 		"slug": "the-adventures-of-tom-sawyer",
 		"title": "The Adventures of Tom Sawyer",
-		"dateCreated": "2016-05-16T13:53:39.102Z",
+		"dateUpdated": "2016-05-16T13:53:39.102Z",
+		"datePublished": "2016-05-16T13:55:35.234Z",
 		"content": {
 			"description": {
 				"markdown": "The Adventures of Tom Sawyer by **Mark Twain** is an 1876 novel...",
@@ -615,6 +618,48 @@ To access a specific item from your Collection, send a `GET` request to `/v1/col
 
 You can also access an Item via its ID by using the `byID` query parameter. This would look something like: `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-ID-HERE?byID=true`
 
+## Sorting
+
+> Sorting Singles
+
+```http
+GET /v1/singles/YOUR-SINGLE-SLUG-HERE?sort={"$dateUpdated":"ASC"} HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+> Sorting Collections
+
+```http
+GET /v1/collections/YOUR-COLLECTION-SLUG-HERE?sort={"$dateUpdated":"DESC"} HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+> Sorting Items
+
+```http
+GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE?sort={"$dateUpdated":"ASC"} HTTP/1.1
+Host: api.elemeno.io
+Accept: application/json
+Authorization: YOUR-API-KEY-HERE
+```
+
+By default, content is ordered by `dateUpdated` in reverse chronological order (newer stuff first). If you want to return content in a different order, you can use a sort parameter.
+
+For example, to sort Items within a specific Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={"$dateUpdated":"ASC"}`.
+
+Sort Keyword | Description
+-------------- | -----
+`$dateUpdated` |  This keyword will let you sort by the date updated
+
+Sort Value | Description
+-------------- | -----
+`ASC` |  Short for ascendening - content will be returned in an ascending order
+`DESC` |  Short for descending - content will be returned in a descending order
+
 ## Filtering
 
 ```http
@@ -634,7 +679,8 @@ Authorization: YOUR-API-KEY-HERE
 			"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
 			"slug": "the-adventures-of-tom-sawyer",
 			"title": "The Adventures of Tom Sawyer",
-			"dateCreated": "2016-05-12T14:10:00.102Z",
+			"dateUpdated": "2016-05-12T14:10:00.102Z",
+			"datePublished": "2016-05-12T15:11:00.342Z",
 			"content": {
 				"description": {
 					"markdown": "The Adventures of Tom Sawyer by **Mark Twain** is a novel written in 1876...",
@@ -684,8 +730,8 @@ Title and (creation) date are stored differently than the rest of your content. 
 Filter Keyword | Meaning
 -------------- | -------
 `$title` | This keyword will allow you to filter by your title, regardless if it has been renamed. If was renamed, you can additionally use that name
-`$date` | This keyword will allow you to filter by the date created using a standard date format - This should be a string value
-`$timestamp` | This keyword will allow you to filter by the date created using the UNIX epoch format (e.g. 1463585225) - This should be a numeric value
+`$dateUpdated` | This keyword will allow you to filter by the date updated using a standard date format - This should be a string value
+`$timestampUpdated` | This keyword will allow you to filter by the date updated using the UNIX epoch format (e.g. 1463585225) - This should be a numeric value
 
 ### Filter Operators
 
@@ -708,7 +754,7 @@ Filter Keyword | Usage
 
 It is possible to chain multiple filters. To do this, simply add them to an object:
 
-`{ "$title": { "$contains": "Adventure" }, "$date": { ">" : "2016-01-01", "lessThanOrEqual": "2020-12-31" } }`
+`{ "$title": { "$contains": "Adventure" }, "$dateUpdated": { ">" : "2016-01-01", "lessThanOrEqual": "2020-12-31" } }`
 
 ### Filtering Strings
 
@@ -732,30 +778,31 @@ Filter | Description
 ------ | -----------
 `{ "price": 25.5 }` | Exact match - The price matches the value exactly
 `{ "price": { "$lessThan": 30 } }` | The price is less than 30
-`{ "price": { ">": 30" } }` | Less than (short form) - The price is less than 30
+`{ "price": { "<": 30" } }` | Less than (short form) - The price is less than 30
 `{ "price": { "$lessThanOrEqual": 30 } }` | The price is less than or equal to 30
-`{ "price": { ">=": 30 } }` | Less than or equal to (short form) - The price is less than or equal to 30
+`{ "price": { "<=": 30 } }` | Less than or equal to (short form) - The price is less than or equal to 30
 `{ "price": { "$greaterThan": 20 } }` | The price is greater than 20
-`{ "price": { "<": 20 } }` | Greater than (short form) - The price is greater than 20
+`{ "price": { ">": 20 } }` | Greater than (short form) - The price is greater than 20
 `{ "price": { "$greaterThanOrEqual": 20 } }` | The price is greater than or equal to 20
-`{ "price": { "<=": 20 } }` | Greater than or equal to (short form) - The price is greater than or equal to 20
+`{ "price": { ">=": 20 } }` | Greater than or equal to (short form) - The price is greater than or equal to 20
 
 ### Filtering Dates
 
-Inputs that result in date values, `$date`, `$timestamp`, `Date and Time`, may use the following filters:
+Inputs that result in date values, `$dateUpdated`, `$timestampUpdated`, `Date and Time`, may use the following filters:
 
 Filter | Description
 ------ | -----------
-`{ "$date": "2016-04-01" }` | Exact match - The date matches the value exactly
-`{ "$date": { "$lessThan": "2020-12-31" } }` | The date is before December 31, 2020
-`{ "$date": { ">": "2020-12-31" } }` | Less than (short form) - The date is before December 31, 2020
-`{ "$date": { "$lessThanOrEqual": "2020-12-31" } }` | The date is before or equal to December 31, 2020
-`{ "$date": { ">=": "2020-12-31" } }` | Less than or equal to (short form) - The date is before or equal to December 31, 2020
-`{ "$date": { "$greaterThan": "2016-04-01" } }` | The date is after April 1, 2016
-`{ "$date": { "<": "2016-04-01" } }` | Greater than (short form) - The date is after April 1, 2016
-`{ "$date": { "$greaterThanOrEqual": "2016-04-01" } }` | The date is after or equal to April 1, 2016
-`{ "$date": { ">=": "2016-04-01" } }` | Greater than or equal to (short form) - The date is after or equal to April 1, 2016
-`{ "$timestamp": { "$greaterThan": 1463585225 } }` | The date is before December 31, 2020
+`{ "$dateUpdated": "2016-04-01" }` | Exact match - The date matches the value exactly
+`{ "$dateUpdated": { "$lessThan": "2020-12-31" } }` | The date is before December 31, 2020
+`{ "$dateUpdated": { ">": "2020-12-31" } }` | Less than (short form) - The date is before December 31, 2020
+`{ "$dateUpdated": { "$lessThanOrEqual": "2020-12-31" } }` | The date is before or equal to December 31, 2020
+`{ "$dateUpdated": { ">=": "2020-12-31" } }` | Less than or equal to (short form) - The date is before or equal to December 31, 2020
+`{ "$dateUpdated": { "$greaterThan": "2016-04-01" } }` | The date is after April 1, 2016
+`{ "$dateUpdated": { "<": "2016-04-01" } }` | Greater than (short form) - The date is after April 1, 2016
+`{ "$dateUpdated": { "$greaterThanOrEqual": "2016-04-01" } }` | The date is after or equal to April 1, 2016
+`{ "$dateUpdated": { "<=": "2016-04-01" } }` | Greater than or equal to (short form) - The date is after or equal to April 1, 2016
+`{ "$timestampUpdated": { "$greaterThan": 1459526400 } }` | The date is after April 1, 2016
+`{ "$timestampUpdated": { "$lessThan": 1609434000 } }` | The date is before December 31, 2020
 
 ### Filtering Drop Down
 
@@ -799,7 +846,6 @@ Filtering for images has not been implemented. Filtering, based on whether or no
 ### Filtering Files
 
 Filtering for files has not been implemented. Filtering, based on whether or not a file has been set, will be implemented soon.
-
 
 ### Filtering Groups
 
