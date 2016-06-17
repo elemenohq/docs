@@ -778,13 +778,13 @@ Filter | Description
 ------ | -----------
 `{ "price": 25.5 }` | Exact match - The price matches the value exactly
 `{ "price": { "$lessThan": 30 } }` | The price is less than 30
-`{ "price": { ">": 30" } }` | Less than (short form) - The price is less than 30
+`{ "price": { "<": 30" } }` | Less than (short form) - The price is less than 30
 `{ "price": { "$lessThanOrEqual": 30 } }` | The price is less than or equal to 30
-`{ "price": { ">=": 30 } }` | Less than or equal to (short form) - The price is less than or equal to 30
+`{ "price": { "<=": 30 } }` | Less than or equal to (short form) - The price is less than or equal to 30
 `{ "price": { "$greaterThan": 20 } }` | The price is greater than 20
-`{ "price": { "<": 20 } }` | Greater than (short form) - The price is greater than 20
+`{ "price": { ">": 20 } }` | Greater than (short form) - The price is greater than 20
 `{ "price": { "$greaterThanOrEqual": 20 } }` | The price is greater than or equal to 20
-`{ "price": { "<=": 20 } }` | Greater than or equal to (short form) - The price is greater than or equal to 20
+`{ "price": { ">=": 20 } }` | Greater than or equal to (short form) - The price is greater than or equal to 20
 
 ### Filtering Dates
 
@@ -800,7 +800,7 @@ Filter | Description
 `{ "$dateUpdated": { "$greaterThan": "2016-04-01" } }` | The date is after April 1, 2016
 `{ "$dateUpdated": { "<": "2016-04-01" } }` | Greater than (short form) - The date is after April 1, 2016
 `{ "$dateUpdated": { "$greaterThanOrEqual": "2016-04-01" } }` | The date is after or equal to April 1, 2016
-`{ "$dateUpdated": { ">=": "2016-04-01" } }` | Greater than or equal to (short form) - The date is after or equal to April 1, 2016
+`{ "$dateUpdated": { "<=": "2016-04-01" } }` | Greater than or equal to (short form) - The date is after or equal to April 1, 2016
 `{ "$timestampUpdated": { "$greaterThan": 1459526400 } }` | The date is after April 1, 2016
 `{ "$timestampUpdated": { "$lessThan": 1609434000 } }` | The date is before December 31, 2020
 
@@ -846,7 +846,6 @@ Filtering for images has not been implemented. Filtering, based on whether or no
 ### Filtering Files
 
 Filtering for files has not been implemented. Filtering, based on whether or not a file has been set, will be implemented soon.
-
 
 ### Filtering Groups
 
