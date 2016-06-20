@@ -11,7 +11,7 @@ search: false
 
 # Introduction
 
-Elemeno is a content manangement platform that lets you create and manage content and deliver it to any device using a RESTful API.
+Elemeno is a content management platform that lets you create and manage content and deliver it to any device using a RESTful API.
 
 # Single Items
 
