@@ -731,7 +731,9 @@ Filter Keyword | Meaning
 -------------- | -------
 `$title` | This keyword will allow you to filter by your title, regardless if it has been renamed. If was renamed, you can additionally use that name
 `$dateUpdated` | This keyword will allow you to filter by the date updated using a standard date format - This should be a string value
+`$datePublished` | This keyword will allow you to filter by the date published using a standard date format - This should be a string value
 `$timestampUpdated` | This keyword will allow you to filter by the date updated using the UNIX epoch format (e.g. 1463585225) - This should be a numeric value
+`$timestampPublished` | This keyword will allow you to filter by the date published using the UNIX epoch format (e.g. 1463585225) - This should be a numeric value
 
 ### Filter Operators
 
@@ -788,21 +790,21 @@ Filter | Description
 
 ### Filtering Dates
 
-Inputs that result in date values, `$dateUpdated`, `$timestampUpdated`, `Date and Time`, may use the following filters:
+Inputs that result in date values, `$dateUpdated`, `$datePublished`, `$timestampUpdated`,`$timestampPublished`, `Date and Time`, may use the following filters. All dates provided must be UTC:
 
 Filter | Description
 ------ | -----------
 `{ "$dateUpdated": "2016-04-01" }` | Exact match - The date matches the value exactly
-`{ "$dateUpdated": { "$lessThan": "2020-12-31" } }` | The date is before December 31, 2020
-`{ "$dateUpdated": { ">": "2020-12-31" } }` | Less than (short form) - The date is before December 31, 2020
-`{ "$dateUpdated": { "$lessThanOrEqual": "2020-12-31" } }` | The date is before or equal to December 31, 2020
-`{ "$dateUpdated": { ">=": "2020-12-31" } }` | Less than or equal to (short form) - The date is before or equal to December 31, 2020
-`{ "$dateUpdated": { "$greaterThan": "2016-04-01" } }` | The date is after April 1, 2016
-`{ "$dateUpdated": { "<": "2016-04-01" } }` | Greater than (short form) - The date is after April 1, 2016
-`{ "$dateUpdated": { "$greaterThanOrEqual": "2016-04-01" } }` | The date is after or equal to April 1, 2016
-`{ "$dateUpdated": { "<=": "2016-04-01" } }` | Greater than or equal to (short form) - The date is after or equal to April 1, 2016
-`{ "$timestampUpdated": { "$greaterThan": 1459526400 } }` | The date is after April 1, 2016
-`{ "$timestampUpdated": { "$lessThan": 1609434000 } }` | The date is before December 31, 2020
+`{ "$dateUpdated": { "$lessThan": "2020-12-31" } }` | The date is before December 31, 2020 UTC
+`{ "$dateUpdated": { "<": "2020-12-31" } }` | Less than (short form) - The date is before December 31, 2020 UTC
+`{ "$dateUpdated": { "$lessThanOrEqual": "2020-12-31" } }` | The date is before or equal to December 31, 2020 UTC
+`{ "$dateUpdated": { "<=": "2020-12-31" } }` | Less than or equal to (short form) - The date is before or equal to December 31, 2020 UTC
+`{ "$datePublished": { "$greaterThan": "2016-04-01" } }` | The date is after April 1, 2016 UTC
+`{ "$datePublished": { ">": "2016-04-01" } }` | Greater than (short form) - The date is after April 1, 2016 UTC
+`{ "$datePublished": { "$greaterThanOrEqual": "2016-04-01" } }` | The date is after or equal to April 1, 2016 UTC
+`{ "$datePublished": { ">=": "2016-04-01" } }` | Greater than or equal to (short form) - The date is after or equal to April 1, 2016 UTC
+`{ "$timestampUpdated": { "$greaterThan": 1459526400 } }` | The date is after April 1, 2016 UTC
+`{ "$timestampPublished": { "$lessThan": 1609434000 } }` | The date is before December 31, 2020 UTC
 
 ### Filtering Drop Down
 
@@ -874,3 +876,34 @@ Error Code | Meaning
 404 | Not Found -- The resource requested could not be found. This could mean the item doesn't exist, or that it's simply not published.
 429 | Too Many Requests -- You have exceeded the request limit for your project's current plan.
 500 | Internal Server Error -- We had a problem with our server. Try again later.
+
+
+# Webhooks
+
+A Webhook is an HTTP POST that occurs when certain events happen. In Elemeno, you can set up a Webhook to fire when a content item is published, unpublished, or deleted. To do this, go to the Settings screen and create a new Webhook with a name and a URL. You can register multiple Webhooks for different tasks. When a content item is published, unpublished, or deleted, the destination URL will be POSTed with a request.
+
+## Webhook Events
+
+> Example POST Request (to the destination URL):
+
+```json
+{
+  "event": "collection.item.published",
+  "id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+  "link": "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer"
+}
+```
+
+Event | Description
+----- | -----------
+`single.item.publish` | Occurs when a single item is published
+`single.item.unpublish` | Occurs when a single item is unpublished
+`single.item.delete` | Occurs when a single item is deleted
+`collection.item.publish` | Occurs when a collection item is published
+`collection.item.unpublish` | Occurs when a collection item is unpublished
+`collection.item.delete` | Occurs when a collection item is deleted
+
+
+## Retry Strategy
+
+If a Webhook does not receive a successful response from the destination server, it will be attempted until a successful response is received, once per hour, for up to 3 days. A successful response is one that returns a `2xx` status code. All other status codes, including `3xx`, `4xx`, and `5xx` codes will not allow the Webhook to resolve. Elemeno reserves the right to remove any Webhooks that are being used incorrectly or constantly failing.
