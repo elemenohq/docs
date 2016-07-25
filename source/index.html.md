@@ -790,21 +790,21 @@ Filter | Description
 
 ### Filtering Dates
 
-Inputs that result in date values, `$dateUpdated`, `$datePublished`, `$timestampUpdated`,`$timestampPublished`, `Date and Time`, may use the following filters:
+Inputs that result in date values, `$dateUpdated`, `$datePublished`, `$timestampUpdated`,`$timestampPublished`, `Date and Time`, may use the following filters. All dates provided must be UTC:
 
 Filter | Description
 ------ | -----------
 `{ "$dateUpdated": "2016-04-01" }` | Exact match - The date matches the value exactly
-`{ "$dateUpdated": { "$lessThan": "2020-12-31" } }` | The date is before December 31, 2020
-`{ "$dateUpdated": { ">": "2020-12-31" } }` | Less than (short form) - The date is before December 31, 2020
-`{ "$dateUpdated": { "$lessThanOrEqual": "2020-12-31" } }` | The date is before or equal to December 31, 2020
-`{ "$dateUpdated": { ">=": "2020-12-31" } }` | Less than or equal to (short form) - The date is before or equal to December 31, 2020
-`{ "$datePublished": { "$greaterThan": "2016-04-01" } }` | The date is after April 1, 2016
-`{ "$datePublished": { "<": "2016-04-01" } }` | Greater than (short form) - The date is after April 1, 2016
-`{ "$datePublished": { "$greaterThanOrEqual": "2016-04-01" } }` | The date is after or equal to April 1, 2016
-`{ "$datePublished": { "<=": "2016-04-01" } }` | Greater than or equal to (short form) - The date is after or equal to April 1, 2016
-`{ "$timestampUpdated": { "$greaterThan": 1459526400 } }` | The date is after April 1, 2016
-`{ "$timestampPublished": { "$lessThan": 1609434000 } }` | The date is before December 31, 2020
+`{ "$dateUpdated": { "$lessThan": "2020-12-31" } }` | The date is before December 31, 2020 UTC
+`{ "$dateUpdated": { "<": "2020-12-31" } }` | Less than (short form) - The date is before December 31, 2020 UTC
+`{ "$dateUpdated": { "$lessThanOrEqual": "2020-12-31" } }` | The date is before or equal to December 31, 2020 UTC
+`{ "$dateUpdated": { "<=": "2020-12-31" } }` | Less than or equal to (short form) - The date is before or equal to December 31, 2020 UTC
+`{ "$datePublished": { "$greaterThan": "2016-04-01" } }` | The date is after April 1, 2016 UTC
+`{ "$datePublished": { ">": "2016-04-01" } }` | Greater than (short form) - The date is after April 1, 2016 UTC
+`{ "$datePublished": { "$greaterThanOrEqual": "2016-04-01" } }` | The date is after or equal to April 1, 2016 UTC
+`{ "$datePublished": { ">=": "2016-04-01" } }` | Greater than or equal to (short form) - The date is after or equal to April 1, 2016 UTC
+`{ "$timestampUpdated": { "$greaterThan": 1459526400 } }` | The date is after April 1, 2016 UTC
+`{ "$timestampPublished": { "$lessThan": 1609434000 } }` | The date is before December 31, 2020 UTC
 
 ### Filtering Drop Down
 
