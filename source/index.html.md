@@ -152,7 +152,6 @@ Name | Description
 Min Value | The minimum value the field will accept
 Max Value | The maximum value the field will accept
 
-
 ## Drop Down
 
 > API results for Drop Down fields will look something like:
@@ -173,7 +172,6 @@ Value | Description
 --------- | -----------
 label | This is the text displayed to the user for the selected option
 value | This hidden value associated with the selected option
-
 
 ## Check List
 
@@ -283,7 +281,6 @@ height | The height of the generated thumbnail in pixels
 Crop Type: contain | The image will be resized to fit within the dimensions specified. No cropping will occur.
 Crop Type: cover | The image will be resized so the entire area defined by the dimensions is covered by the image. Cropping will likely occur.
 
-
 ## File Picker
 
 > API results for File Picker fields will looks something like:
@@ -335,6 +332,9 @@ When using the Date and Time variation of the input, you are selecting a specifi
 
 The Elemeno API is a RESTful API accessed via HTTP. This means that you can access your content via simple, straightforward HTTP requests from any platform or device that can communicate via HTTP. We are building libraries for a variety of popular programming languages and frameworks which will make working with the API even easier.
 
+## Security
+
+The Elemeno API is available via SSL. All requests should be performed using the `https:` protocol, when possible.
 
 ## Authentication
 
@@ -346,7 +346,6 @@ Authorization: YOUR-API-KEY-HERE
 ```
 
 All requests to the API must include an API Key in an `Authorization` header. You can generate API Keys within the settings section of the Elemeno web app. We recommend generating a separate API Key for each of your websites and applications. For example, you might have a different API Key for your website, iOS application, Android application, and an Arduino prototype. This separation provides more security, finer grain control, and more visibility into which applications are making the most requests to the API.
-
 
 ## All Single Items
 
@@ -427,7 +426,6 @@ Authorization: YOUR-API-KEY-HERE
 ```
 
 To access a specific Single Item, send a `GET` request to `/v1/singles/YOUR-ITEM-SLUG-HERE`. This will return a Single Item object along with its content.
-
 
 ## All Collections
 ```http
@@ -632,7 +630,7 @@ Authorization: YOUR-API-KEY-HERE
 > Sorting Collections
 
 ```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE?sort={"$dateUpdated":"DESC"} HTTP/1.1
+GET /v1/collections/YOUR-COLLECTION-SLUG-HERE?sort={"$dateCreated":"DESC"} HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
@@ -641,24 +639,27 @@ Authorization: YOUR-API-KEY-HERE
 > Sorting Items
 
 ```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE?sort={"$dateUpdated":"ASC"} HTTP/1.1
+GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE?sort={"$datePublished":"DESC"} HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
 
-By default, content is ordered by `dateUpdated` in reverse chronological order (newer stuff first). If you want to return content in a different order, you can use a sort parameter.
+By default, content is ordered by `dateUpdated` in reverse chronological order (newer stuff first). If you would like to return content in a different order, you can use a sort parameter.
 
-For example, to sort Items within a specific Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={"$dateUpdated":"ASC"}`.
+For example: to sort Items within a specific Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={"$dateUpdated":"ASC"}`.
 
 Sort Keyword | Description
--------------- | -----
-`$dateUpdated` |  This keyword will let you sort by the date updated
+------------ | -----------
+`$dateUpdated` | This keyword will let you sort by the date the item was updated
+`$dateCreated` | This keyword will let you sort by the date created - **only for sorting Singles or Collections**
+`$datePublished` | This keyword will let you sort by the date published - **only for sorting Collection Items**
 
 Sort Value | Description
--------------- | -----
-`ASC` |  Short for ascendening - content will be returned in an ascending order
-`DESC` |  Short for descending - content will be returned in a descending order
+---------- | -----------
+`ASC` | Short for ascendening - content will be returned in an ascending order
+`DESC` | Short for descending - content will be returned in a descending order
+
 
 ## Filtering
 
