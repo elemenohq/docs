@@ -674,6 +674,10 @@
 
 <p>The Elemeno API is a RESTful API accessed via HTTP. This means that you can access your content via simple, straightforward HTTP requests from any platform or device that can communicate via HTTP. We are building libraries for a variety of popular programming languages and frameworks which will make working with the API even easier.</p>
 
+<h2 id="security">Security</h2>
+
+<p>The Elemeno API is available via SSL. All requests should be performed using the <code class="prettyprint">https:</code> protocol, when possible.</p>
+
 <h2 id="authentication">Authentication</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
@@ -966,7 +970,7 @@
 <blockquote>
 <p>Sorting Collections</p>
 </blockquote>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE?sort={"$dateUpdated":"DESC"}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE?sort={"$dateCreated":"DESC"}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
@@ -975,15 +979,15 @@
 <blockquote>
 <p>Sorting Items</p>
 </blockquote>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE?sort={"$dateUpdated":"ASC"}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE?sort={"$datePublished":"DESC"}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
 </code></pre>
 
-<p>By default, content is ordered by <code class="prettyprint">dateUpdated</code> in reverse chronological order (newer stuff first). If you want to return content in a different order, you can use a sort parameter.</p>
+<p>By default, content is ordered by <code class="prettyprint">dateUpdated</code> in reverse chronological order (newer stuff first). If you would like to return content in a different order, you can use a sort parameter.</p>
 
-<p>For example, to sort Items within a specific Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={&quot;$dateUpdated&quot;:&quot;ASC&quot;}</code>.</p>
+<p>For example: to sort Items within a specific Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={&quot;$dateUpdated&quot;:&quot;ASC&quot;}</code>.</p>
 
 <table><thead>
 <tr>
@@ -993,7 +997,15 @@
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">$dateUpdated</code></td>
-<td>This keyword will let you sort by the date updated</td>
+<td>This keyword will let you sort by the date the item was updated</td>
+</tr>
+<tr>
+<td><code class="prettyprint">$dateCreated</code></td>
+<td>This keyword will let you sort by the date created - <strong>only for sorting Singles or Collections</strong></td>
+</tr>
+<tr>
+<td><code class="prettyprint">$datePublished</code></td>
+<td>This keyword will let you sort by the date published - <strong>only for sorting Collection Items</strong></td>
 </tr>
 </tbody></table>
 
@@ -1093,8 +1105,16 @@ The `filters` parameter must be formatted as JSON and URL encoded
 <td>This keyword will allow you to filter by the date updated using a standard date format - This should be a string value</td>
 </tr>
 <tr>
+<td><code class="prettyprint">$datePublished</code></td>
+<td>This keyword will allow you to filter by the date published using a standard date format - This should be a string value</td>
+</tr>
+<tr>
 <td><code class="prettyprint">$timestampUpdated</code></td>
 <td>This keyword will allow you to filter by the date updated using the UNIX epoch format (e.g. 1463585225) - This should be a numeric value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">$timestampPublished</code></td>
+<td>This keyword will allow you to filter by the date published using the UNIX epoch format (e.g. 1463585225) - This should be a numeric value</td>
 </tr>
 </tbody></table>
 
@@ -1252,7 +1272,7 @@ The `filters` parameter must be formatted as JSON and URL encoded
 
 <h3 id="filtering-dates">Filtering Dates</h3>
 
-<p>Inputs that result in date values, <code class="prettyprint">$dateUpdated</code>, <code class="prettyprint">$timestampUpdated</code>, <code class="prettyprint">Date and Time</code>, may use the following filters:</p>
+<p>Inputs that result in date values, <code class="prettyprint">$dateUpdated</code>, <code class="prettyprint">$datePublished</code>, <code class="prettyprint">$timestampUpdated</code>,<code class="prettyprint">$timestampPublished</code>, <code class="prettyprint">Date and Time</code>, may use the following filters. All dates provided must be UTC:</p>
 
 <table><thead>
 <tr>
@@ -1266,43 +1286,43 @@ The `filters` parameter must be formatted as JSON and URL encoded
 </tr>
 <tr>
 <td><code class="prettyprint">{ &quot;$dateUpdated&quot;: { &quot;$lessThan&quot;: &quot;2020-12-31&quot; } }</code></td>
-<td>The date is before December 31, 2020</td>
+<td>The date is before December 31, 2020 UTC</td>
 </tr>
 <tr>
-<td><code class="prettyprint">{ &quot;$dateUpdated&quot;: { &quot;&gt;&quot;: &quot;2020-12-31&quot; } }</code></td>
-<td>Less than (short form) - The date is before December 31, 2020</td>
+<td><code class="prettyprint">{ &quot;$dateUpdated&quot;: { &quot;&lt;&quot;: &quot;2020-12-31&quot; } }</code></td>
+<td>Less than (short form) - The date is before December 31, 2020 UTC</td>
 </tr>
 <tr>
 <td><code class="prettyprint">{ &quot;$dateUpdated&quot;: { &quot;$lessThanOrEqual&quot;: &quot;2020-12-31&quot; } }</code></td>
-<td>The date is before or equal to December 31, 2020</td>
+<td>The date is before or equal to December 31, 2020 UTC</td>
 </tr>
 <tr>
-<td><code class="prettyprint">{ &quot;$dateUpdated&quot;: { &quot;&gt;=&quot;: &quot;2020-12-31&quot; } }</code></td>
-<td>Less than or equal to (short form) - The date is before or equal to December 31, 2020</td>
+<td><code class="prettyprint">{ &quot;$dateUpdated&quot;: { &quot;&lt;=&quot;: &quot;2020-12-31&quot; } }</code></td>
+<td>Less than or equal to (short form) - The date is before or equal to December 31, 2020 UTC</td>
 </tr>
 <tr>
-<td><code class="prettyprint">{ &quot;$dateUpdated&quot;: { &quot;$greaterThan&quot;: &quot;2016-04-01&quot; } }</code></td>
-<td>The date is after April 1, 2016</td>
+<td><code class="prettyprint">{ &quot;$datePublished&quot;: { &quot;$greaterThan&quot;: &quot;2016-04-01&quot; } }</code></td>
+<td>The date is after April 1, 2016 UTC</td>
 </tr>
 <tr>
-<td><code class="prettyprint">{ &quot;$dateUpdated&quot;: { &quot;&lt;&quot;: &quot;2016-04-01&quot; } }</code></td>
-<td>Greater than (short form) - The date is after April 1, 2016</td>
+<td><code class="prettyprint">{ &quot;$datePublished&quot;: { &quot;&gt;&quot;: &quot;2016-04-01&quot; } }</code></td>
+<td>Greater than (short form) - The date is after April 1, 2016 UTC</td>
 </tr>
 <tr>
-<td><code class="prettyprint">{ &quot;$dateUpdated&quot;: { &quot;$greaterThanOrEqual&quot;: &quot;2016-04-01&quot; } }</code></td>
-<td>The date is after or equal to April 1, 2016</td>
+<td><code class="prettyprint">{ &quot;$datePublished&quot;: { &quot;$greaterThanOrEqual&quot;: &quot;2016-04-01&quot; } }</code></td>
+<td>The date is after or equal to April 1, 2016 UTC</td>
 </tr>
 <tr>
-<td><code class="prettyprint">{ &quot;$dateUpdated&quot;: { &quot;&lt;=&quot;: &quot;2016-04-01&quot; } }</code></td>
-<td>Greater than or equal to (short form) - The date is after or equal to April 1, 2016</td>
+<td><code class="prettyprint">{ &quot;$datePublished&quot;: { &quot;&gt;=&quot;: &quot;2016-04-01&quot; } }</code></td>
+<td>Greater than or equal to (short form) - The date is after or equal to April 1, 2016 UTC</td>
 </tr>
 <tr>
 <td><code class="prettyprint">{ &quot;$timestampUpdated&quot;: { &quot;$greaterThan&quot;: 1459526400 } }</code></td>
-<td>The date is after April 1, 2016</td>
+<td>The date is after April 1, 2016 UTC</td>
 </tr>
 <tr>
-<td><code class="prettyprint">{ &quot;$timestampUpdated&quot;: { &quot;$lessThan&quot;: 1609434000 } }</code></td>
-<td>The date is before December 31, 2020</td>
+<td><code class="prettyprint">{ &quot;$timestampPublished&quot;: { &quot;$lessThan&quot;: 1609434000 } }</code></td>
+<td>The date is before December 31, 2020 UTC</td>
 </tr>
 </tbody></table>
 
@@ -1459,6 +1479,58 @@ The `filters` parameter must be formatted as JSON and URL encoded
 <td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
 </tr>
 </tbody></table>
+
+<h1 id="webhooks">Webhooks</h1>
+
+<p>A Webhook is an HTTP POST that occurs when certain events happen. In Elemeno, you can set up a Webhook to fire when a content item is published, unpublished, or deleted. To do this, go to the Settings screen and create a new Webhook with a name and a URL. You can register multiple Webhooks for different tasks. When a content item is published, unpublished, or deleted, the destination URL will be POSTed with a request.</p>
+
+<h2 id="webhook-events">Webhook Events</h2>
+
+<blockquote>
+<p>Example POST Request (to the destination URL):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection.item.published"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22e0c474-1b6b-11e6-aec3-d72ab41dc475"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">single.item.publish</code></td>
+<td>Occurs when a single item is published</td>
+</tr>
+<tr>
+<td><code class="prettyprint">single.item.unpublish</code></td>
+<td>Occurs when a single item is unpublished</td>
+</tr>
+<tr>
+<td><code class="prettyprint">single.item.delete</code></td>
+<td>Occurs when a single item is deleted</td>
+</tr>
+<tr>
+<td><code class="prettyprint">collection.item.publish</code></td>
+<td>Occurs when a collection item is published</td>
+</tr>
+<tr>
+<td><code class="prettyprint">collection.item.unpublish</code></td>
+<td>Occurs when a collection item is unpublished</td>
+</tr>
+<tr>
+<td><code class="prettyprint">collection.item.delete</code></td>
+<td>Occurs when a collection item is deleted</td>
+</tr>
+</tbody></table>
+
+<h2 id="retry-strategy">Retry Strategy</h2>
+
+<p>If a Webhook does not receive a successful response from the destination server, it will be attempted until a successful response is received, once per hour, for up to 3 days. A successful response is one that returns a <code class="prettyprint">2xx</code> status code. All other status codes, including <code class="prettyprint">3xx</code>, <code class="prettyprint">4xx</code>, and <code class="prettyprint">5xx</code> codes will not allow the Webhook to resolve. Elemeno reserves the right to remove any Webhooks that are being used incorrectly or constantly failing.</p>
 
       </div>
       <div class="dark-box">
