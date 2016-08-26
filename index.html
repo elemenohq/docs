@@ -685,7 +685,19 @@
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
 </code></pre>
 
-<p>All requests to the API must include an API Key in an <code class="prettyprint">Authorization</code> header. You can generate API Keys within the settings section of the Elemeno web app. We recommend generating a separate API Key for each of your websites and applications. For example, you might have a different API Key for your website, iOS application, Android application, and an Arduino prototype. This separation provides more security, finer grain control, and more visibility into which applications are making the most requests to the API.</p>
+<p>All requests to the API must include an API Key in an <code class="prettyprint">Authorization</code> header.</p>
+
+<h2 id="api-keys">API Keys</h2>
+
+<p>You can generate API Keys within the settings section of the Elemeno web app. We recommend generating a separate API Key for each of your websites and applications. For example, you might have a different API Key for your website, iOS application, Android application, and Arduino prototype. This separation provides more security, finer grain control, and more visibility into which applications are making the most requests to the API. API Keys have a <code class="prettyprint">type</code> setting that can be either Production or Staging.</p>
+
+<h3 id="production-keys">Production Keys</h3>
+
+<p>Production keys only have access to published content. This type of key is to be used with your live environment. Requests made with production keys are optimized for performance and will have reduced latency.</p>
+
+<h3 id="staging-keys">Staging Keys</h3>
+
+<p>Staging keys have access to both unpublished and published content. This type of key can be used during testing, or on a staging site, to preview content. Requests made with staging keys are not optimized for performance and will have slower response times.</p>
 
 <h2 id="all-single-items">All Single Items</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/singles</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
