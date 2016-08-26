@@ -345,7 +345,19 @@ Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
 
-All requests to the API must include an API Key in an `Authorization` header. You can generate API Keys within the settings section of the Elemeno web app. We recommend generating a separate API Key for each of your websites and applications. For example, you might have a different API Key for your website, iOS application, Android application, and an Arduino prototype. This separation provides more security, finer grain control, and more visibility into which applications are making the most requests to the API.
+All requests to the API must include an API Key in an `Authorization` header.
+
+## API Keys
+
+You can generate API Keys within the settings section of the Elemeno web app. We recommend generating a separate API Key for each of your websites and applications. For example, you might have a different API Key for your website, iOS application, Android application, and Arduino prototype. This separation provides more security, finer grain control, and more visibility into which applications are making the most requests to the API. API Keys have a `type` setting that can be either Production or Staging.
+
+### Production Keys
+
+Production keys only have access to published content. This type of key is to be used with your live environment. Requests made with production keys are optimized for performance and will have reduced latency.
+
+### Staging Keys
+
+Staging keys have access to both unpublished and published content. This type of key can be used during testing, or on a staging site, to preview content. Requests made with staging keys are not optimized for performance and will have slower response times.
 
 ## All Single Items
 
