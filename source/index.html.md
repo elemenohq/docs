@@ -900,6 +900,7 @@ Filtering relationships currently onlys supports filtering by id. IE: If a books
 Filter | Description
 ------ | -----------
 `{ "author": "2d50a6c0-96d8-11e6-b55a-af4571cd322c" }` | Exact match - The author id matches the value exactly
+`{ "author": ["2d50a6c0-96d8-11e6-b55a-af4571cd322c", "727a914a-9abe-11e6-a614-67f95ab6fa5b"] }` | In array - The author id matches one of the values from the array
 
 ### Filter Image Picker
 
