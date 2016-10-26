@@ -54,8 +54,8 @@ There are a variety of input types to choose from when defining your content mod
 ```json
 {
 	"author": {
-	  "name": "Mark Twain",
-	  "bio": "An American author and humorist ..."
+		"name": "Mark Twain",
+		"bio": "An American author and humorist ..."
 	}
 }
 ```
@@ -66,13 +66,13 @@ There are a variety of input types to choose from when defining your content mod
 {
 	"authors": [
 		{
-	  		"name": "Mark Twain",
-	  		"bio": "An American author and humorist ..."
-	  	},
-	  	{
-	  		"name": "Jane Austen",
-	  		"bio": "An English novelist ..."
-	  	}
+			"name": "Mark Twain",
+			"bio": "An American author and humorist ..."
+		},
+		{
+			"name": "Jane Austen",
+			"bio": "An English novelist ..."
+		}
 	]
 }
 ```
@@ -258,15 +258,15 @@ The Switch field is a simple on/off switch that represents a boolean value. The 
 				"GPSLongitude": null,
 				"GPSAltitudeRef": null,
 				"GPSAltitude": null
-        	}
-        },
+			}
+		},
 		"tags": [],
 		"imageUrl": "http://image.elemeno.io/full/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
 		"thumbnails": {
 			"small": "http://image.elemeno.io/cover/100/100/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
 			"large": "http://image.elemeno.io/contain/1000/1000/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"
 		}
-    }
+	}
 }
 ```
 
@@ -288,7 +288,7 @@ Crop Type: cover | The image will be resized so the entire area defined by the d
 ```json
 {
 	"digitalDownload": {
-    	"dateCreated": "2016-05-11T14:05:50.917Z",
+		"dateCreated": "2016-05-11T14:05:50.917Z",
 		"dateUpdated": "2016-05-11T14:05:50.917Z",
 		"title": "Tom Sawyer PDF",
 		"fileSize": "6553600",
@@ -308,9 +308,9 @@ The File Picker field allows you to upload a new file or select a one from your 
 
 ```json
 {
-  "dateOnly": "2016-05-12",
-  "timeOnly": "12:10",
-  "dateAndTime": "2016-05-12T16:10:00+00:00"
+	"dateOnly": "2016-05-12",
+	"timeOnly": "12:10",
+	"dateAndTime": "2016-05-12T16:10:00+00:00"
 }
 ```
 
@@ -327,6 +327,45 @@ Date and Time | Select a specific moment in time | May 12, 2016 12:10PM EDT
 ### Date and Time Variation
 When using the Date and Time variation of the input, you are selecting a specific moment in time. From the interface you will select a point in time based on your current time zone. From the API, Date and Time values will be returned in UTC (Coordinated Universal Time). If two different users in different time zone look at an item with a Date and Time field, they will see the moment in time converted to their local time zone. I.e., the value displayed will be different for each user, but the value will represent the same moment in time for each user.
 
+## Relationship
+
+> API results for Relationship fields will look something like:
+
+```json
+"data": {
+	"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+	"slug": "the-adventures-of-tom-sawyer",
+	"title": "The Adventures of Tom Sawyer",
+	"content" : {
+		...
+		"author": {
+			"id": "2d50a6c0-96d8-11e6-b55a-af4571cd322c",
+			"title": "Mark Twain",
+			"slug": "mark-twain",
+			"content": {
+				"bio": {
+					"markdown": "An American author and humorist ...",
+					"html": "<p>An American author and humorist ...</p>"
+				}
+			},
+			"dateCreated": "2016-05-12T14:10:10.678Z",
+			"dateUpdated": "2016-05-16T15:16:35.359Z",
+			"datePublished": "2016-05-16T15:16:35.359Z",
+			"published": true,
+			"links": {
+				"self": "https://api.elemeno.io/v1/collections/authors/items/mark-twain",
+				"collection": "https://api.elemeno.io/v1/collections/authors"
+			}
+		},
+		...
+	}
+	...
+}
+```
+
+The Relationship field allows you to include items from another collection within your content items. When creating the relationship field you select which collection your content model is related to, and the input field will allow you to quickly search for items within that collection. The results from the API will have the related item embedded within your content item. 
+
+For example you could have a collection of authors, and a collection of books. Each content item from the books collection could include a relationship to a content item from the authors collection. This allows you to easily create one-to-many, or many-to-many relationships between content models.
 
 # API
 
@@ -416,24 +455,24 @@ Authorization: YOUR-API-KEY-HERE
 
 ```json
 {
-    "status": "success",
-    "data": {
-        "id": "6e30f490-0bb1-11e6-900b-7f6d43d3f6e0",
-        "slug": "about-us",
-        "title": "About Us",
-        "dateUpdated": "2016-05-10T12:59:48.699Z",
-        "datePublished": "2016-05-11T14:23:13.452Z",
-        "content": {
-            "headline": "The Best Books!",
-            ...
-        }
-    },
-    "links": {
-        "self": "https://api.elemeno.io/v1/singles/about-us"
-    },
-    "meta": {
-        "totalRecords": 1
-    }
+	"status": "success",
+	"data": {
+		"id": "6e30f490-0bb1-11e6-900b-7f6d43d3f6e0",
+		"slug": "about-us",
+		"title": "About Us",
+		"dateUpdated": "2016-05-10T12:59:48.699Z",
+		"datePublished": "2016-05-11T14:23:13.452Z",
+		"content": {
+			"headline": "The Best Books!",
+			...
+		}
+	},
+	"links": {
+		"self": "https://api.elemeno.io/v1/singles/about-us"
+	},
+	"meta": {
+		"totalRecords": 1
+	}
 }
 ```
 
@@ -853,6 +892,15 @@ Filter | Description
 ------ | -----------
 `{ "available": true }` | Exact match - `available` is `true`
 `{ "hardcover": false }` | Exact match - `hardcover` is `false`
+
+### Filtering Relationships
+
+Filtering relationships currently onlys supports filtering by id. IE: If a books collection had a relationship to an authors collection, we could filter books by the author id.
+
+Filter | Description
+------ | -----------
+`{ "author": "2d50a6c0-96d8-11e6-b55a-af4571cd322c" }` | Exact match - The author id matches the value exactly
+`{ "author": ["2d50a6c0-96d8-11e6-b55a-af4571cd322c", "727a914a-9abe-11e6-a614-67f95ab6fa5b"] }` | In array - The author id matches one of the values from the array
 
 ### Filter Image Picker
 
