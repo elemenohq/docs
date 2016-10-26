@@ -329,7 +329,7 @@ When using the Date and Time variation of the input, you are selecting a specifi
 
 ## Relationship
 
-> API results for Relationship fields will looks something like:
+> API results for Relationship fields will look something like:
 
 ```json
 "data": {
@@ -340,7 +340,6 @@ When using the Date and Time variation of the input, you are selecting a specifi
 		...
 		"author": {
 			"id": "2d50a6c0-96d8-11e6-b55a-af4571cd322c",
-			"contentModelId": "f839ac8e-96d7-11e6-b55a-3f91fcfc4a77",
 			"title": "Mark Twain",
 			"slug": "mark-twain",
 			"content": {
@@ -354,7 +353,8 @@ When using the Date and Time variation of the input, you are selecting a specifi
 			"datePublished": "2016-05-16T15:16:35.359Z",
 			"published": true,
 			"links": {
-				"self": "http://api.elemeno.dev/v1/collections/authors/items/mark-twain"
+				"self": "https://api.elemeno.io/v1/collections/authors/items/mark-twain",
+				"collection": "https://api.elemeno.io/v1/collections/authors"
 			}
 		},
 		...
