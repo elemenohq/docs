@@ -224,7 +224,7 @@
       <script src="javascripts/all_nosearch.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;http&quot;]">
+  <body class="index" data-languages="[&quot;http&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -237,6 +237,7 @@
       </div>
         <div class="lang-selector">
               <a href="#" data-language-name="http">http</a>
+              <a href="#" data-language-name="javascript">javascript</a>
         </div>
       <div id="toc">
       </div>
@@ -724,8 +725,12 @@
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
 </code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
 
-<p>All requests to the API must include an API Key in an <code class="prettyprint">Authorization</code> header.</p>
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+</code></pre>
+
+<p>All requests to the API must include one of your project&rsquo;s API keys.</p>
 
 <h2 id="api-keys">API Keys</h2>
 
@@ -744,6 +749,14 @@
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getSingles</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -779,13 +792,21 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>To access a list of all published Single Items, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/singles</code>. This will return an array of Single Item objects.</p>
+<p>Retrieve an array of all Single Items.</p>
 
 <h2 id="specific-single-item">Specific Single Item</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/singles/YOUR-ITEM-SLUG-HERE</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getSingle</span><span class="p">(</span><span class="s1">'YOUR-ITEM-SLUG-HERE'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -813,13 +834,21 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>To access a specific Single Item, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/singles/YOUR-ITEM-SLUG-HERE</code>. This will return a Single Item object along with its content.</p>
+<p>Retrieve a specific Single Item along with its content.</p>
 
 <h2 id="all-collections">All Collections</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getCollections</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -856,13 +885,21 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>To access a list of all published Collections, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/</code>. This will return an array of Collection objects.</p>
+<p>Retrieve an array of all Collections.</p>
 
 <h2 id="specific-collection">Specific Collection</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getCollection</span><span class="p">(</span><span class="s1">'YOUR-COLLECTION-SLUG-HERE'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -888,13 +925,21 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>To access a specific Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE</code>. This will return a Collection object.</p>
+<p>Retrieve a specific Collection.</p>
 
 <h2 id="collection-items">Collection Items</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getCollectionItems</span><span class="p">(</span><span class="s1">'YOUR-COLLECTION-SLUG-HERE'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -937,7 +982,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>To access the items within a specific Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items</code>. This will return an array of published Items from the specified Collection. If there are many Items in a Collection, the results will split into multiple pages. You can request a specific page, and a specific number of items per page using query parameters.</p>
+<p>Retrieve an array of Items within a specific Collection. If there are many Items in a Collection, the results will split into multiple pages. You can request a specific page, and a specific number of items per page.</p>
 
 <blockquote>
 <p>Requesting a specific page of results with a custom size:</p>
@@ -946,6 +991,19 @@
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">page</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+    <span class="na">size</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">};</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getCollectionItems</span><span class="p">(</span><span class="s1">'YOUR-COLLECTION-SLUG-HERE'</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <p>Supported Query Parameter</p>
@@ -966,13 +1024,21 @@
 </tr>
 </tbody></table>
 
-<p>For example, if your collection had 210 published items and you requested a <code class="prettyprint">size</code> of 20 items per page, there would be 11 pages of results but the last page would only contain 10 items.</p>
+<p>For example, if your collection had 210 items and you requested a <code class="prettyprint">size</code> of 20 items per page, there would be 11 pages of results but the last page would only contain 10 items.</p>
 
 <h2 id="collection-item">Collection Item</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getCollectionItem</span><span class="p">(</span><span class="s1">'YOUR-COLLECTION-SLUG-HERE'</span><span class="p">,</span> <span class="s1">'YOUR-ITEM-SLUG-HERE'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -1004,9 +1070,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>To access a specific item from your Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE</code>.</p>
-
-<p>You can also access an Item via its ID by using the <code class="prettyprint">byID</code> query parameter. This would look something like: <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-ID-HERE?byID=true</code></p>
+<p>Retrieve a specific Item from your Collection using your item&rsquo;s slug. You can also retrieve an Item via its ID by setting the <code class="prettyprint">byID</code> option to <code class="prettyprint">true</code>.</p>
 
 <h2 id="sorting">Sorting</h2>
 
@@ -1018,6 +1082,20 @@
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
 </code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">sort</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">$dateUpdated</span><span class="p">:</span> <span class="s1">'ASC'</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getSingles</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
 
 <blockquote>
 <p>Sorting Collections</p>
@@ -1027,19 +1105,45 @@
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
 </code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">sort</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">$dateCreated</span><span class="p">:</span> <span class="s1">'DESC'</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getCollections</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
 
 <blockquote>
 <p>Sorting Items</p>
 </blockquote>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE?sort={"$datePublished":"DESC"}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={"$datePublished":"DESC"}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
 </code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
 
-<p>By default, content is ordered by <code class="prettyprint">dateUpdated</code> in reverse chronological order (newer stuff first). If you would like to return content in a different order, you can use a sort parameter.</p>
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
 
-<p>For example: to sort Items within a specific Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={&quot;$dateUpdated&quot;:&quot;ASC&quot;}</code>.</p>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">sort</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">$datePublished</span><span class="p">:</span> <span class="s1">'DESC'</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getCollectionItems</span><span class="p">(</span><span class="s1">'YOUR-COLLECTION-SLUG-HERE'</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span> 
+<span class="p">});</span>
+</code></pre>
+
+<p>By default, content is ordered by <code class="prettyprint">dateUpdated</code> in reverse chronological order (newer stuff first). If you would like to return content in a different order, you can use the sort option.</p>
 
 <table><thead>
 <tr>
@@ -1082,6 +1186,22 @@
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.elemeno.io</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">YOUR-API-KEY-HERE</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">elemeno</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'elemeno'</span><span class="p">);</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">setAPIKey</span><span class="p">(</span><span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">filters</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">$title</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">$contains</span><span class="p">:</span> <span class="s1">'adventure'</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">elemeno</span><span class="p">.</span><span class="nx">getCollectionItems</span><span class="p">(</span><span class="s1">'YOUR-COLLECTION-SLUG-HERE'</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span> 
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -1132,10 +1252,10 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>You will not always want to return every Item from a Collection. Often you will only require a subset of the results, based on some type of filtering. As an example, you may want Items whose title contains a certain keyword or Items that were created between two sets of dates. To filter Items within a specific Collection, send a <code class="prettyprint">GET</code> request to <code class="prettyprint">/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={&quot;YOUR-FILTER-KEY-HERE&quot;:&quot;YOUR-FILTER-VALUE-HERE&quot;}</code>. This will return an array of published Items from the specified Collection that match the filters.</p>
+<p>You will not always want to return every Item from a Collection. Often you will only require a subset of the results, based on some type of filtering. As an example, you may want Items whose title contains a certain keyword or Items that were created between a set of dates. To filter Items within a specific Collection, use the <code class="prettyprint">filters</code> option. This will return an array of Items from the specified Collection that match the filters.</p>
 
 <aside class="warning">
-The `filters` parameter must be formatted as JSON and URL encoded
+When making HTTP requests the `filters` parameter must be formatted as JSON and URL encoded
 </aside>
 
 <h3 id="filter-meta-keywords">Filter Meta Keywords</h3>
@@ -1608,6 +1728,7 @@ The `filters` parameter must be formatted as JSON and URL encoded
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="http">http</a>
+                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
