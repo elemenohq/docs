@@ -3,6 +3,7 @@ title: Elemeno Documentation
 
 language_tabs:
   - http
+  - javascript
 
 includes:
 
@@ -384,7 +385,13 @@ Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
 
-All requests to the API must include an API Key in an `Authorization` header.
+```javascript
+var elemeno = require('elemeno');
+  
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+```
+
+All requests to the API must include one of your project's API keys.
 
 ## API Keys
 
@@ -405,6 +412,16 @@ GET /v1/singles HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
+```
+
+```javascript
+var elemeno = require('elemeno');
+
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+elemeno.getSingles(function(err, response) {
+	console.log(err, response);
+});
 ```
 
 > An example response (truncated for simplicity):
@@ -440,7 +457,7 @@ Authorization: YOUR-API-KEY-HERE
 }
 ```
 
-To access a list of all published Single Items, send a `GET` request to `/v1/singles`. This will return an array of Single Item objects.
+Retrieve an array of all Single Items.
 
 ## Specific Single Item
 
@@ -449,6 +466,16 @@ GET /v1/singles/YOUR-ITEM-SLUG-HERE HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
+```
+
+```javascript
+var elemeno = require('elemeno');
+
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+elemeno.getSingle('YOUR-ITEM-SLUG-HERE', function(err, response) {
+	console.log(err, response);
+});
 ```
 
 > An example response (truncated for simplicity):
@@ -476,7 +503,7 @@ Authorization: YOUR-API-KEY-HERE
 }
 ```
 
-To access a specific Single Item, send a `GET` request to `/v1/singles/YOUR-ITEM-SLUG-HERE`. This will return a Single Item object along with its content.
+Retrieve a specific Single Item along with its content.
 
 ## All Collections
 ```http
@@ -484,6 +511,16 @@ GET /v1/collections HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
+```
+
+```javascript
+var elemeno = require('elemeno');
+
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+elemeno.getCollections(function(err, response) {
+	console.log(err, response);
+});
 ```
 
 > An example response (truncated for simplicity):
@@ -520,7 +557,7 @@ Authorization: YOUR-API-KEY-HERE
 }
 ```
 
-To access a list of all published Collections, send a `GET` request to `/v1/collections/`. This will return an array of Collection objects.
+Retrieve an array of all Collections.
 
 ## Specific Collection
 
@@ -529,6 +566,16 @@ GET /v1/collections/YOUR-COLLECTION-SLUG-HERE HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
+```
+
+```javascript
+var elemeno = require('elemeno');
+
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+elemeno.getCollection('YOUR-COLLECTION-SLUG-HERE', function(err, response) {
+	console.log(err, response);
+});
 ```
 
 > An example response:
@@ -554,7 +601,7 @@ Authorization: YOUR-API-KEY-HERE
 }
 ```
 
-To access a specific Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE`. This will return a Collection object.
+Retrieve a specific Collection.
 
 ## Collection Items
 
@@ -563,6 +610,16 @@ GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
+```
+
+```javascript
+var elemeno = require('elemeno');
+
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', function(err, response) {
+	console.log(err, response);
+});
 ```
 
 > An example response (truncated for simplicity):
@@ -605,7 +662,7 @@ Authorization: YOUR-API-KEY-HERE
 }
 ```
 
-To access the items within a specific Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items`. This will return an array of published Items from the specified Collection. If there are many Items in a Collection, the results will split into multiple pages. You can request a specific page, and a specific number of items per page using query parameters.
+Retrieve an array of Items within a specific Collection. If there are many Items in a Collection, the results will split into multiple pages. You can request a specific page, and a specific number of items per page.
 
 > Requesting a specific page of results with a custom size:
 
@@ -616,6 +673,21 @@ Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
 
+```javascript
+var elemeno = require('elemeno');
+
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+var options = {
+	page: 2, 
+	size: 20
+};
+
+elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', options, function(err, response) {
+	console.log(err, response);
+});
+```
+
 Supported Query Parameter
 
 Parameter | Description
@@ -623,7 +695,7 @@ Parameter | Description
 page | the page number you are requesting
 size | the number of items to be returned per page (Min: 1, Max: 100, Default: 50)
 
-For example, if your collection had 210 published items and you requested a `size` of 20 items per page, there would be 11 pages of results but the last page would only contain 10 items.
+For example, if your collection had 210 items and you requested a `size` of 20 items per page, there would be 11 pages of results but the last page would only contain 10 items.
 
 ## Collection Item
 
@@ -632,6 +704,16 @@ GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
+```
+
+```javascript
+var elemeno = require('elemeno');
+
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+elemeno.getCollectionItem('YOUR-COLLECTION-SLUG-HERE', 'YOUR-ITEM-SLUG-HERE', function(err, response) {
+	console.log(err, response);
+});
 ```
 
 > An example response (truncated for simplicity):
@@ -663,9 +745,7 @@ Authorization: YOUR-API-KEY-HERE
 }
 ```
 
-To access a specific item from your Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE`.
-
-You can also access an Item via its ID by using the `byID` query parameter. This would look something like: `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-ID-HERE?byID=true`
+Retrieve a specific Item from your Collection using your item's slug. You can also retrieve an Item via its ID by setting the `byID` option to `true`.
 
 ## Sorting
 
@@ -678,6 +758,22 @@ Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
 
+```javascript
+var elemeno = require('elemeno');
+
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+var options = {
+	sort: {
+		$dateUpdated: 'ASC'
+	}
+};
+
+elemeno.getSingles(options, function(err, response) {
+	console.log(err, response);
+});
+```
+
 > Sorting Collections
 
 ```http
@@ -687,18 +783,49 @@ Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
 
+```javascript
+var elemeno = require('elemeno');
+
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+var options = {
+	sort: {
+		$dateCreated: 'DESC'
+	}
+};
+
+elemeno.getCollections(options, function(err, response) {
+    console.log(err, response);
+});
+```
+
 > Sorting Items
 
 ```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE?sort={"$datePublished":"DESC"} HTTP/1.1
+GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={"$datePublished":"DESC"} HTTP/1.1
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
 ```
 
-By default, content is ordered by `dateUpdated` in reverse chronological order (newer stuff first). If you would like to return content in a different order, you can use a sort parameter.
+```javascript
+var elemeno = require('elemeno');
 
-For example: to sort Items within a specific Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={"$dateUpdated":"ASC"}`.
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+var options = {
+	sort: {
+		$datePublished: 'DESC'
+	}
+}
+
+elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', options, function(err, response) {
+	console.log(err, response); 
+});
+```
+
+By default, content is ordered by `dateUpdated` in reverse chronological order (newer stuff first). If you would like to return content in a different order, you can use the sort option.
+
 
 Sort Keyword | Description
 ------------ | -----------
@@ -719,6 +846,24 @@ GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={"$title":{"contains
 Host: api.elemeno.io
 Accept: application/json
 Authorization: YOUR-API-KEY-HERE
+```
+
+```javascript
+var elemeno = require('elemeno');
+
+elemeno.setAPIKey('YOUR-API-KEY-HERE');
+
+var options = {
+	filters: {
+		$title: {
+			$contains: 'adventure'
+		}
+	}
+}
+
+elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', options, function(err, response) {
+	console.log(err, response); 
+});
 ```
 
 > An example response (truncated for simplicity):
@@ -769,10 +914,10 @@ Authorization: YOUR-API-KEY-HERE
 }
 ```
 
-You will not always want to return every Item from a Collection. Often you will only require a subset of the results, based on some type of filtering. As an example, you may want Items whose title contains a certain keyword or Items that were created between two sets of dates. To filter Items within a specific Collection, send a `GET` request to `/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={"YOUR-FILTER-KEY-HERE":"YOUR-FILTER-VALUE-HERE"}`. This will return an array of published Items from the specified Collection that match the filters.
+You will not always want to return every Item from a Collection. Often you will only require a subset of the results, based on some type of filtering. As an example, you may want Items whose title contains a certain keyword or Items that were created between a set of dates. To filter Items within a specific Collection, use the `filters` option. This will return an array of Items from the specified Collection that match the filters.
 
 <aside class="warning">
-The `filters` parameter must be formatted as JSON and URL encoded
+When making HTTP requests the `filters` parameter must be formatted as JSON and URL encoded
 </aside>
 
 ### Filter Meta Keywords
