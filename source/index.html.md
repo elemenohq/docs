@@ -2,8 +2,10 @@
 title: Elemeno Documentation
 
 language_tabs:
-  - http
-  - javascript
+  - javascript: Javascript
+  - php: PHP
+  - ruby: Ruby
+  - shell: cURL
 
 includes:
 
@@ -52,7 +54,38 @@ There are a variety of input types to choose from when defining your content mod
 
 > API results for groups will look something like:
 
-```json
+```javascript
+{
+	"author": {
+		"name": "Mark Twain",
+		"bio": "An American author and humorist ..."
+	}
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["author"] => stdClass Object
+		(
+			["name"] => "Mark Twain"
+			["bio"] => "An American author and humorist ..."
+		)
+)
+?>
+```
+
+```ruby
+{
+	"author" => {
+		"name" => "Mark Twain",
+		"slug" => "An American author and humorist ..."
+	}
+}
+```
+
+```shell
 {
 	"author": {
 		"name": "Mark Twain",
@@ -63,7 +96,7 @@ There are a variety of input types to choose from when defining your content mod
 
 > API results for repeating groups will return an array of items:
 
-```json
+```javascript
 {
 	"authors": [
 		{
@@ -78,6 +111,59 @@ There are a variety of input types to choose from when defining your content mod
 }
 ```
 
+```php
+<?
+stdClass Object
+(
+	["authors"] => Array
+		(
+			[0] => stdClass Object
+				(
+					["name"] => "Mark Twain"
+					["bio"] => "An American author and humorist ..."
+				)
+
+			[1] => stdClass Object
+				(
+					["name"] => "Jane Austen"
+					["bio"] => "An English novelist ..."
+				)
+		)
+)
+?>
+```
+
+```ruby
+{
+	"authors" => [
+		{
+			"name" => "Mark Twain",
+			"bio" => "An American author and humorist ..."
+		},
+		{
+			"name" => "Jane Austen",
+			"bio" => "An English novelist ..."
+		}
+	]
+}
+```
+
+```shell
+{
+	"authors": [
+		{
+			"name": "Mark Twain",
+			"bio": "An American author and humorist ..."
+		},
+		{
+			"name": "Jane Austen",
+			"bio": "An English novelist ..."
+		}
+	]
+}
+```
+
+
 The Input Group allows you to group multiple inputs under a single heading. You can also enable the "repeatable" option to create a repeating group of inputs.
 
 ### Example:
@@ -88,11 +174,33 @@ If you were creating a collection of books you might use a group to group all of
 
 > API results for Plain Text fields will look something like:
 
-```json
+```javascript
 {
 	"title": "The Adventures of Tom Sawyer"
 }
 ```
+
+```php
+<?
+stdClass Object
+(
+	["title"] => "The Adventures of Tom Sawyer"
+)
+?>
+```
+
+```ruby
+{
+	"title" => "The Adventures of Tom Sawyer"
+}
+```
+
+```shell
+{
+	"title": "The Adventures of Tom Sawyer"
+}
+```
+
 
 The Plain Text field supports plain text strings. The Plain Text field has an optional setting to allow for multi-line input.
 
@@ -108,7 +216,7 @@ Matches Pattern | The text pattern the content must match
 
 > API results for Markdown fields will look something like:
 
-```json
+```javascript
 {
 	"description": {
 		"markdown": "The Adventures of Tom Sawyer",
@@ -116,6 +224,38 @@ Matches Pattern | The text pattern the content must match
 	}
 }
 ```
+
+```php
+<?
+stdClass Object
+(
+	["description"] => stdClass Object
+		(
+			["markdown"] => "The Adventures of Tom Sawyer"
+			["html"] => "<p>The Adventures of Tom Sawyer</p>"
+		)
+)
+?>
+```
+
+```ruby
+{
+	"description" => {
+		"markdown" => "The Adventures of Tom Sawyer",
+		"html" => "<p>The Adventures of Tom Sawyer</p>"
+	}
+}
+```
+
+```shell
+{
+	"description": {
+		"markdown": "The Adventures of Tom Sawyer",
+		"html": "<p>The Adventures of Tom Sawyer</p>"
+	}
+}
+```
+
 
 The Markdown field is a multi-line text area that supports Markdown formatting.
 
@@ -130,7 +270,38 @@ Max Length | The maximum number of characters the field will accept
 
 > API results for Number fields will look something like:
 
-```json
+```javascript
+{
+	"price": {
+		"string": "25.50",
+		"number": 25.5
+	}
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["price"] => stdClass Object
+		(
+			["string"] => "25.50"
+			["number"] => 25.5
+		)
+)
+?>
+```
+
+```ruby
+{
+	"price" => {
+		"string" => "25.50",
+		"number" => 25.5
+	}
+}
+```
+
+```shell
 {
 	"price": {
 		"string": "25.50",
@@ -158,7 +329,7 @@ Max Value | The maximum value the field will accept
 > API results for Drop Down fields will look something like:
 
 
-```json
+```javascript
 {
 	"category": {
 		"label": "Fiction",
@@ -166,6 +337,38 @@ Max Value | The maximum value the field will accept
 	}
 }
 ```
+
+```php
+<?
+stdClass Object
+(
+	["category"] => stdClass Object
+		(
+			"label" => "Fiction"
+			"value" => "cat15"
+		)
+)
+?>
+```
+
+```ruby
+{
+	"category" => {
+		"label" => "Fiction",
+		"value" => "cat15"
+	}
+}
+```
+
+```shell
+{
+	"category": {
+		"label": "Fiction",
+		"value": "cat15"
+	}
+}
+```
+
 
 The Drop Down field is a select list field which allows users to select a single option from list of options. The API will return an object with two values:
 
@@ -179,7 +382,65 @@ value | This hidden value associated with the selected option
 > API results for Check List fields will look something like:
 
 
-```json
+```javascript
+{
+	"features": [
+		{
+			"label": "Hard Cover",
+			"value": "feature-hard-cover",
+			"checked": true
+		},
+		{
+			"label": "Gilded Pages",
+			"value": "feature-gilded",
+			"checked": false
+		}
+	]
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["features"] => Array
+		(
+			[0] => stdClass Object
+				(
+					["label"] => "Hard Cover"
+					["value"] => "feature-hard-cover"
+					["checked"] => true
+				)
+
+			[1] => stdClass Object
+				(
+					["label"] => "Gilded Pages"
+					["value"] => "feature-gilded"
+					["checked"] => false
+				)
+		)
+)
+?>
+```
+
+```ruby
+{
+	"features" => [
+		{
+			"label" => "Hard Cover",
+			"value" => "feature-hard-cover",
+			"checked" => true
+		},
+		{
+			"label" => "Gilded Pages",
+			"value" => "feature-gilded",
+			"checked" => false
+		}
+	]
+}
+```
+
+```shell
 {
 	"features": [
 		{
@@ -208,11 +469,33 @@ checked | If the item is checked or not
 
 > API results for Switch fields will look something like:
 
-```json
+```javascript
 {
 	"active": false
 }
 ```
+
+```php
+<?
+stdClass Object
+(
+	["active"] => false
+)
+?>
+```
+
+```ruby
+{
+	"active" => false
+}
+```
+
+```shell
+{
+	"active": false
+}
+```
+
 
 The Switch field is a simple on/off switch that represents a boolean value. The API will return a boolean value of `true` if the switch is on (green), or `false` if the switch is off (red).
 
@@ -220,7 +503,172 @@ The Switch field is a simple on/off switch that represents a boolean value. The 
 
 > API results for Image Picker fields will look something like:
 
-```json
+```javascript
+{
+	"coverImage": {
+		"dateCreated": "2016-05-12T14:10:09.539Z",
+		"dateUpdated": "2016-05-12T14:10:09.539Z",
+		"title": "Tom Sawyer Cover Image",
+		"fileSize": "887126",
+		"mimeType": "image/jpeg",
+		"metaData": {
+			"width": 4000,
+			"height": 2248,
+			"colors": {
+				"dominant": {
+					"rgb": {
+						"r": 53,
+						"g": 45,
+						"b": 39
+					},
+					"hex": "352D27",
+					"isLight": false
+				},
+				"palette": null
+			},
+			"alternativeText": null,
+			"copyrightInformation": null,
+			"exifData": {
+				"CreateDate": "2016:03:04 18:19:40",
+				"Make": "Panasonic",
+				"Model": "DMC-GF1",
+				"FNumber": 1.7,
+				"FocalLength": 20,
+				"ExposureTime": 0.02,
+				"ISO": 400,
+				"GPSLatitudeRef": null,
+				"GPSLatitude": null,
+				"GPSLongitudeRef": null,
+				"GPSLongitude": null,
+				"GPSAltitudeRef": null,
+				"GPSAltitude": null
+			}
+		},
+		"tags": [],
+		"imageUrl": "http://image.elemeno.io/full/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
+		"thumbnails": {
+			"small": "http://image.elemeno.io/cover/100/100/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
+			"large": "http://image.elemeno.io/contain/1000/1000/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"
+		}
+	}
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["coverImage"] => stdClass Object
+		(
+			["dateCreated"] => "2016-05-12T14:10:09.539Z"
+			["dateUpdated"] => "2016-05-12T14:10:09.539Z"
+			["title"] => "Tom Sawyer Cover Image"
+			["fileSize"] => "887126"
+			["mimeType"] => "image/jpeg"
+			["metaData"] => stdClass Object
+				(
+					["width"] => 4000
+					["height"] => 2248
+					["colors"] => stdClass Object
+						(
+							["dominant"] => stdClass Object
+								(
+									"rgb" => stdClass Object
+										(
+											["r"] => 53
+											["g"] => 45
+											["b"] => 39
+										)
+									"hex" => "352D27"
+									"isLight" => false
+								)
+							["palette"] => null
+						)
+					["alternativeText"] => null
+					["copyrightInformation"] => null
+					["exifData"] => stdClass Object
+						(
+							["CreateDate"] => "2016:03:04 18:19:40"
+							["Make"] => "Panasonic"
+							["Model"] => "DMC-GF1"
+							["FNumber"] => 1.7
+							["FocalLength"] => 20
+							["ExposureTime"] => 0.02
+							["ISO"] => 400
+							["GPSLatitudeRef"] => null
+							["GPSLatitude"] => null
+							["GPSLongitudeRef"] => null
+							["GPSLongitude"] => null
+							["GPSAltitudeRef"] => null
+							["GPSAltitude"] => null
+						)
+				)
+			["tags"] => Array
+				(
+				)
+			["imageUrl"] => "http://image.elemeno.io/full/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"
+			["thumbnails"] => stdClass Object
+				(
+					"small": "http://image.elemeno.io/cover/100/100/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"
+					"large": "http://image.elemeno.io/contain/1000/1000/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"
+				)
+		)
+)
+?>
+```
+
+```ruby
+{
+	"coverImage" => {
+		"dateCreated" => "2016-05-12T14:10:09.539Z",
+		"dateUpdated" => "2016-05-12T14:10:09.539Z",
+		"title" => "Tom Sawyer Cover Image",
+		"fileSize" => "887126",
+		"mimeType" => "image/jpeg",
+		"metaData" => {
+			"width" => 4000,
+			"height" => 2248,
+			"colors" => {
+				"dominant" => {
+					"rgb" => {
+						"r" => 53,
+						"g" => 45,
+						"b" => 39
+					},
+					"hex" => "352D27",
+					"isLight" => false
+				},
+				"palette" => null
+			},
+			"alternativeText" => null,
+			"copyrightInformation" => null,
+			"exifData" => {
+				"CreateDate" => "2016:03:04 18:19:40",
+				"Make" => "Panasonic",
+				"Model" => "DMC-GF1",
+				"FNumber" => 1.7,
+				"FocalLength" => 20,
+				"ExposureTime" => 0.02,
+				"ISO" => 400,
+				"GPSLatitudeRef" => null,
+				"GPSLatitude" => null,
+				"GPSLongitudeRef" => null,
+				"GPSLongitude" => null,
+				"GPSAltitudeRef" => null,
+				"GPSAltitude" => null
+			}
+		},
+		"tags" => [],
+		"imageUrl" => "http://image.elemeno.io/full/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
+		"thumbnails" => {
+			"small" => "http://image.elemeno.io/cover/100/100/4d533683-d309-4ae0-8387-31ec9523cde2.jpg",
+			"large" => "http://image.elemeno.io/contain/1000/1000/4d533683-d309-4ae0-8387-31ec9523cde2.jpg"
+		}
+	}
+}
+```
+
+```shell
 {
 	"coverImage": {
 		"dateCreated": "2016-05-12T14:10:09.539Z",
@@ -286,7 +734,58 @@ Crop Type: cover | The image will be resized so the entire area defined by the d
 
 > API results for File Picker fields will looks something like:
 
-```json
+```javascript
+{
+	"digitalDownload": {
+		"dateCreated": "2016-05-11T14:05:50.917Z",
+		"dateUpdated": "2016-05-11T14:05:50.917Z",
+		"title": "Tom Sawyer PDF",
+		"fileSize": "6553600",
+		"mimeType": "text/pdf",
+		"metaData": null,
+		"tags": [],
+		"fileUrl": "http://file.elemeno.io/35f3f5b0-e183-435b-9e6e-42c10a8098e0.pdf"
+	}
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["digitalDownload"] => stdClass Object
+		(
+			["dateCreated"] => "2016-05-11T14:05:50.917Z"
+			["dateUpdated"] => "2016-05-11T14:05:50.917Z"
+			["title"] => "Tom Sawyer PDF"
+			["fileSize"] => "6553600"
+			["mimeType"] => "text/pdf"
+			["metaData"] => null
+			["tags"] =>  => Array
+				(
+				)
+			["fileUrl"] => "http://file.elemeno.io/35f3f5b0-e183-435b-9e6e-42c10a8098e0.pdf"
+		)
+)
+?>
+```
+
+```ruby
+{
+	"digitalDownload" => {
+		"dateCreated" => "2016-05-11T14:05:50.917Z",
+		"dateUpdated" => "2016-05-11T14:05:50.917Z",
+		"title" => "Tom Sawyer PDF",
+		"fileSize" => "6553600",
+		"mimeType" => "text/pdf",
+		"metaData" => null,
+		"tags" => [],
+		"fileUrl" => "http://file.elemeno.io/35f3f5b0-e183-435b-9e6e-42c10a8098e0.pdf"
+	}
+}
+```
+
+```shell
 {
 	"digitalDownload": {
 		"dateCreated": "2016-05-11T14:05:50.917Z",
@@ -307,7 +806,34 @@ The File Picker field allows you to upload a new file or select a one from your 
 
 > API results for Date and Time fields will looks something like:
 
-```json
+```javascript
+{
+	"dateOnly": "2016-05-12",
+	"timeOnly": "12:10",
+	"dateAndTime": "2016-05-12T16:10:00+00:00"
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["dateOnly"] => "2016-05-12"
+	["timeOnly"] => "12:10"
+	["dateAndTime"] => "2016-05-12T16:10:00+00:00"
+)
+?>
+```
+
+```ruby
+{
+	"dateOnly" => "2016-05-12",
+	"timeOnly" => "12:10",
+	"dateAndTime" => "2016-05-12T16:10:00+00:00"
+}
+```
+
+```shell
 {
 	"dateOnly": "2016-05-12",
 	"timeOnly": "12:10",
@@ -332,12 +858,12 @@ When using the Date and Time variation of the input, you are selecting a specifi
 
 > API results for Relationship fields will look something like:
 
-```json
+```javascript
 "data": {
 	"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
 	"slug": "the-adventures-of-tom-sawyer",
 	"title": "The Adventures of Tom Sawyer",
-	"content" : {
+	"content": {
 		...
 		"author": {
 			"id": "2d50a6c0-96d8-11e6-b55a-af4571cd322c",
@@ -364,7 +890,110 @@ When using the Date and Time variation of the input, you are selecting a specifi
 }
 ```
 
-The Relationship field allows you to include items from another collection within your content items. When creating the relationship field you select which collection your content model is related to, and the input field will allow you to quickly search for items within that collection. The results from the API will have the related item embedded within your content item. 
+```php
+<?
+["data"] => stdClass Object
+	(
+		["id"] => "22e0c474-1b6b-11e6-aec3-d72ab41dc475"
+		["slug"] => "the-adventures-of-tom-sawyer"
+		["title"] => "The Adventures of Tom Sawyer"
+		["content"] => stdClass Object
+			(
+				...
+				["author"] => stdClass Object
+					(
+						["id"] => "2d50a6c0-96d8-11e6-b55a-af4571cd322c"
+						["title"] => "Mark Twain"
+						["slug"] => "mark-twain"
+						["content"] => stdClass Object
+							(
+								["bio"] => stdClass Object
+									(
+										["markdown"] => "An American author and humorist ..."
+										["html"] => "<p>An American author and humorist ...</p>"
+									)
+							)
+						["dateCreated"] => "2016-05-12T14:10:10.678Z"
+						["dateUpdated"] => "2016-05-16T15:16:35.359Z"
+						["datePublished"] => "2016-05-16T15:16:35.359Z"
+						["published"] => true
+						["links"] => stdClass Object
+							(
+								"self": "https://api.elemeno.io/v1/collections/authors/items/mark-twain"
+								"collection": "https://api.elemeno.io/v1/collections/authors"
+							)
+					)
+				...
+			)
+	...
+	)
+?>
+```
+
+```ruby
+"data" => {
+	"id" => "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+	"slug" => "the-adventures-of-tom-sawyer",
+	"title" => "The Adventures of Tom Sawyer",
+	"content" => {
+		...
+		"author" => {
+			"id" => "2d50a6c0-96d8-11e6-b55a-af4571cd322c",
+			"title" => "Mark Twain",
+			"slug" => "mark-twain",
+			"content" => {
+				"bio" => {
+					"markdown" => "An American author and humorist ...",
+					"html" => "<p>An American author and humorist ...</p>"
+				}
+			},
+			"dateCreated" => "2016-05-12T14:10:10.678Z",
+			"dateUpdated" => "2016-05-16T15:16:35.359Z",
+			"datePublished" => "2016-05-16T15:16:35.359Z",
+			"published" => true,
+			"links" => {
+				"self" => "https://api.elemeno.io/v1/collections/authors/items/mark-twain",
+				"collection" => "https://api.elemeno.io/v1/collections/authors"
+			}
+		},
+		...
+	}
+	...
+}
+```
+
+```shell
+"data": {
+	"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+	"slug": "the-adventures-of-tom-sawyer",
+	"title": "The Adventures of Tom Sawyer",
+	"content": {
+		...
+		"author": {
+			"id": "2d50a6c0-96d8-11e6-b55a-af4571cd322c",
+			"title": "Mark Twain",
+			"slug": "mark-twain",
+			"content": {
+				"bio": {
+					"markdown": "An American author and humorist ...",
+					"html": "<p>An American author and humorist ...</p>"
+				}
+			},
+			"dateCreated": "2016-05-12T14:10:10.678Z",
+			"dateUpdated": "2016-05-16T15:16:35.359Z",
+			"datePublished": "2016-05-16T15:16:35.359Z",
+			"published": true,
+			"links": {
+				"self": "https://api.elemeno.io/v1/collections/authors/items/mark-twain",
+				"collection": "https://api.elemeno.io/v1/collections/authors"
+			}
+		},
+		...
+	}
+	...
+}
+```
+The Relationship field allows you to include items from another collection within your content items. When creating the relationship field you select which collection your content model is related to, and the input field will allow you to quickly search for items within that collection. The results from the API will have the related item embedded within your content item.
 
 For example you could have a collection of authors, and a collection of books. Each content item from the books collection could include a relationship to a content item from the authors collection. This allows you to easily create one-to-many, or many-to-many relationships between content models.
 
@@ -378,18 +1007,28 @@ The Elemeno API is available via SSL. All requests should be performed using the
 
 ## Authentication
 
-```http
-GET /v1/collections HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
-```
-
 ```javascript
 var elemeno = require('elemeno');
-  
+
 elemeno.setAPIKey('YOUR-API-KEY-HERE');
 ```
+
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
+?>
+```
+
+```ruby
+require "elemeno"
+
+elemeno = Elemeno::Client.new('YOUR-API-KEY-HERE')
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/
+```
+
 
 All requests to the API must include one of your project's API keys.
 
@@ -407,13 +1046,6 @@ Staging keys have access to both unpublished and published content. This type of
 
 ## All Single Items
 
-```http
-GET /v1/singles HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
-```
-
 ```javascript
 var elemeno = require('elemeno');
 
@@ -424,9 +1056,133 @@ elemeno.getSingles(function(err, response) {
 });
 ```
 
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
+
+print_r($elemeno->getSingles());
+?>
+```
+
+```ruby
+require "elemeno"
+
+elemeno = Elemeno::Client.new('YOUR-API-KEY-HERE')
+
+singles = elemeno.getSingles(options)
+
+puts singles
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/
+```
+
 > An example response (truncated for simplicity):
 
-```json
+```javascript
+{
+	"status": "success",
+	"data": [
+		{
+			"id": "6e30f490-0bb1-11e6-900b-7f6d43d3f6e0",
+			"slug": "about-us",
+			"title": "About Us",
+			"projectId": "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
+			"dateCreated": "2016-04-26T13:18:56.704Z",
+			"dateUpdated": "2016-04-29T15:59:26.276Z",
+			"links": {
+				"self": "https://api.elemeno.io/v1/singles/about-us"
+			}
+		},
+		...
+	],
+	"links": {
+		"self": "https://api.elemeno.io/v1/singles?page=1&size=50",
+		"first": "https://api.elemeno.io/v1/singles?page=1&size=50",
+		"last": "https://api.elemeno.io/v1/singles?page=1&size=50",
+		"next": null,
+		"prev": null
+	},
+	"meta": {
+		"totalRecords": 2,
+		"pageSize": 50
+	}
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["status"] => "success"
+	["data"] => Array
+		(
+			[0] => stdClass Object
+				(
+					["id"] => "6e30f490-0bb1-11e6-900b-7f6d43d3f6e0"
+					["slug"] => "about-us"
+					["title"] => "About Us"
+					["projectId"] => "98ce44d2-2985-11e5-8329-93cb1bd92cc3"
+					["dateCreated"] => "2016-04-26T13:18:56.704Z"
+					["dateUpdated"] => "2016-04-29T15:59:26.276Z"
+					["links"] => stdClass Object
+						(
+							["self"] =>"https://api.elemeno.io/v1/singles/about-us"
+						)
+				)
+			...
+		)
+
+	["links"] => Array
+		(
+			["self"] => "https://api.elemeno.io/v1/singles?page=1&size=50"
+			["first"] => "https://api.elemeno.io/v1/singles?page=1&size=50"
+			["last"] => "https://api.elemeno.io/v1/singles?page=1&size=50"
+			["next"] => null
+			["prev"] => null
+		)
+	["meta"] = stdClass Object
+		(
+			["totalRecords"] => 2
+			["pageSize"] => 50
+		)
+)
+?>
+```
+
+```ruby
+{
+	"status" => "success",
+	"data" => [
+		{
+			"id" => "6e30f490-0bb1-11e6-900b-7f6d43d3f6e0",
+			"slug" => "about-us",
+			"title" => "About Us",
+			"projectId" => "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
+			"dateCreated" => "2016-04-26T13:18:56.704Z",
+			"dateUpdated" => "2016-04-29T15:59:26.276Z",
+			"links" => {
+				"self" => "https://api.elemeno.io/v1/singles/about-us"
+			}
+		},
+		...
+	],
+	"links" => {
+		"self" => "https://api.elemeno.io/v1/singles?page=1&size=50",
+		"first" => "https://api.elemeno.io/v1/singles?page=1&size=50",
+		"last" => "https://api.elemeno.io/v1/singles?page=1&size=50",
+		"next" => null,
+		"prev" => null
+	},
+	"meta" => {
+		"totalRecords" => 2,
+		"pageSize" => 50
+	}
+}
+```
+
+```shell
 {
 	"status": "success",
 	"data": [
@@ -461,13 +1217,6 @@ Retrieve an array of all Single Items.
 
 ## Specific Single Item
 
-```http
-GET /v1/singles/YOUR-ITEM-SLUG-HERE HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
-```
-
 ```javascript
 var elemeno = require('elemeno');
 
@@ -478,9 +1227,32 @@ elemeno.getSingle('YOUR-ITEM-SLUG-HERE', function(err, response) {
 });
 ```
 
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
+
+print_r($elemeno->getSingle('YOUR-ITEM-SLUG-HERE'));
+?>
+```
+
+```ruby
+require "elemeno"
+
+elemeno = Elemeno::Client.new('YOUR-API-KEY-HERE');
+
+single = elemeno.getSingle('YOUR-ITEM-SLUG-HERE')
+
+puts single
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/singles/YOUR-ITEM-SLUG-HERE
+```
+
+
 > An example response (truncated for simplicity):
 
-```json
+```javascript
 {
 	"status": "success",
 	"data": {
@@ -506,12 +1278,6 @@ elemeno.getSingle('YOUR-ITEM-SLUG-HERE', function(err, response) {
 Retrieve a specific Single Item along with its content.
 
 ## All Collections
-```http
-GET /v1/collections HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
-```
 
 ```javascript
 var elemeno = require('elemeno');
@@ -523,9 +1289,29 @@ elemeno.getCollections(function(err, response) {
 });
 ```
 
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
+
+print_r($elemeno->getCollections());
+?>
+```
+
+```ruby
+require "elemeno"
+
+collections = elemeno.getCollections()
+
+puts collections
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections
+```
+
 > An example response (truncated for simplicity):
 
-```json
+```javascript
 {
 	"status": "success",
 	"data": [
@@ -552,7 +1338,112 @@ elemeno.getCollections(function(err, response) {
 	},
 	"meta": {
 		"totalRecords": 4,
-		"pageSize": 50
+		"pageSize": 20
+	}
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["status"] => "success"
+	["data"] => Array
+		(
+			[0] => stdClass Object
+				(
+					["id"] => "fe4f04c2-1b6a-11e6-9883-ab6703adb701"
+					["slug"] => "books"
+					["title"] => "Books"
+					["projectId"] => "98ce44d2-2985-11e5-8329-93cb1bd92cc3"
+					["dateCreated"] => "2016-05-12T14:10:00.162Z"
+					["dateUpdated"] => "2016-05-12T14:10:00.162Z"
+					["links"] => stdClass Object
+						(
+							"self" => "https://api.elemeno.io/v1/collections/books"
+							"items" => "https://api.elemeno.io/v1/collections/books/items"
+						)
+				)
+			...
+		)
+	["links"] => stdClass Object
+		(
+			["self"] => "https://api.elemeno.io/v1/collections?page=1&size=50"
+			["first"] => "https://api.elemeno.io/v1/collections?page=1&size=50"
+			["last"] => "https://api.elemeno.io/v1/collections?page=1&size=50"
+			["next"] => null
+			["prev"] => null
+		)
+	}
+	["meta"] => stdClass Object
+		(
+			"totalRecords" => 4
+			"pageSize" => 20
+		)
+)
+?>
+```
+
+```ruby
+{
+	"status" => "success",
+	"data=> [
+		{
+			"id" => "fe4f04c2-1b6a-11e6-9883-ab6703adb701",
+			"slug" => "books",
+			"title" => "Books",
+			"projectId" => "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
+			"dateCreated" => "2016-05-12T14:10:00.162Z",
+			"dateUpdated" => "2016-05-12T14:10:00.162Z",
+			"links" => {
+				"self" => "https://api.elemeno.io/v1/collections/books",
+				"items" => "https://api.elemeno.io/v1/collections/books/items"
+			}
+		},
+		...
+	],
+	"links" => {
+		"self" => "https://api.elemeno.io/v1/collections?page=1&size=50",
+		"first" => "https://api.elemeno.io/v1/collections?page=1&size=50",
+		"last" => "https://api.elemeno.io/v1/collections?page=1&size=50",
+		"next" => null,
+		"prev" => null
+	},
+	"meta" => {
+		"totalRecords" => 4,
+		"pageSize" => 20
+	}
+}
+```
+
+```shell
+{
+	"status": "success",
+	"data": [
+		{
+			"id": "fe4f04c2-1b6a-11e6-9883-ab6703adb701",
+			"slug": "books",
+			"title": "Books",
+			"projectId": "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
+			"dateCreated": "2016-05-12T14:10:00.162Z",
+			"dateUpdated": "2016-05-12T14:10:00.162Z",
+			"links": {
+				"self": "https://api.elemeno.io/v1/collections/books",
+				"items": "https://api.elemeno.io/v1/collections/books/items"
+			}
+		},
+		...
+	],
+	"links": {
+		"self": "https://api.elemeno.io/v1/collections?page=1&size=50",
+		"first": "https://api.elemeno.io/v1/collections?page=1&size=50",
+		"last": "https://api.elemeno.io/v1/collections?page=1&size=50",
+		"next": null,
+		"prev": null
+	},
+	"meta": {
+		"totalRecords": 4,
+		"pageSize": 20
 	}
 }
 ```
@@ -560,13 +1451,6 @@ elemeno.getCollections(function(err, response) {
 Retrieve an array of all Collections.
 
 ## Specific Collection
-
-```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
-```
 
 ```javascript
 var elemeno = require('elemeno');
@@ -578,9 +1462,98 @@ elemeno.getCollection('YOUR-COLLECTION-SLUG-HERE', function(err, response) {
 });
 ```
 
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
+
+print_r($elemeno->getCollection('YOUR-COLLECTION-SLUG-HERE'));
+?>
+```
+
+```ruby
+require "elemeno"
+
+collection = elemeno.getCollection('YOUR-COLLECTION-SLUG-HERE')
+
+puts collection
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE
+```
+
 > An example response:
 
-```json
+```javascript
+{
+	"status": "success",
+	"data": {
+		"id": "fe4f04c2-1b6a-11e6-9883-ab6703adb701",
+		"slug": "books",
+		"title": "Books",
+		"projectId": "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
+		"dateCreated": "2016-05-12T14:10:00.162Z",
+		"dateUpdated": "2016-05-12T14:10:00.162Z",
+		"links": {
+			"self": "https://api.elemeno.io/v1/collections/books",
+			"items": "https://api.elemeno.io/v1/collections/books/items"
+		}
+	},
+	"meta": {
+		"totalRecords": 1
+	}
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["status"] => "success"
+	["data"] => stdClass Object
+		(
+			["id"] => "fe4f04c2-1b6a-11e6-9883-ab6703adb701"
+			["slug"] => "books"
+			["title"] => "Books"
+			["projectId"] => "98ce44d2-2985-11e5-8329-93cb1bd92cc3"
+			["dateCreated"] => "2016-05-12T14:10:00.162Z"
+			["dateUpdated"] => "2016-05-12T14:10:00.162Z"
+			["links"] => stdClass Object
+				(
+					["self"] => "https://api.elemeno.io/v1/collections/books"
+					["items"] => "https://api.elemeno.io/v1/collections/books/items"
+				)
+		)
+	["meta"] => stdClass Object
+		(
+			["totalRecords"] => 1
+		)
+)
+?>
+```
+
+```ruby
+{
+	"status" => "success",
+	"data" => {
+		"id" => "fe4f04c2-1b6a-11e6-9883-ab6703adb701",
+		"slug" => "books",
+		"title" =>"Books",
+		"projectId" => "98ce44d2-2985-11e5-8329-93cb1bd92cc3",
+		"dateCreated" => "2016-05-12T14:10:00.162Z",
+		"dateUpdated" => "2016-05-12T14:10:00.162Z",
+		"links" => {
+			"self" => "https://api.elemeno.io/v1/collections/books",
+			"items" =>"https://api.elemeno.io/v1/collections/books/items"
+		}
+	},
+	"meta" => {
+		"totalRecords" => 1
+	}
+}
+```
+
+```shell
 {
 	"status": "success",
 	"data": {
@@ -605,13 +1578,6 @@ Retrieve a specific Collection.
 
 ## Collection Items
 
-```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
-```
-
 ```javascript
 var elemeno = require('elemeno');
 
@@ -622,9 +1588,154 @@ elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', function(err, response) 
 });
 ```
 
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
+
+print_r($elemeno->getCollectionItems('YOUR-COLLECTION-SLUG-HERE', $options));
+?>
+```
+
+```ruby
+require "elemeno"
+
+collectionItems = elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', options)
+
+puts collectionItems
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items
+```
+
 > An example response (truncated for simplicity):
 
-```json
+```javascript
+{
+	"status": "success",
+	"data": [
+		{
+			"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+			"slug": "the-adventures-of-tom-sawyer",
+			"title": "The Adventures of Tom Sawyer",
+			"dateUpdated": "2016-05-12T14:10:00.102Z",
+			"datePublished": "2016-05-14T13:14:45.254Z",
+			"content": {
+				"description": {
+					"markdown": "The Adventures of Tom Sawyer by **Mark Twain** is an 1876 novel...",
+					"html": "The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is an 1876 novel..."
+				},
+				...
+			},
+			"links": {
+				"self": "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer",
+				"collection": "https://api.elemeno.io/v1/collections/books"
+			}
+		},
+		...
+	],
+	"links": {
+		"self": "https://api.elemeno.io/v1/collections/books/items?page=1&size=50",
+		"first": "https://api.elemeno.io/v1/collections/books/items?page=1&size=50",
+		"last": "https://api.elemeno.io/v1/collections/books/items?page=1&size=50",
+		"next": null,
+		"prev": null
+	},
+	"meta": {
+		"totalRecords": 5,
+		"pageSize": 50
+	}
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["status"] => "success"
+	["data"] => Array
+		(
+			[0] => stdClass Object
+				(
+					["id"] => "22e0c474-1b6b-11e6-aec3-d72ab41dc475"
+					["slug"] => "the-adventures-of-tom-sawyer"
+					["title"] => "The Adventures of Tom Sawyer"
+					["dateUpdated"] => "2016-05-12T14:10:00.102Z"
+					["datePublished"] => "2016-05-14T13:14:45.254Z"
+					["content"] => stdClass Object
+						(
+							["description"] => stdClass Object
+								(
+									"markdown": "The Adventures of Tom Sawyer by **Mark Twain** is an 1876 novel..."
+									"html": "The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is an 1876 novel..."
+								)
+							...
+						)
+					["links"] => stdClass Object
+						(
+							["self"] => "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer"
+							["collection"] => "https://api.elemeno.io/v1/collections/books"
+						)
+				)
+			...
+
+		)
+	["links"] => stdClass Object
+		(
+			["self"] => "https://api.elemeno.io/v1/collections/books/items?page=1&size=50"
+			["first"] => "https://api.elemeno.io/v1/collections/books/items?page=1&size=50"
+			["last"] => "https://api.elemeno.io/v1/collections/books/items?page=1&size=50"
+			["next"] => null
+			["prev"] => null
+		)
+	["meta"] => stdClass Object
+		(
+			["totalRecords"] => 5
+			["pageSize"] => 50
+		)
+)
+?>
+```
+
+```ruby
+{
+	"status" => "success",
+	"data" => [
+		{
+			"id" => "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+			"slug" => "the-adventures-of-tom-sawyer",
+			"title" => "The Adventures of Tom Sawyer",
+			"dateUpdated" => "2016-05-12T14:10:00.102Z",
+			"datePublished" => "2016-05-14T13:14:45.254Z",
+			"content" => {
+				"description" => {
+					"markdown" => "The Adventures of Tom Sawyer by **Mark Twain** is an 1876 novel...",
+					"html" => "The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is an 1876 novel..."
+				},
+				...
+			},
+			"links" => {
+				"self" => "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer",
+				"collection" => "https://api.elemeno.io/v1/collections/books"
+			}
+		},
+		...
+	],
+	"links" => {
+		"self" => "https://api.elemeno.io/v1/collections/books/items?page=1&size=50",
+		"first" => "https://api.elemeno.io/v1/collections/books/items?page=1&size=50",
+		"last" => "https://api.elemeno.io/v1/collections/books/items?page=1&size=50",
+		"next" => null,
+		"prev" => null
+	},
+	"meta": {
+		"totalRecords" => 5,
+		"pageSize" => 50
+	}
+}
+```
+
+```shell
 {
 	"status": "success",
 	"data": [
@@ -666,26 +1777,47 @@ Retrieve an array of Items within a specific Collection. If there are many Items
 
 > Requesting a specific page of results with a custom size:
 
-```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items?page=2;size=20 HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
-```
-
 ```javascript
 var elemeno = require('elemeno');
 
 elemeno.setAPIKey('YOUR-API-KEY-HERE');
 
 var options = {
-	page: 2, 
+	page: 2,
 	size: 20
 };
 
 elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', options, function(err, response) {
 	console.log(err, response);
 });
+```
+
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
+
+$options = [
+	'page' => 2,
+	'size' => 20
+];
+
+print_r($elemeno->getCollectionItems('YOUR-COLLECTION-SLUG-HERE', $options));
+?>
+```
+
+```ruby
+require "elemeno"
+
+options = {
+	'page': 2,
+	'size': 20
+}
+
+collectionItems = elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', options)
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?page=2&size=20
 ```
 
 Supported Query Parameter
@@ -699,13 +1831,6 @@ For example, if your collection had 210 items and you requested a `size` of 20 i
 
 ## Collection Item
 
-```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
-```
-
 ```javascript
 var elemeno = require('elemeno');
 
@@ -716,9 +1841,118 @@ elemeno.getCollectionItem('YOUR-COLLECTION-SLUG-HERE', 'YOUR-ITEM-SLUG-HERE', fu
 });
 ```
 
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
+
+print_r($elemeno->getCollectionItem('YOUR-COLLECTION-SLUG-HERE', 'YOUR-ITEM-SLUG-HERE'));
+?>
+```
+
+```ruby
+require "elemeno"
+
+collectionItem = elemeno.getCollectionItem('YOUR-COLLECTION-SLUG-HERE', 'YOUR-ITEM-SLUG-HERE')
+
+puts collectionItem
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE
+```
+
 > An example response (truncated for simplicity):
 
-```json
+```javascript
+{
+	"status": "success",
+	"data": {
+		"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+		"slug": "the-adventures-of-tom-sawyer",
+		"title": "The Adventures of Tom Sawyer",
+		"dateUpdated": "2016-05-16T13:53:39.102Z",
+		"datePublished": "2016-05-16T13:55:35.234Z",
+		"content": {
+			"description": {
+				"markdown": "The Adventures of Tom Sawyer by **Mark Twain** is an 1876 novel...",
+				"html": "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is an 1876 novel...</p>"
+			},
+			...
+		},
+		"links": {
+			"self": "https://api.elemeno.io/v1/books/items/the-adventures-of-tom-sawyer",
+			"collection": "https://api.elemeno.io/v1/books"
+		}
+	},
+	"meta": {
+		"totalRecords": 1
+	}
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["status"] => "success"
+	["data"] => stdClass Object
+		(
+			["id"] => "22e0c474-1b6b-11e6-aec3-d72ab41dc475"
+			["slug"] => "the-adventures-of-tom-sawyer"
+			["title"] => "The Adventures of Tom Sawyer"
+			["dateUpdated"] => "2016-05-16T13:53:39.102Z"
+			["datePublished"] => "2016-05-16T13:55:35.234Z"
+			["content"] => stdClass Object
+				(
+					["description"] => stdClass Object
+						(
+							["markdown"] => "The Adventures of Tom Sawyer by **Mark Twain** is an 1876 novel..."
+							["html"] => "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is an 1876 novel...</p>"
+						)
+					...
+				)
+			"links" => stdClass Object
+				(
+					["self"] => "https://api.elemeno.io/v1/books/items/the-adventures-of-tom-sawyer"
+					["collection"] => "https://api.elemeno.io/v1/books"
+				)
+		)
+	["meta"] => stdClass Object
+		(
+			["totalRecords"] => 1
+		)
+)
+?>
+```
+
+```ruby
+{
+	"status" => "success",
+	"data" => {
+		"id" => "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+		"slug" => "the-adventures-of-tom-sawyer",
+		"title" => "The Adventures of Tom Sawyer",
+		"dateUpdated" => "2016-05-16T13:53:39.102Z",
+		"datePublished" => "2016-05-16T13:55:35.234Z",
+		"content" => {
+			"description" => {
+				"markdown" => "The Adventures of Tom Sawyer by **Mark Twain** is an 1876 novel...",
+				"html" => "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is an 1876 novel...</p>"
+			},
+			...
+		},
+		"links" => {
+			"self" => "https://api.elemeno.io/v1/books/items/the-adventures-of-tom-sawyer",
+			"collection" => "https://api.elemeno.io/v1/books"
+		}
+	},
+	"meta" => {
+		"totalRecords" => 1
+	}
+}
+```
+
+```shell
 {
 	"status": "success",
 	"data": {
@@ -751,13 +1985,6 @@ Retrieve a specific Item from your Collection using your item's slug. You can al
 
 > Sorting Singles
 
-```http
-GET /v1/singles/YOUR-SINGLE-SLUG-HERE?sort={"$dateUpdated":"ASC"} HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
-```
-
 ```javascript
 var elemeno = require('elemeno');
 
@@ -774,14 +2001,39 @@ elemeno.getSingles(options, function(err, response) {
 });
 ```
 
-> Sorting Collections
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
 
-```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE?sort={"$dateCreated":"DESC"} HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
+$options = [
+	'sort' => [
+		'$datePublished' => 'ASC'
+	]
+];
+
+print_r($elemeno->getSingles($options));
+?>
 ```
+
+```ruby
+require "elemeno"
+
+options = {
+	'sort': {
+		'$dateUpdated': 'ASC'
+	}
+}
+
+singles = elemeno.getSingles(options)
+
+puts singles
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?sort={"$dateUpdated":"ASC"}
+```
+
+> Sorting Collections
 
 ```javascript
 var elemeno = require('elemeno');
@@ -795,18 +2047,43 @@ var options = {
 };
 
 elemeno.getCollections(options, function(err, response) {
-    console.log(err, response);
+	console.log(err, response);
 });
 ```
 
-> Sorting Items
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
 
-```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={"$datePublished":"DESC"} HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
+$options = [
+	'sort' => [
+		'$dateCreated' => 'DESC'
+	]
+];
+
+print_r($elemeno->getCollections($options));
+?>
 ```
+
+```ruby
+require "elemeno"
+
+options = {
+	'sort': {
+		'$dateCreated': 'DESC'
+	}
+}
+
+collections = elemeno.getCollections(options)
+
+puts collections
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?sort={"$dateCreated":"DESC"}
+```
+
+> Sorting Items
 
 ```javascript
 var elemeno = require('elemeno');
@@ -820,8 +2097,40 @@ var options = {
 }
 
 elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', options, function(err, response) {
-	console.log(err, response); 
+	console.log(err, response);
 });
+```
+
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
+
+$options = [
+	'sort' => [
+		'$datePublished' => 'DESC'
+	]
+];
+
+print_r($elemeno->getCollectionItems('YOUR-COLLECTION-SLUG-HERE', $options));
+?>
+```
+
+```ruby
+require "elemeno"
+
+options = {
+	'sort': {
+		'$datePublished': 'DESC'
+	}
+}
+
+collectionItems = elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', options)
+
+puts collectionItems
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?sort={"$datePublished":"DESC"}
 ```
 
 By default, content is ordered by `dateUpdated` in reverse chronological order (newer stuff first). If you would like to return content in a different order, you can use the sort option.
@@ -841,13 +2150,6 @@ Sort Value | Description
 
 ## Filtering
 
-```http
-GET /v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={"$title":{"contains":"adventure"}} HTTP/1.1
-Host: api.elemeno.io
-Accept: application/json
-Authorization: YOUR-API-KEY-HERE
-```
-
 ```javascript
 var elemeno = require('elemeno');
 
@@ -857,18 +2159,215 @@ var options = {
 	filters: {
 		$title: {
 			$contains: 'adventure'
+		},
+		$timestampUpdated: {
+			$greaterThan: 1459526400
 		}
 	}
 }
 
 elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', options, function(err, response) {
-	console.log(err, response); 
+	console.log(err, response);
 });
+```
+
+```php
+<?
+$elemeno = new \Elemeno\Client('YOUR-API-KEY-HERE');
+
+$options = [
+	'filters' => [
+		'$title' => [
+			'$contains' => 'adventure'
+		],
+		'$timestampUpdated' => [
+			'$greaterThan': 1459526400
+		]
+	]
+];
+
+print_r($elemeno->getCollectionItems('YOUR-COLLECTION-SLUG-HERE', $options));
+?>
+```
+
+```ruby
+require "elemeno"
+
+options = {
+	'filters': {
+		'$title': {
+			'$contains': 'adventure'
+		},
+		'$timestampUpdated': {
+			'$greaterThan': 1459526400
+		}
+	}
+}
+
+collectionItems = elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', options)
+
+puts collectionItems
+```
+
+```shell
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={"$title":{"contains":"adventure"},"$timestampUpdated":{"$greaterThan":1459526400}}
 ```
 
 > An example response (truncated for simplicity):
 
-```json
+```javascript
+{
+	"status": "success",
+	"data": [
+		{
+			"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+			"slug": "the-adventures-of-tom-sawyer",
+			"title": "The Adventures of Tom Sawyer",
+			"dateUpdated": "2016-05-12T14:10:00.102Z",
+			"datePublished": "2016-05-12T15:11:00.342Z",
+			"content": {
+				"description": {
+					"markdown": "The Adventures of Tom Sawyer by **Mark Twain** is a novel written in 1876...",
+					"html": "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is a novel written in 1876...</p>"
+				},
+				...
+			},
+			"links": {
+				"self": "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer",
+				"collection": "https://api.elemeno.io/v1/collections/books"
+			}
+		},
+		{
+			"id": "2033cc9c-0572-11e6-b578-379c039aa13b",
+			"slug": "alices-adventures-in-wonderland",
+			"title": "Alice's Adventures in Wonderland",
+			"dateCreated": "2016-05-12T14:25:03.002Z",
+			"content": {
+				"description": {
+					"markdown": "Alice's Adventures in Wonderland (commonly shortened to _Alice in Wonderland_)",
+					"html": "<p>Alice's Adventures in Wonderland (commonly shortened to <em>Alice in Wonderland</em>)</p>"
+				},
+				...
+			},
+			"links": {
+				"self": "https://api.elemeno.io/v1/collections/books/items/alices-adventures-in-wonderland",
+				"collection": "https://api.elemeno.io/v1/collections/books"
+			}
+		}
+	],
+	"meta": {
+		"totalRecords": 2
+	}
+}
+```
+
+```php
+<?php
+stdClass Object
+(
+	["status"] => "success"
+	["data"] => Array
+		(
+			[0] => stdClass Object
+				(
+					["id"] => "22e0c474-1b6b-11e6-aec3-d72ab41dc475"
+					["slug"] => "the-adventures-of-tom-sawyer"
+					["title"] => "The Adventures of Tom Sawyer"
+					["dateUpdated"] => "2016-05-12T14:10:00.102Z"
+					["datePublished"] => "2016-05-12T15:11:00.342Z"
+					["content"] => stdClass Object
+						(
+							["description"] => stdClass Object
+								(
+									"markdown" => "The Adventures of Tom Sawyer by **Mark Twain** is a novel written in 1876..."
+									"html" => "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is a novel written in 1876...</p>"
+								)
+
+							...
+						)
+					["links"] => stdClass Object
+						(
+							"self" => "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer"
+							"collection" => "https://api.elemeno.io/v1/collections/books"
+						)
+				)
+			[1] => stdClass Object
+				(
+					["id"] => "2033cc9c-0572-11e6-b578-379c039aa13b"
+					["slug"] => "alices-adventures-in-wonderland"
+					["title"] => "Alice's Adventures in Wonderland"
+					["dateCreated"] => "2016-05-12T14:25:03.002Z"
+					["content"] => stdClass Object
+						(
+							"description" => stdClass Object
+								(
+									"markdown" => "Alice's Adventures in Wonderland (commonly shortened to _Alice in Wonderland_)"
+									"html" => "<p>Alice's Adventures in Wonderland (commonly shortened to <em>Alice in Wonderland</em>)</p>"
+								)
+							...
+						)
+					["links"] => stdClass Object
+						(
+							"self" => "https://api.elemeno.io/v1/collections/books/items/alices-adventures-in-wonderland"
+							"collection" => "https://api.elemeno.io/v1/collections/books"
+						)
+				)
+		)
+	"meta" => stdClass Object
+		(
+			"totalRecords" => 2
+		)
+)
+?>
+```
+
+```ruby
+{
+	"status" => "success",
+	"data" => [
+		{
+			"id" => "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+			"slug" => "the-adventures-of-tom-sawyer",
+			"title" => "The Adventures of Tom Sawyer",
+			"dateUpdated" => "2016-05-12T14:10:00.102Z",
+			"datePublished" => "2016-05-12T15:11:00.342Z",
+			"content" => {
+				"description" => {
+					"markdown" => "The Adventures of Tom Sawyer by **Mark Twain** is a novel written in 1876...",
+					"html" => "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is a novel written in 1876...</p>"
+				},
+				...
+			},
+			"links" => {
+				"self" => "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer",
+				"collection" => "https://api.elemeno.io/v1/collections/books"
+			}
+		},
+		{
+			"id" => "2033cc9c-0572-11e6-b578-379c039aa13b",
+			"slug" => "alices-adventures-in-wonderland",
+			"title" => "Alice's Adventures in Wonderland",
+			"dateCreated" => "2016-05-12T14:25:03.002Z",
+			"content" => {
+				"description" => {
+					"markdown" => "Alice's Adventures in Wonderland (commonly shortened to _Alice in Wonderland_)",
+					"html" => "<p>Alice's Adventures in Wonderland (commonly shortened to <em>Alice in Wonderland</em>)</p>"
+				},
+				...
+			},
+			"links" => {
+				"self" => "https://api.elemeno.io/v1/collections/books/items/alices-adventures-in-wonderland",
+				"collection" => "https://api.elemeno.io/v1/collections/books"
+			}
+		}
+	],
+	"meta" => {
+		"totalRecords" => 2
+	}
+}
+```
+
+```shell
 {
 	"status": "success",
 	"data": [
@@ -1063,13 +2562,47 @@ Filtering within a group, either non-repeatable or repeatable, is not implemente
 
 > Example Error Response:
 
-```json
+```javascript
 {
-  "status": "error",
-  "error": {
-    "message": "Single Item or API key issue",
-    "description": "Single Item with the slug about-uss could not be found or API key does not have the appropriate permissions"
-  }
+	"status": "error",
+	"error": {
+		"message": "Single Item or API key issue",
+		"description": "Single Item with the slug about-uss could not be found or API key does not have the appropriate permissions"
+	}
+}
+```
+
+```php
+<?
+stdClass Object
+(
+	["status"] => "error"
+	["error"] => stdClass Object
+		(
+			"message" => "Single Item or API key issue"
+			"description" => "Single Item with the slug about-uss could not be found or API key does not have the appropriate permissions"
+		)
+)
+?>
+```
+
+```ruby
+{
+	"status" => "error",
+	"error" => {
+		"message" => "Single Item or API key issue",
+		"description" => "Single Item with the slug about-uss could not be found or API key does not have the appropriate permissions"
+	}
+}
+```
+
+```shell
+{
+	"status": "error",
+	"error": {
+		"message": "Single Item or API key issue",
+		"description": "Single Item with the slug about-uss could not be found or API key does not have the appropriate permissions"
+	}
 }
 ```
 
@@ -1090,13 +2623,13 @@ A Webhook is an HTTP POST that occurs when certain events happen. In Elemeno, yo
 
 ## Webhook Events
 
-> Example POST Request (to the destination URL):
+> Example JSON POST Request to the destination URL:
 
 ```json
 {
-  "event": "collection.item.published",
-  "id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
-  "link": "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer"
+	"event": "collection.item.published",
+	"id": "22e0c474-1b6b-11e6-aec3-d72ab41dc475",
+	"link": "https://api.elemeno.io/v1/collections/books/items/the-adventures-of-tom-sawyer"
 }
 ```
 
