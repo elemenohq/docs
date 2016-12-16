@@ -1387,7 +1387,7 @@ stdClass Object
 ```ruby
 {
 	"status" => "success",
-	"data=> [
+	"data" => [
 		{
 			"id" => "fe4f04c2-1b6a-11e6-9883-ab6703adb701",
 			"slug" => "books",
@@ -2160,8 +2160,9 @@ var options = {
 		$title: {
 			$contains: 'adventure'
 		},
-		$timestampUpdated: {
-			$greaterThan: 1459526400
+		coverType: 'hardcover',
+		pages: {
+			$greaterThan: 200
 		}
 	}
 }
@@ -2180,8 +2181,9 @@ $options = [
 		'$title' => [
 			'$contains' => 'adventure'
 		],
-		'$timestampUpdated' => [
-			'$greaterThan': 1459526400
+		'coverType': 'hardcover',
+		'pages' => [
+			'$greaterThan': 200
 		]
 	]
 ];
@@ -2198,8 +2200,9 @@ options = {
 		'$title': {
 			'$contains': 'adventure'
 		},
-		'$timestampUpdated': {
-			'$greaterThan': 1459526400
+		'coverType': 'hardcover',
+		'pages': {
+			'$greaterThan': 200
 		}
 	}
 }
@@ -2210,7 +2213,7 @@ puts collectionItems
 ```
 
 ```shell
-curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={"$title":{"contains":"adventure"},"$timestampUpdated":{"$greaterThan":1459526400}}
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?filters={"$title":{"contains":"adventure"},"coverType":"hardcover",pages":{"$greaterThan":200}}
 ```
 
 > An example response (truncated for simplicity):
@@ -2230,6 +2233,11 @@ curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collecti
 					"markdown": "The Adventures of Tom Sawyer by **Mark Twain** is a novel written in 1876...",
 					"html": "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is a novel written in 1876...</p>"
 				},
+				"coverType": "hardcover",
+				"pages": {
+					"string": "256",
+					"number": 256
+				}
 				...
 			},
 			"links": {
@@ -2247,6 +2255,11 @@ curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collecti
 					"markdown": "Alice's Adventures in Wonderland (commonly shortened to _Alice in Wonderland_)",
 					"html": "<p>Alice's Adventures in Wonderland (commonly shortened to <em>Alice in Wonderland</em>)</p>"
 				},
+				"coverType": "hardcover",
+				"pages": {
+					"string": "448",
+					"number": 448
+				}
 				...
 			},
 			"links": {
@@ -2279,10 +2292,15 @@ stdClass Object
 						(
 							["description"] => stdClass Object
 								(
-									"markdown" => "The Adventures of Tom Sawyer by **Mark Twain** is a novel written in 1876..."
-									"html" => "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is a novel written in 1876...</p>"
+									["markdown"] => "The Adventures of Tom Sawyer by **Mark Twain** is a novel written in 1876..."
+									["html"] => "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is a novel written in 1876...</p>"
 								)
-
+							["coverType"] => "hardcover"
+							["pages"] => stdClass Object
+								(
+									["string"] => "256"
+									["number"] => 256
+								)
 							...
 						)
 					["links"] => stdClass Object
@@ -2299,23 +2317,29 @@ stdClass Object
 					["dateCreated"] => "2016-05-12T14:25:03.002Z"
 					["content"] => stdClass Object
 						(
-							"description" => stdClass Object
+							["description"] => stdClass Object
 								(
-									"markdown" => "Alice's Adventures in Wonderland (commonly shortened to _Alice in Wonderland_)"
-									"html" => "<p>Alice's Adventures in Wonderland (commonly shortened to <em>Alice in Wonderland</em>)</p>"
+									["markdown"] => "Alice's Adventures in Wonderland (commonly shortened to _Alice in Wonderland_)"
+									["html"] => "<p>Alice's Adventures in Wonderland (commonly shortened to <em>Alice in Wonderland</em>)</p>"
+								)
+							["coverType"] => "hardcover"
+							["pages"] => stdClass Object
+								(
+									["string"] => "448"
+									["number"] => 448
 								)
 							...
 						)
 					["links"] => stdClass Object
 						(
-							"self" => "https://api.elemeno.io/v1/collections/books/items/alices-adventures-in-wonderland"
-							"collection" => "https://api.elemeno.io/v1/collections/books"
+							["self"] => "https://api.elemeno.io/v1/collections/books/items/alices-adventures-in-wonderland"
+							["collection"] => "https://api.elemeno.io/v1/collections/books"
 						)
 				)
 		)
-	"meta" => stdClass Object
+	["meta"] => stdClass Object
 		(
-			"totalRecords" => 2
+			["totalRecords"] => 2
 		)
 )
 ?>
@@ -2336,6 +2360,11 @@ stdClass Object
 					"markdown" => "The Adventures of Tom Sawyer by **Mark Twain** is a novel written in 1876...",
 					"html" => "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is a novel written in 1876...</p>"
 				},
+				"coverType": "hardcover",
+				"pages": {
+					"string": "256",
+					"number": 256
+				}
 				...
 			},
 			"links" => {
@@ -2353,6 +2382,11 @@ stdClass Object
 					"markdown" => "Alice's Adventures in Wonderland (commonly shortened to _Alice in Wonderland_)",
 					"html" => "<p>Alice's Adventures in Wonderland (commonly shortened to <em>Alice in Wonderland</em>)</p>"
 				},
+				"coverType" => "hardcover",
+				"pages" => {
+					"string" => "448",
+					"number" => 448
+				}
 				...
 			},
 			"links" => {
@@ -2382,6 +2416,11 @@ stdClass Object
 					"markdown": "The Adventures of Tom Sawyer by **Mark Twain** is a novel written in 1876...",
 					"html": "<p>The Adventures of Tom Sawyer by <strong>Mark Twain</strong> is a novel written in 1876...</p>"
 				},
+				"coverType": "hardcover",
+				"pages": {
+					"string": "256",
+					"number": 256
+				}
 				...
 			},
 			"links": {
@@ -2399,6 +2438,11 @@ stdClass Object
 					"markdown": "Alice's Adventures in Wonderland (commonly shortened to _Alice in Wonderland_)",
 					"html": "<p>Alice's Adventures in Wonderland (commonly shortened to <em>Alice in Wonderland</em>)</p>"
 				},
+				"coverType": "hardcover",
+				"pages": {
+					"string": "448",
+					"number": 448
+				}
 				...
 			},
 			"links": {
