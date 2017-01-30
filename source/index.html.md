@@ -1075,7 +1075,7 @@ puts singles
 ```
 
 ```shell
-curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/singles
 ```
 
 > An example response (truncated for simplicity):
