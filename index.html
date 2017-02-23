@@ -1704,7 +1704,7 @@
 
 <span class="nb">puts</span> <span class="n">collection</span>
 </code></pre>
-<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE
+<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE
 </code></pre>
 
 <blockquote>
@@ -1816,7 +1816,7 @@
 
 <span class="nb">puts</span> <span class="n">collectionItems</span>
 </code></pre>
-<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items
+<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items
 </code></pre>
 
 <blockquote>
@@ -2016,7 +2016,7 @@
 
 <span class="n">collectionItems</span> <span class="o">=</span> <span class="n">elemeno</span><span class="p">.</span><span class="nf">getCollectionItems</span><span class="p">(</span><span class="s1">'YOUR-COLLECTION-SLUG-HERE'</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
 </code></pre>
-<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?page<span class="o">=</span>2&amp;size<span class="o">=</span>20
+<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?page<span class="o">=</span>2&amp;size<span class="o">=</span>20
 </code></pre>
 
 <p>Supported Query Parameter</p>
@@ -2060,7 +2060,7 @@
 
 <span class="nb">puts</span> <span class="n">collectionItem</span>
 </code></pre>
-<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE
+<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE
 </code></pre>
 
 <blockquote>
@@ -2220,7 +2220,7 @@
 
 <span class="nb">puts</span> <span class="n">singles</span>
 </code></pre>
-<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?sort<span class="o">={</span><span class="s2">"</span><span class="nv">$dateUpdated</span><span class="s2">"</span>:<span class="s2">"ASC"</span><span class="o">}</span>
+<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort<span class="o">={</span><span class="s2">"</span><span class="nv">$dateUpdated</span><span class="s2">"</span>:<span class="s2">"ASC"</span><span class="o">}</span>
 </code></pre>
 
 <blockquote>
@@ -2264,7 +2264,7 @@
 
 <span class="nb">puts</span> <span class="n">collections</span>
 </code></pre>
-<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?sort<span class="o">={</span><span class="s2">"</span><span class="nv">$dateCreated</span><span class="s2">"</span>:<span class="s2">"DESC"</span><span class="o">}</span>
+<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort<span class="o">={</span><span class="s2">"</span><span class="nv">$dateCreated</span><span class="s2">"</span>:<span class="s2">"DESC"</span><span class="o">}</span>
 </code></pre>
 
 <blockquote>
@@ -2308,7 +2308,7 @@
 
 <span class="nb">puts</span> <span class="n">collectionItems</span>
 </code></pre>
-<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?sort<span class="o">={</span><span class="s2">"</span><span class="nv">$datePublished</span><span class="s2">"</span>:<span class="s2">"DESC"</span><span class="o">}</span>
+<pre class="highlight shell"><code>curl -s -H <span class="s2">"Authorization: YOUR-API-KEY-HERE"</span> https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort<span class="o">={</span><span class="s2">"</span><span class="nv">$datePublished</span><span class="s2">"</span>:<span class="s2">"DESC"</span><span class="o">}</span>
 </code></pre>
 
 <p>By default, content is ordered by <code class="prettyprint">dateUpdated</code> in reverse chronological order (newer stuff first). If you would like to return content in a different order, you can use the sort option.</p>
