@@ -1479,7 +1479,7 @@ puts collection
 ```
 
 ```shell
-curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE
 ```
 
 > An example response:
@@ -1605,7 +1605,7 @@ puts collectionItems
 ```
 
 ```shell
-curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items
 ```
 
 > An example response (truncated for simplicity):
@@ -1817,7 +1817,7 @@ collectionItems = elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', option
 ```
 
 ```shell
-curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?page=2&size=20
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?page=2&size=20
 ```
 
 Supported Query Parameter
@@ -1858,7 +1858,7 @@ puts collectionItem
 ```
 
 ```shell
-curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items/YOUR-ITEM-SLUG-HERE
 ```
 
 > An example response (truncated for simplicity):
@@ -2030,7 +2030,7 @@ puts singles
 ```
 
 ```shell
-curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?sort={"$dateUpdated":"ASC"}
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={"$dateUpdated":"ASC"}
 ```
 
 > Sorting Collections
@@ -2080,7 +2080,7 @@ puts collections
 ```
 
 ```shell
-curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?sort={"$dateCreated":"DESC"}
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={"$dateCreated":"DESC"}
 ```
 
 > Sorting Items
@@ -2130,7 +2130,7 @@ puts collectionItems
 ```
 
 ```shell
-curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collection/YOUR-COLLECTION-SLUG-HERE/items?sort={"$datePublished":"DESC"}
+curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collections/YOUR-COLLECTION-SLUG-HERE/items?sort={"$datePublished":"DESC"}
 ```
 
 By default, content is ordered by `dateUpdated` in reverse chronological order (newer stuff first). If you would like to return content in a different order, you can use the sort option.
