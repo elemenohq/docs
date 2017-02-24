@@ -1008,9 +1008,9 @@ The Elemeno API is available via SSL. All requests should be performed using the
 ## Authentication
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 ```
 
 ```php
@@ -1047,9 +1047,9 @@ Staging keys have access to both unpublished and published content. This type of
 ## All Single Items
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 elemeno.getSingles(function(err, response) {
 	console.log(err, response);
@@ -1218,9 +1218,9 @@ Retrieve an array of all Single Items.
 ## Specific Single Item
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 elemeno.getSingle('YOUR-ITEM-SLUG-HERE', function(err, response) {
 	console.log(err, response);
@@ -1280,9 +1280,9 @@ Retrieve a specific Single Item along with its content.
 ## All Collections
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 elemeno.getCollections(function(err, response) {
 	console.log(err, response);
@@ -1453,9 +1453,9 @@ Retrieve an array of all Collections.
 ## Specific Collection
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 elemeno.getCollection('YOUR-COLLECTION-SLUG-HERE', function(err, response) {
 	console.log(err, response);
@@ -1579,9 +1579,9 @@ Retrieve a specific Collection.
 ## Collection Items
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 elemeno.getCollectionItems('YOUR-COLLECTION-SLUG-HERE', function(err, response) {
 	console.log(err, response);
@@ -1778,9 +1778,9 @@ Retrieve an array of Items within a specific Collection. If there are many Items
 > Requesting a specific page of results with a custom size:
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 var options = {
 	page: 2,
@@ -1832,9 +1832,9 @@ For example, if your collection had 210 items and you requested a `size` of 20 i
 ## Collection Item
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 elemeno.getCollectionItem('YOUR-COLLECTION-SLUG-HERE', 'YOUR-ITEM-SLUG-HERE', function(err, response) {
 	console.log(err, response);
@@ -1986,9 +1986,9 @@ Retrieve a specific Item from your Collection using your item's slug. You can al
 > Sorting Singles
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 var options = {
 	sort: {
@@ -2036,9 +2036,9 @@ curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collecti
 > Sorting Collections
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 var options = {
 	sort: {
@@ -2086,9 +2086,9 @@ curl -s -H "Authorization: YOUR-API-KEY-HERE" https://api.elemeno.io/v1/collecti
 > Sorting Items
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 var options = {
 	sort: {
@@ -2151,9 +2151,9 @@ Sort Value | Description
 ## Filtering
 
 ```javascript
-var elemeno = require('elemeno');
+var Elemeno = require('elemeno');
 
-elemeno.setAPIKey('YOUR-API-KEY-HERE');
+var elemeno = new Elemeno('YOUR-API-KEY-HERE');
 
 var options = {
 	filters: {
