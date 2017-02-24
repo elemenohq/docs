@@ -32,7 +32,7 @@ under the License.
     <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' type='text/css'>
     <link rel="shortcut icon" href="/images/favicon.ico">
     <style>
-      <%= Rouge::Themes::Monokai.render(:scope => '.highlight') %>
+    <%= Rouge::Themes::Monokai.render(:scope => '.highlight') %>
     </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
@@ -58,7 +58,7 @@ under the License.
       <div class="logo-wrapper">
         <%= image_tag "logo.png", height: '38', width: '227' %>
       </div>
-      <% if language_tabs %>
+      <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
             <% if lang.is_a? Hash %>
@@ -94,7 +94,7 @@ under the License.
         <% end %>
       </div>
       <div class="dark-box">
-        <% if language_tabs %>
+        <% if language_tabs.any? %>
           <div class="lang-selector">
             <% language_tabs.each do |lang| %>
               <% if lang.is_a? Hash %>
